@@ -1,0 +1,14 @@
+# Secrets
+secrets/
+*.env
+.env
+SAVE_POINT_*.md
+PROJECT_REFERENCE_*.md
+inspect_*.json
+
+# Logs
+*.log
+*.out
+
+# System
+.DS_Store
