@@ -1,6 +1,7 @@
 param(
     [string]$Target = "prompt",
-    [string]$DestFolder = "backups"
+    [string]$DestFolder = "backups",
+    [switch]$Automated = $false
 )
 
 # Function to get formatted timestamp
@@ -104,7 +105,8 @@ if (-not (Test-Path $backupRootDir)) {
 
 switch ($Target) {
     "jack1" {
-        $backupName = "backup-jack-$timestamp"
+        $autoSuffix = if ($Automated) { "-auto" } else { "" }
+        $backupName = "backup-jack-$timestamp$autoSuffix"
         $destPath = Join-Path $backupRootDir $backupName
         Write-Host "Backing up Jack1 (Local) to $destPath..."
         
@@ -117,6 +119,19 @@ switch ($Target) {
         }
         
         Write-Host "Successfully backed up to $destPath"
+        
+        # Cleanup old automated backups if this is an automated run
+        if ($Automated) {
+            $autoBackups = Get-ChildItem $backupRootDir -Directory | 
+            Where-Object { $_.Name -match "^backup-jack-.*-auto$" } | 
+            Sort-Object LastWriteTime -Descending
+            
+            if ($autoBackups.Count -gt 100) {
+                $toDelete = $autoBackups | Select-Object -Skip 100
+                Write-Host "Cleaning up $($toDelete.Count) old automated backups..."
+                $toDelete | Remove-Item -Recurse -Force
+            }
+        }
     }
 
     "all" {

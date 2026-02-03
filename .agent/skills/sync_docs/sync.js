@@ -221,8 +221,20 @@ async function syncDocs() {
     }
 
     const timestamp = new Date().toISOString();
+    const readmeContent = `# OpenClaw Documentation Reference
+
+This directory contains the official OpenClaw documentation, synced from [docs.openclaw.ai](https://docs.openclaw.ai).
+
+**DO NOT EDIT MANUALLY.** This folder is synchronized using the \`sync-docs\` skill.
+
+## Status
+- **Source**: ${DOCS_BASE_URL}
+- **Last Updated**: ${timestamp}
+`;
+
     fs.writeFileSync(LAST_UPDATED_FILE, `Last updated: ${timestamp}\nSource: ${DOCS_BASE_URL}\n`);
-    console.log(`Sync complete. Timestamp updated.`);
+    fs.writeFileSync(path.join(OUTPUT_DIR, 'README.md'), readmeContent);
+    console.log(`Sync complete. Timestamp and README updated.`);
 }
 
 syncDocs().catch(console.error);

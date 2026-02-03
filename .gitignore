@@ -26,3 +26,6 @@ auth_url_local.txt
 HANDOFF_TO_GEMINI_PRO.md
 env_draft.txt
 FINAL_TASK_STATUS.md
+
+# OpenClaw config files (contain API keys)
+openclaw_step*.json
