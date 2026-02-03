@@ -12,3 +12,17 @@ inspect_*.json
 
 # System
 .DS_Store
+
+# Backups (excluded for security - contain API keys)
+backups/
+*.bak
+
+# Sensitive Credentials
+credentials*.json
+SETUP_CONFIG.md
+auth_url_local.txt
+
+# Handoffs and Drafts (contain secrets)
+HANDOFF_TO_GEMINI_PRO.md
+env_draft.txt
+FINAL_TASK_STATUS.md
