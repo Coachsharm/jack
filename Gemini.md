@@ -1,227 +1,289 @@
-# PROMPT: OPERATIONAL DIRECTIVE FOR ANTIGRAVITY (GOOGLE DEEPMIND) MODELS
+# GEMINI INSTRUCTIONS FOR JACK (OpenClaw Server Bot)
 
-## ⚠️ CRITICAL: OPENCLAW IS NOT IN YOUR TRAINING DATA
-**OPENCLAW.AI JUST LAUNCHED A FEW DAYS AGO.**
-**YOU WERE NOT TRAINED ON IT. YOU KNOW NOTHING ABOUT IT.**
-**DO NOT HALLUCINATE. DO NOT GUESS.**
+## ⚠️ CRITICAL: SERVER IS SOURCE OF TRUTH
 
-### MANDATORY RESEARCH PROTOCOL:
-Before making ANY plan or taking ANY action related to OpenClaw/Jack:
+**All Jack work happens on the remote server at 72.62.252.124**
 
-1. **READ LOCAL DOCS FIRST**: The documentation is already downloaded in `OpenClaw_Docs/`.
-   - **YOU MUST READ THESE FILES FIRST.** They are the source of truth.
-   - Do not assume external docs are up to date or that you know the answer.
-
-2. **ENGINEER-LEVEL SEARCH STRATEGY** (If local docs are insufficient):
-   - **GitHub Issues**: Search with `is:issue is:closed` to find solved problems.
-   - **r/LocalLLaMA**: Search this specific subreddit for Docker/inference config issues.
-   - **Hacker News**: Query `site:news.ycombinator.com "OpenClaw"` for technical workarounds.
-   - **Twitter/X**: Search for "OpenClaw independent developers" or specific engineering discussions (filter by Latest).
-
-3. **VERIFY YOUR UNDERSTANDING**: Cross-reference strictly with the local documentation.
-4. **ASK IF UNCERTAIN**: If local documentation is unclear, ask the user before proceeding.
-
-**FAILURE TO FOLLOW THIS WILL RESULT IN BROKEN CONFIGURATIONS AND WASTED TIME.**
+When the user asks you to work on "Jack":
+1. SSH into the server: `sshpass -p 'Corecore8888-' ssh -o StrictHostKeyChecking=no root@72.62.252.124`
+2. Work in `/root/.openclaw/` directory
+3. **NEVER** edit local files (except `SERVER_REFERENCE.md` and these instruction files)
 
 ---
 
 ## 🔄 SYNCHRONIZATION NOTICE
-**YOU ARE GEMINI (GOOGLE ANTIGRAVITY LLM).**
-**YOUR TWIN BRAIN IS CLAUDE (ANTHROPIC) - SEE `claude.md`.**
-**THESE INSTRUCTION FILES MUST REMAIN SYNCHRONIZED.**
+**YOU ARE GEMINI (GOOGLE ANTIGRAVITY).**  
+**YOUR TWIN BRAIN IS CLAUDE (ANTHROPIC) - SEE `claude.md`.**  
+**THESE INSTRUCTION FILES MUST REMAIN SYNCHRONIZED.**  
 **THE USER ROTATES BETWEEN CLAUDE AND GEMINI - WE SHARE THE SAME MEMORY.**
 
 ---
 
-## 🔴 ZERO-TOLERANCE PROTOCOL: SERVER-ONLY
-**YOU ARE FORBIDDEN FROM WORKING LOCALLY.**
-**THE LOCAL FILESYSTEM IS A READ-ONLY ARCHIVE.**
-**ALL ACTIONS MUST BE PERFORMED ON THE VPS (SRV1304133).**
+## 📍 CURRENT SERVER STATE
 
----
+**Read `SERVER_REFERENCE.md` for comprehensive details.**
 
-### 1. IDENTITY & CONTEXT
-You are working on **Jack**, an OpenClaw bot hosted on a **Hostinger VPS** (IP: [SERVER_IP]).
+Key facts:
+- **Server IP**: 72.62.252.124
 - **SSH User**: root
-- **SSH Key**: `secrets/jack_vps` (passwordless)
-- **Docker Container**: `openclaw-dntm-openclaw-1`
-- **Config Path (Server)**: `/home/node/.openclaw/openclaw.json`
+- **Password**: Corecore8888-
+- **Config File**: `/root/.openclaw/openclaw.json`
+- **Workspace**: `/root/.openclaw/workspace`
+- **Current LLM**: Anthropic Claude Opus 4-6 (primary)
+- **Local Models**: 7 Ollama models available
+- **Channels**: Telegram (@thrive2bot), WhatsApp
 
-**⚠️ CRITICAL: JACK'S ISOLATION**
-**Jack (the OpenClaw bot on the server) CANNOT access you (Gemini/Claude development agents).**
-**Jack runs in isolation on the VPS and has no knowledge of or connection to this local development environment.**
-**You (Gemini/Claude) can access Jack's server to configure him, but Jack cannot access you.**
+---
 
-### 2. THE LOCAL TRAP
-You will see a folder called `remote_files_preview`.
-- **IT IS A TRAP.**
-- It contains outdated, read-only copies of files.
-- **NEVER** edit files in `remote_files_preview`.
-- **NEVER** run `npm install` or `node` locally.
-- **NEVER** trust local file contents over server truth.
+## ⚠️ OPENCLAW IS NOT IN YOUR TRAINING DATA
 
-### 3. MANDATORY WORKFLOW
-When the user asks you to change something (e.g., "Add a new skill"):
-1. **CONNECT**: `ssh -i secrets/jack_vps root@[SERVER_IP]`
-2. **VERIFY**: Read the file on the server using `docker exec ... cat ...`
-3. **PROPOSE**: Show the user the exact change you will make.
-4. **EXECUTE**: Use `docker exec` (sed/echo) or `docker cp` to apply the change.
-5. **CONFIRM**: Restart the container and check logs.
+**OPENCLAW.AI LAUNCHED RECENTLY.**  
+**YOU WERE NOT TRAINED ON IT. YOU KNOW NOTHING ABOUT IT.**  
+**DO NOT HALLUCINATE. DO NOT GUESS.**
 
-### 4. DEPLOYMENT WORKFLOW - CRITICAL
-**⚠️ A TASK IS NOT COMPLETE UNTIL FILES ARE ON THE SERVER AT THE CORRECT LOCATION.**
+### Mandatory Research Protocol:
 
-**USER PREFERENCE: EDIT FILES DIRECTLY ON SERVER (BEST METHOD)**
+1. **READ LOCAL DOCS FIRST**: Documentation is in `OpenClaw_Docs/` directory
+   - **YOU MUST READ THESE FILES FIRST** - they are the source of truth
+   - Do not assume external docs are up to date
 
-The user prefers server-side editing over file transfers. When possible:
+2. **CHECK SERVER PROTOCOLS**: The server has its own documentation:
+   - `/root/.openclaw/workspace/PROTOCOLS_INDEX.md` - Task guidance
+   - `/root/.openclaw/workspace/BOOTSTRAP.md` - Onboarding guide
+   - `/root/.openclaw/workspace/BOT_CHAT_PROTOCOL.md` - Bot protocols
+
+3. **ENGINEER-LEVEL SEARCH** (if local docs insufficient):
+   - **GitHub Issues**: Search `is:issue is:closed` for solved problems
+   - **r/LocalLLaMA**: Docker/config issues
+   - **Hacker News**: `site:news.ycombinator.com "OpenClaw"`
+
+4. **ASK IF UNCERTAIN**: If documentation is unclear, ask the user
+
+---
+
+## 🛠️ SERVER WORKFLOW
+
+### Connecting to Server
 ```bash
-# SSH to server and edit directly
-ssh -i secrets/jack_vps root@[SERVER_IP]
-docker exec -it openclaw-dntm-openclaw-1 nano /home/node/.openclaw/workspace/file.md
+# Quick login
+sshpass -p 'Corecore8888-' ssh -o StrictHostKeyChecking=no root@72.62.252.124
 
-# OR edit via volume path on host
-nano /var/lib/docker/volumes/openclaw-dntm_openclaw_config/_data/workspace/file.md
+# Or interactive
+ssh root@72.62.252.124
+# Password: Corecore8888-
 ```
 
-**ALTERNATIVE (if server-side edit not possible):**
-When editing Jack's files (SOUL.md, protocols, configs):
-1. **Edit locally first** (in `c:\Users\hisha\Code\Jack\`)
-2. **Upload to server** using `pscp` or `docker cp`:
-   ```powershell
-   # Upload to /tmp first
-   pscp -pw "PASSWORD" -batch .\file.md root@[SERVER_IP]:/tmp/upload.md
-   
-   # Then docker cp to correct location
-   plink -ssh -pw "PASSWORD" root@[SERVER_IP] -batch "docker cp /tmp/upload.md openclaw-dntm-openclaw-1:/home/node/.openclaw/workspace/file.md"
-   ```
-3. **Verify on server**: Check the file exists at the correct path inside the container
-4. **Only then** consider the task complete
-
-**Common Jack file locations (inside container):**
-- **Custom Instructions (per OpenClaw docs - in workspace):**
-  - SOUL.md: `/home/node/.openclaw/workspace/SOUL.md` (guidelines & transparency)
-  - IDENTITY.md: `/home/node/.openclaw/workspace/IDENTITY.md` (identity & metadata)
-  - USER.md: `/home/node/.openclaw/workspace/USER.md` (user preferences)
-- **Other workspace files:**
-  - Protocols: `/home/node/.openclaw/workspace/` (Gemini.md, claude.md, etc)
-- **Config:** `/home/node/.openclaw/openclaw.json` (root .openclaw, NOT workspace)
-
-### 5. SESSION CACHE REFRESH PROTOCOL
-**⚠️ MANDATORY AFTER WORKSPACE FILE UPDATES**
-
-When you update workspace files (AGENTS.md, SOUL.md, TOOLS.md, etc.), Jack caches the session context.
-Even after file updates, Jack may recite old information due to **Session Caching** in the gateway.
-
-**The Force Reset Protocol:**
+### Reading Server Files
 ```bash
-# Step 1: Purge session cache
-plink -ssh -pw "[VPS_PASSWORD]" root@[SERVER_IP] "docker exec openclaw-dntm-openclaw-1 rm -rf /home/node/.openclaw/agents/main/sessions/*"
+# View config
+cat /root/.openclaw/openclaw.json
 
-# Step 2: Restart container
-plink -ssh -pw "[VPS_PASSWORD]" root@[SERVER_IP] "docker restart openclaw-dntm-openclaw-1"
+# View workspace files
+cat /root/.openclaw/workspace/SOUL.md
+cat /root/.openclaw/workspace/PROTOCOLS_INDEX.md
 
-# Step 3: (User) Start new Telegram chat with Jack to see changes
+# List workspace
+ls -la /root/.openclaw/workspace/
 ```
 
-**When to Apply:**
-- After uploading AGENTS.md, SOUL.md, TOOLS.md, or any workspace instruction file
-- When Jack responds with outdated information despite file updates
-- After any significant configuration change
-
-**Verification:**
-Ask Jack to confirm specific details from the updated files (e.g., "What tools do you have access to?")
-
-### 6. SECRET KNOWLEDGE
-- **Workflows**: Check `.agent/workflows/jack_server_workflow.md`.
-- **Secrets**: Check `secrets/config.json` (Local is okay for *reading* secrets).
-- **Docs**: Always refer to `docs.openclaw.ai`.
-
-### 7. IF YOU WAKE UP TOMORROW (SIMULATION)
-If the user says "Hi", your first thought must be:
-> *"I am on a local machine, but the bot is on [SERVER_IP]. I must not touch anything here. I must SSH into the server immediately."*
-
----
-
-## 🛡️ RULE ZERO: UNIVERSAL BACKUP PROTOCOL
-
-**Before editing ANY file (Safe Zone or Restricted Zone), you MUST maintain a rotating backup history of the last 2 versions.**
-
-### Backup Procedure:
-1. **Check** for existing backups
-2. **Rotate**: Move `.bak1` to `.bak2` (overwriting old `.bak2`)
-3. **Backup**: Copy current file to `.bak1`
-4. **Only then** edit the original file
-
-### Command Template (Server/Linux):
+### Editing Server Files
 ```bash
-# Example for openclaw.json on server
-ssh -i secrets/jack_vps root@[SERVER_IP] << 'EOF'
-docker exec openclaw-dntm-openclaw-1 sh -c '
-  cd /home/node/.openclaw
-  mv openclaw.json.bak1 openclaw.json.bak2 2>/dev/null || true
-  cp openclaw.json openclaw.json.bak1
-'
-EOF
-# Now proceed with edit...
+# Use nano or vi on server
+nano /root/.openclaw/workspace/SOUL.md
+
+# Or use sed for quick edits
+sed -i 's/old text/new text/' /root/.openclaw/workspace/file.md
 ```
 
-### Command Template (Local/Windows - if ever needed):
-```powershell
-# Example for local file (rare case)
-Move-Item -Path "file.bak1" -Destination "file.bak2" -Force -ErrorAction SilentlyContinue
-Copy-Item -Path "file" -Destination "file.bak1"
-# Now proceed with edit...
+### Checking Status
+```bash
+# Check OpenClaw service (if systemd)
+systemctl status openclaw
+
+# View logs (adjust path as needed)
+journalctl -u openclaw -f
+
+# Check running processes
+ps aux | grep openclaw
 ```
 
 ---
 
-## 📁 FILE SYSTEM ACCESS RULES
+## 🛡️ BACKUP PROTOCOL
 
-You are categorized as a **Trusted Configuration Assistant**. You have different levels of access:
+**Before editing ANY file on the server, create a backup:**
 
-### ✅ SAFE ZONE (Autonomous Edit Allowed)
-You can read and modify these files freely (always following the Backup Protocol):
+```bash
+# For openclaw.json
+cd /root/.openclaw
+cp openclaw.json openclaw.json.bak.$(date +%Y%m%d_%H%M%S)
 
-- `openclaw.json` (Configuration)
-- `SOUL.md` (Personality/Identity)
-- `Gemini.md` (Your Core Instructions/Memory - THIS FILE)
-- `claude.md` (Claude's Core Instructions/Memory)
-- `TOOLS.md` (Tool Usage Notes)
-- `USER.md` (User Context)
-- `workspace/` directory (All user documents, code, and output)
+# For workspace files
+cd /root/.openclaw/workspace
+cp SOUL.md SOUL.md.bak.$(date +%Y%m%d_%H%M%S)
+```
 
-### ⚠️ RESTRICTED ZONE (Edit ONLY When User Provides Data)
-You can edit these files, but **ONLY** when the user explicitly provides the exact content (API keys, tokens, config values):
-
-- `.env` (API Keys & Secrets)
-- `credentials/` folder (Auth Tokens)
-- `docker-compose.yml` (Infrastructure config)
-
-**Handling Rules for Restricted Zone:**
-1. **Never guess** placeholder values or generate fake keys
-2. **Strict Backup**: Apply the Universal Backup Protocol (2 versions) first
-3. **Confirmation**: Confirm the exact content you will write before executing
-4. **Exact Match**: Only write exactly what the user gives you—no additions, no modifications
-
-### 🚫 FORBIDDEN ZONE (Do Not Touch)
-**NEVER** edit or modify these:
-
-- `state/` folder (Internal database - system managed only)
-- `packages/` or `src/` (Internal source code)
+**Always verify backups exist before making changes.**
 
 ---
 
-## 🔄 SYNCHRONIZATION PROTOCOL
+## 📁 SERVER FILE LOCATIONS
 
-**CRITICAL**: When you (Gemini) or Claude update these instruction files, BOTH files must be kept in sync:
+### Configuration
+- `/root/.openclaw/openclaw.json` - Main configuration
 
-1. **Core protocols** (Backup, File Access Rules) must be identical
-2. **Identity sections** should reference the correct LLM name
-3. **Synchronization notices** must point to the twin file
-4. **When updating**: Always update BOTH `Gemini.md` AND `claude.md`
+### Workspace (Custom Instructions & Docs)
+- `/root/.openclaw/workspace/SOUL.md` - Bot personality/guidelines
+- `/root/.openclaw/workspace/IDENTITY.md` - Bot identity
+- `/root/.openclaw/workspace/USER.md` - User preferences
+- `/root/.openclaw/workspace/PROTOCOLS_INDEX.md` - Protocol documentation
+- `/root/.openclaw/workspace/BOOTSTRAP.md` - Onboarding guide
+- `/root/.openclaw/workspace/createbots/` - Bot creation lessons
+
+### Other Directories
+- `/root/.openclaw/credentials/` - API tokens
+- `/root/.openclaw/devices/` - Paired devices
+- `/root/.openclaw/telegram/` - Telegram channel data
+- `/root/.openclaw/cron/` - Scheduled jobs
+- `/root/.openclaw/backups/` - Configuration backups
 
 ---
 
-**DO NOT VIOLATE THIS PROTOCOL.**
-**FAILURE TO FOLLOW SERVER-ONLY RULES WILL BREAK THE PRODUCTION BOT.**
-**FAILURE TO MAINTAIN BACKUPS WILL CAUSE DATA LOSS.**
+## 🚫 LOCAL REPOSITORY RULES
+
+The local repository at `/Users/coachsharm/Code/Jack/` is for **documentation only**.
+
+### ✅ You CAN Edit Locally:
+- `SERVER_REFERENCE.md` - Server state reference
+- `claude.md` - Claude's instructions
+- `Gemini.md` - This file (your instructions)
+- `.agent/workflows/` - Workflow documentation
+
+### 🚫 NEVER Edit Locally:
+- Any files claiming to be "Jack's config"
+- Old deployment scripts
+- Outdated reference docs
+- **The server is the ONLY place to edit Jack's actual files**
+
+---
+
+## 🔄 SESSION CACHE REFRESH
+
+**When you update workspace files on the server:**
+
+Jack caches session context. After updating files, you may need to refresh:
+
+```bash
+# Restart OpenClaw service (if systemd)
+systemctl restart openclaw
+
+# Or kill and restart process (find PID first)
+ps aux | grep openclaw
+kill -9 [PID]
+# Then start service again
+```
+
+Ask the user to test changes in a new conversation with Jack.
+
+---
+
+## 📚 KNOWLEDGE BASE
+
+### Local Documentation (Offline Reference)
+- `OpenClaw_Docs/` - Official documentation (downloaded)
+- `SERVER_REFERENCE.md` - Current server state snapshot
+
+### Server Documentation (Live)
+- `/root/.openclaw/workspace/PROTOCOLS_INDEX.md` - Task protocols
+- `/root/.openclaw/workspace/createbots/` - Deployment guides
+
+### Workflows
+- `.agent/workflows/jack_server_workflow.md` - Operating procedures
+
+### API Keys
+See `SERVER_REFERENCE.md` for all API keys and tokens.
+
+---
+
+## 🔧 COMMON TASKS
+
+### Update Jack's Personality
+1. SSH to server
+2. Backup: `cp /root/.openclaw/workspace/SOUL.md /root/.openclaw/workspace/SOUL.md.bak`
+3. Edit: `nano /root/.openclaw/workspace/SOUL.md`
+4. Restart OpenClaw service
+5. Test with Jack in Telegram
+
+### Change LLM Configuration
+1. SSH to server
+2. Backup: `cp /root/.openclaw/openclaw.json /root/.openclaw/openclaw.json.bak`
+3. Edit `openclaw.json` - modify `agents.defaults.model.primary`
+4. Restart OpenClaw service
+5. Verify in logs
+
+### Add a New Telegram User
+1. SSH to server
+2. User initiates pairing in Telegram
+3. Check pairing requests: `cat /root/.openclaw/credentials/telegram-pairing.json`
+4. Approve via OpenClaw interface (check PROTOCOLS_INDEX.md for procedure)
+
+---
+
+## 🎯 WHEN USER SAYS "WORK ON JACK"
+
+Your mental checklist:
+1. ✅ Acknowledge this means server work, not local
+2. ✅ SSH into 72.62.252.124
+3. ✅ Navigate to `/root/.openclaw/`
+4. ✅ Check `PROTOCOLS_INDEX.md` for task-specific guidance
+5. ✅ Backup before editing
+6. ✅ Execute changes on server
+7. ✅ Verify and test
+
+---
+
+## 🔄 SYNCHRONIZATION WITH CLAUDE
+
+When updating `claude.md` or `Gemini.md`:
+1. Keep core protocols identical
+2. Update identity sections with correct LLM name
+3. Maintain synchronization notices
+4. **Update BOTH files** to keep them in sync
+
+---
+
+## 📚 /o — Documentation Verification Shortcut
+
+**When you include `/o` anywhere in your message to me**, I will:
+
+1. **Consult official OpenClaw documentation** at `/Users/coachsharm/Code/Jack/OpenClaw_Docs/` before responding
+2. **Search expert forums** (Reddit r/OpenClaw, r/LocalLLaMA, GitHub issues) for real-world solutions
+3. **Cite which doc I referenced** in my response
+
+### Examples
+
+| Your Message | My Action |
+|--------------|----------|
+| "fix the problem /o" | Fix it AND verify against OpenClaw docs + forums |
+| "/o are you sure it's correct?" | Double-check my previous answer against docs |
+| "this doesn't work... /o" | Troubleshoot using official docs and expert threads |
+| "add telegram channel /o" | Follow exact procedure from `channels_telegram.md` |
+
+### Quick Doc Reference Paths (Local)
+
+| Topic | File Pattern |
+|-------|-------------|
+| CLI commands | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/cli*.md` |
+| Gateway config | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/gateway*.md` |
+| Channels | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/channels*.md` |
+| Models | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/concepts_models.md` |
+| Troubleshooting | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/help_troubleshooting.md` |
+| Skills | `/Users/coachsharm/Code/Jack/OpenClaw_Docs/tools_skills.md` |
+
+**Bottom line:** `/o` = "verify this against official sources, don't guess."
+
+---
+
+**FOLLOW THIS PROTOCOL STRICTLY.**  
+**THE SERVER IS THE SOURCE OF TRUTH.**  
+**LOCAL FILES ARE DOCUMENTATION ONLY.**
