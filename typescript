@@ -1,0 +1,24 @@
+Script started on Sun Feb  8 07:33:05 2026
+ echo 'notify-jack.sh created'"
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004h  echo 'notify-jack.sh created'"[?2004l
+[0m[27m[24m[Jdquote> [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004hotify-ja [Kcck.sh << 'SCRIPT'[?2004l
+[0m[27m[24m[Jdquote> [K[?2004h##!/bin/bash[?2004l
+zsh: event not found: /bin/bash
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004h## Wake Jack (native install) from the host[?2004l
+zsh: number expected
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004hMMSG=\"\${1:-Check BOT_CHAT}\"[?2004l
+zsh: command not found: BOT_CHAT}"
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004hoopenclaw agent \[?2004l
+[0m[27m[24m[J> [K[?2004h   --message \"\$MSG\" \[?2004l
+[0m[27m[24m[J> [K[?2004h   --session-id \"agent:main:telegram:group:-5213725265\" \[?2004l
+[0m[27m[24m[J> [K[?2004h   --timeout 120 &[?2004l
+[1] 48254
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004hSSCRIPT[?2004l
+zsh: command not found: openclaw
+chmod +x /root/.openclaw/workspace/notify-jack.sh &&[1]  + exit 127   openclaw agent --message \"\$MSG\" --session-id  --timeout 120
+Script started, output file is typescript
+ echo 'notify-jack.sh created'"
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004h  echo 'notify-jack.sh created'"[?2004l
+[0m[27m[24m[Jdquote> [K[?2004h[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                              [0m[27m[24m[Jcoachsharm@Hishams-MacBook-Pro Jack % [K[?2004h

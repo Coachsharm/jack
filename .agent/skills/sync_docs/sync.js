@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 
 // Configuration
 const DOCS_BASE_URL = 'https://docs.openclaw.ai';
-const OUTPUT_DIR = path.resolve('C:/Users/hisha/Code/Jack/OpenClaw_Docs');
+const OUTPUT_DIR = path.resolve('/Users/coachsharm/Code/Jack/OpenClaw_Docs');
 const LAST_UPDATED_FILE = path.join(OUTPUT_DIR, 'LAST_UPDATED.txt');
 
 // Ensure output directory exists
