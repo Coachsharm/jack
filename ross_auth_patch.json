@@ -1,0 +1,16 @@
+{
+    "auth": {
+        "profiles": {
+            "google-antigravity:blackintegra777@gmail.com": {
+                "provider": "google-antigravity",
+                "mode": "oauth"
+            }
+        },
+        "order": {
+            "google-antigravity": [
+                "google-antigravity:blackintegra777@gmail.com",
+                "google-antigravity:faithinmotion88@gmail.com"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+﻿Error response from daemon: Container 778929ef7b463a9c1dce61ec12858fa25a0d19e051f3d89b240f58e4b6df347d is restarting, wait until the container is running

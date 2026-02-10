@@ -1,0 +1,190 @@
+﻿{
+  "auth": {
+    "profiles": {
+      "google-antigravity:faithinmotion88@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth",
+        "email": "faithinmotion88@gmail.com"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "auth": {
+      "mode": "token",
+      "token": "c6f43f4921bfb0e32659ab88a3b40d48beabbe85079200dfc49a3a86d4a2888a"
+    },
+    "bind": "lan"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google-antigravity/gemini-3-flash"
+      },
+      "models": {
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "a1"
+        },
+        "google-antigravity/gemini-3-pro-high": {
+          "alias": "a2"
+        },
+        "google-antigravity/gemini-3-flash": {
+          "alias": "a3"
+        },
+        "openrouter/openai/gpt-4o-mini": {
+          "alias": "gpt4o-mini"
+        },
+        "ollama/qwen2.5:7b": {
+          "alias": "qwen"
+        },
+        "ollama/phi3": {
+          "alias": "phi3"
+        },
+        "ollama/deepseek-r1:7b": {
+          "alias": "deepseek"
+        }
+      },
+      "sandbox": {
+        "mode": "off",
+        "workspaceAccess": "rw",
+        "docker": {
+          "readOnlyRoot": true,
+          "capDrop": [
+            "ALL"
+          ]
+        }
+      },
+      "heartbeat": {
+        "every": "2m",
+        "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+      }
+    }
+  },
+  "tools": {
+    "exec": {
+      "ask": "on-miss",
+      "security": "allowlist",
+      "safeBins": [
+        "ls",
+        "echo",
+        "date",
+        "pwd",
+        "whoami",
+        "find",
+        "grep",
+        "wc",
+        "head",
+        "tail",
+        "/home/openclaw/safe-cat.sh"
+      ]
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "8210741760:AAHKIPq6LMcUVClt0HuiyG28Tqu2wRnRfcs",
+      "dmPolicy": "pairing",
+      "groupPolicy": "open",
+      "groups": {
+        "*": {
+          "requireMention": false
+        }
+      }
+    },
+    "whatsapp": {
+      "dmPolicy": "open",
+      "groupPolicy": "open",
+      "allowFrom": [
+        "*"
+      ]
+    }
+  },
+  "session": {
+    "sendPolicy": {
+      "default": "allow"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://host.docker.internal:11434",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen2.5:7b",
+            "name": "Qwen 2.5 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "phi3",
+            "name": "Phi-3 (3.8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-r1:7b",
+            "name": "DeepSeek R1 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "openrouter": {
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "models": [
+          {
+            "id": "openai/gpt-4o-mini",
+            "name": "OpenAI GPT-4o Mini",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 1.5e-07,
+              "output": 6e-07
+            },
+            "contextWindow": 128000,
+            "maxTokens": 16384
+          }
+        ]
+      }
+    }
+  }
+}

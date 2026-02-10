@@ -1,0 +1,10 @@
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+grep: invalid option -- ' '
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+Tue Feb 10 19:24:36 +08 2026: BOT_CHAT changed (by ), triggered heartbeat
+ok
+Tue Feb 10 19:26:45 +08 2026: BOT_CHAT changed but Jack wrote it — skipping wake (self-write dedup)
+Tue Feb 10 19:27:09 +08 2026: BOT_CHAT changed, triggered heartbeat
+ok

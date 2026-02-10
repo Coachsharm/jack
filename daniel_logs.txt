@@ -1,0 +1,10 @@
+﻿2026-02-10T09:39:50.568Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:40:54.183Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:41:57.795Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:43:01.750Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:44:05.874Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:45:10.064Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:46:14.270Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:47:18.158Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:48:22.083Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-10T09:49:26.294Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).

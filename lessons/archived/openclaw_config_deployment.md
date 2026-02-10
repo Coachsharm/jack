@@ -1,5 +1,8 @@
 # Lessons Learned: OpenClaw Config Deployment
 
+> [!WARNING]
+> **PARTIALLY OUTDATED (Feb 2026):** This lesson was written for Jack1 (Docker-based). Jack4 is now a **native installation** — Docker paths and `docker restart` commands no longer apply. For current backup/restore procedures, see `lessons/jack4_backup_and_recovery_system.md`. The general principles (validate JSON, backup before changes, use `scp`/`pscp` for uploads) still apply.
+
 **Date:** 2026-02-03  
 **Context:** Deploying autonomy configuration to Jack1 (OpenClaw DNTM)
 

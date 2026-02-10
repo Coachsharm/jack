@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.6-3",
+    "lastTouchedAt": "2026-02-09T14:30:21.505Z"
+  },
+  "env": {
+    "BRAVE_API_KEY": "BSAoH33TnEHRc_WIq_9pXCI5xDXsptc",
+    "OLLAMA_API_KEY": "ollama-local",
+    "GOG_KEYRING_PASSWORD": "",
+    "GOG_ACCOUNT": "hisham.musa@gmail.com"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-07T22:41:11.459Z",
+    "lastRunVersion": "2026.2.6-3",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "enabled": true,
+    "executablePath": "/usr/bin/google-chrome-stable",
+    "headless": true,
+    "noSandbox": true
+  },
+  "auth": {
+    "profiles": {
+      "google-antigravity:faithinmotion88@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth",
+        "email": "faithinmotion88@gmail.com"
+      },
+      "anthropic:manual": {
+        "provider": "anthropic",
+        "mode": "token"
+      },
+      "google-antigravity:blackintegra777@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth"
+      }
+    },
+    "order": {
+      "google-antigravity": [
+        "google-antigravity:blackintegra777@gmail.com",
+        "google-antigravity:faithinmotion88@gmail.com"
+      ]
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "hermes3",
+            "name": "Hermes 3 (8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "phi3",
+            "name": "Phi-3 (3.8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "llama3.2",
+            "name": "Llama 3.2 (3B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen2.5-coder:3b",
+            "name": "Qwen 2.5 Coder (3B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "dolphin-llama3",
+            "name": "Dolphin Llama 3 (8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-r1:7b",
+            "name": "DeepSeek R1 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen2.5:7b",
+            "name": "Qwen 2.5 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google-antigravity/claude-opus-4-6-thinking",
+        "fallbacks": [
+          "google-antigravity/gemini-3-pro-high",
+          "google-antigravity/gemini-3-flash",
+          "anthropic/claude-sonnet-4-5"
+        ]
+      },
+      "models": {
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "a1"
+        },
+        "google-antigravity/gemini-3-flash": {},
+        "google-antigravity/claude-opus-4-6-thinking": {
+          "alias": "a3"
+        },
+        "google-antigravity/claude-opus-4-5-thinking": {},
+        "google-antigravity/claude-sonnet-4-5": {
+          "alias": "a5"
+        },
+        "google-antigravity/gemini-3-pro-high": {
+          "alias": "a2"
+        },
+        "google-antigravity/gemini-3-pro-low": {
+          "alias": "gemini-low"
+        },
+        "google-antigravity/gpt-oss-120b-medium": {
+          "alias": "gpt-oss"
+        },
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
+        },
+        "anthropic/claude-haiku-4": {
+          "alias": "a4"
+        },
+        "ollama/hermes3": {
+          "alias": "a7"
+        },
+        "ollama/phi3": {
+          "alias": "phi3"
+        },
+        "ollama/llama3.2": {},
+        "ollama/qwen2.5-coder:3b": {},
+        "ollama/dolphin-llama3": {},
+        "ollama/deepseek-r1:7b": {},
+        "ollama/qwen2.5:7b": {},
+        "anthropic/claude-opus-4-5": {},
+        "anthropic/claude-opus-4-6": {
+          "alias": "Aopus"
+        }
+      },
+      "workspace": "/root/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "heartbeat": {
+        "every": "2m",
+        "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "inbound",
+      "provider": "elevenlabs",
+      "summaryModel": "google-antigravity/gemini-3-pro-high",
+      "elevenlabs": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4",
+        "voiceId": "qNkzaJoHLLdpvgh5tISm",
+        "modelId": "eleven_multilingual_v2",
+        "voiceSettings": {
+          "stability": 0.5,
+          "similarityBoost": 0.75,
+          "speed": 1
+        }
+      },
+      "edge": {
+        "enabled": true,
+        "voice": "en-SG-WayneNeural",
+        "lang": "en-SG",
+        "outputFormat": "audio-24khz-48kbitrate-mono-mp3",
+        "rate": "+5%"
+      },
+      "maxTextLength": 4000
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "selfChatMode": true,
+      "allowFrom": [
+        "+6588626460",
+        "+6591090995"
+      ],
+      "groupPolicy": "allowlist",
+      "mediaMaxMb": 50,
+      "groups": {
+        "6591090995-1567242884@g.us": {
+          "requireMention": false
+        },
+        "6591090995-1377865458@g.us": {
+          "requireMention": false
+        }
+      },
+      "debounceMs": 0
+    },
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8023616765:AAFhX455TUDzxauA8lCQ1ThhBeao8r5mj6U",
+      "groups": {
+        "*": {
+          "requireMention": false
+        }
+      },
+      "groupPolicy": "open",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "dfb68cfdec2a14470dcd8bec216de717d10f55848e2da0b8"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "sag": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      },
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  }
+}

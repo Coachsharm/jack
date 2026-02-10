@@ -18,9 +18,10 @@ You can run the backup script from the PowerShell terminal.
 ## Targets
 
 - `jack1`: Backs up the current local project folder (`Jack`) to the `backups` directory.
-- `docker-jack1`: Backs up Jack 1 (Remote Configs + Volumes).
-- `docker-jack2`: Backs up Jack 2 (Remote Configs + Volumes).
-- `docker-jack3`: Backs up Jack 3 (Remote Configs + Volumes).
+- `docker-jack1`: Backs up Jack 1 (Remote Docker Configs + Volumes).
+- `docker-jack2`: Backs up Jack 2 (Remote Docker Configs + Volumes).
+- `docker-jack3`: Backs up Jack 3 (Remote Docker Configs + Volumes).
+- `jack4`: Backs up Jack 4 (Native `~/.openclaw` directory from server).
 - `all`: **NUCLEAR SNAPSHOT**. Backs up EVERY critical component from the server for full disaster recovery:
     - `/docker` (All bot blueprints)
     - `/root` (Essential configs + **Combined/Zipped Opencode App**)

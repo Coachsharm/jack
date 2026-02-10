@@ -1,0 +1,288 @@
+﻿{
+  "meta": {
+    "lastTouchedVersion": "2026.2.3-1",
+    "lastTouchedAt": "2026-02-07T15:57:11.867Z"
+  },
+  "env": {
+    "BRAVE_API_KEY": "BSAoH33TnEHRc_WIq_9pXCI5xDXsptc",
+    "OLLAMA_API_KEY": "ollama-local",
+    "TZ": "Asia/Singapore"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-07T15:57:11.861Z",
+    "lastRunVersion": "2026.2.3-1",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "google-antigravity:faithinmotion88@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth",
+        "email": "faithinmotion88@gmail.com"
+      },
+      "anthropic:manual": {
+        "provider": "anthropic",
+        "mode": "token"
+      },
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "hermes3",
+            "name": "Hermes 3 (8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "phi3",
+            "name": "Phi-3 (3.8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "llama3.2",
+            "name": "Llama 3.2 (3B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen2.5-coder:3b",
+            "name": "Qwen 2.5 Coder (3B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "dolphin-llama3",
+            "name": "Dolphin Llama 3 (8B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-r1:7b",
+            "name": "DeepSeek R1 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen2.5:7b",
+            "name": "Qwen 2.5 (7B)",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "fallbacks": [
+          "google-antigravity/gemini-3-pro-high",
+          "google-antigravity/claude-opus-4-6-thinking"
+        ],
+        "primary": "google-antigravity/claude-sonnet-4-5-thinking"
+      },
+      "models": {
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "a1"
+        },
+        "google-antigravity/gemini-3-flash": {},
+        "google-antigravity/claude-opus-4-6": {
+          "alias": "ag-opus46"
+        },
+        "google-antigravity/claude-opus-4-6-thinking": {
+          "alias": "a3"
+        },
+        "google-antigravity/claude-opus-4-5-thinking": {},
+        "google-antigravity/claude-sonnet-4-5": {
+          "alias": "a5"
+        },
+        "google-antigravity/gemini-3-pro-high": {
+          "alias": "a2"
+        },
+        "google-antigravity/gemini-3-pro-low": {
+          "alias": "gemini-low"
+        },
+        "google-antigravity/gpt-oss-120b-medium": {
+          "alias": "gpt-oss"
+        },
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
+        },
+        "anthropic/claude-haiku-4": {
+          "alias": "a4"
+        },
+        "openrouter/anthropic/claude-sonnet-4.5": {
+          "alias": "or-sonnet"
+        },
+        "ollama/hermes3": {
+          "alias": "a7"
+        },
+        "ollama/phi3": {
+          "alias": "phi3"
+        },
+        "ollama/llama3.2": {},
+        "ollama/qwen2.5-coder:3b": {},
+        "ollama/dolphin-llama3": {},
+        "ollama/deepseek-r1:7b": {},
+        "ollama/qwen2.5:7b": {},
+        "anthropic/claude-opus-4-5": {
+          "alias": "opus"
+        },
+        "anthropic/claude-opus-4-6": {
+          "alias": "opus46"
+        }
+      },
+      "workspace": "/home/openclaw/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "heartbeat": {
+        "every": "2m",
+        "prompt": "Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK."
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "open",
+      "botToken": "7620698098:AAFGcy2PYuZCTdqACVzu4AQ4irxsWBLCRtw",
+      "groups": {
+        "*": {
+          "requireMention": false
+        }
+      },
+      "groupPolicy": "open",
+      "streamMode": "partial",
+      "allowFrom": [
+        "*"
+      ]
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "29e229bc619bf26dc866f25a9685f6b4e8ba3623c7bcac51"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "sag": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

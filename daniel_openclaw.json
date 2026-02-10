@@ -1,0 +1,231 @@
+﻿{
+  "meta": {
+    "lastTouchedVersion": "2026.2.6-3"
+  },
+  "env": {
+    "BRAVE_API_KEY": "BSAoH33TnEHRc_WIq_9pXCI5xDXsptc",
+    "OLLAMA_API_KEY": "ollama-local",
+    "GOG_KEYRING_PASSWORD": "",
+    "GOG_ACCOUNT": "hisham.musa@gmail.com"
+  },
+  "auth": {
+    "profiles": {
+      "google-antigravity:faithinmotion88@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth",
+        "email": "faithinmotion88@gmail.com"
+      },
+      "anthropic:manual": {
+        "provider": "anthropic",
+        "mode": "token"
+      },
+      "google-antigravity:blackintegra777@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth"
+      }
+    },
+    "order": {
+      "google-antigravity": [
+        "google-antigravity:blackintegra777@gmail.com",
+        "google-antigravity:faithinmotion88@gmail.com"
+      ]
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://host.docker.internal:11434",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "hermes3",
+            "name": "Hermes 3 (8B)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "phi3",
+            "name": "Phi-3 (3.8B)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-r1:7b",
+            "name": "DeepSeek R1 (7B)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google-antigravity/gemini-3-pro-high",
+        "fallbacks": [
+          "google-antigravity/gemini-3-flash",
+          "anthropic/claude-sonnet-4-5"
+        ]
+      },
+      "models": {
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "a1"
+        },
+        "google-antigravity/gemini-3-flash": {},
+        "google-antigravity/claude-opus-4-6-thinking": {
+          "alias": "a3"
+        },
+        "google-antigravity/claude-opus-4-5-thinking": {},
+        "google-antigravity/claude-sonnet-4-5": {
+          "alias": "a5"
+        },
+        "google-antigravity/gemini-3-pro-high": {
+          "alias": "a2"
+        },
+        "google-antigravity/gemini-3-pro-low": {
+          "alias": "gemini-low"
+        },
+        "google-antigravity/gpt-oss-120b-medium": {
+          "alias": "gpt-oss"
+        },
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
+        },
+        "anthropic/claude-haiku-4": {
+          "alias": "a4"
+        },
+        "ollama/hermes3": {
+          "alias": "a7"
+        },
+        "ollama/phi3": {
+          "alias": "phi3"
+        },
+        "ollama/deepseek-r1:7b": {},
+        "anthropic/claude-opus-4-5": {},
+        "anthropic/claude-opus-4-6": {
+          "alias": "Aopus"
+        }
+      },
+      "workspace": "/home/openclaw/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "heartbeat": {
+        "enabled": true,
+        "every": "2m"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "sandbox": {
+        "mode": "off"
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "never",
+      "provider": "elevenlabs",
+      "summaryModel": "google-antigravity/gemini-3-pro-high",
+      "elevenlabs": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4",
+        "voiceId": "TABZn6CDfjMNGrsnGzzD",
+        "modelId": "eleven_multilingual_v2",
+        "voiceSettings": {
+          "stability": 0.5,
+          "similarityBoost": 0.75,
+          "speed": 1
+        }
+      },
+      "maxTextLength": 4000
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8326665388:AAGNCLP0jiDbFbMG2N1DVa1B-df5D4jPeiM",
+      "groups": {
+        "*": {
+          "requireMention": false
+        }
+      },
+      "groupPolicy": "open",
+      "streamMode": "partial"
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "041c16b0adb441abad2b62dd5b42b6f552da8c57b0a700ab"
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    },
+    "entries": {
+      "sag": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4"
+      }
+    }
+  },
+  "tools": {
+    "exec": {
+      "safeBins": [
+        "ls", "cat", "echo", "date", "pwd", "whoami", "find", "grep",
+        "tail", "head", "wc", "curl", "wget", "bash", "sh", "nc",
+        "docker", "openclaw", "systemctl", "service", "ps", "pkill",
+        "stat", "openssl", "nohup", "sleep", "kill",
+        "/root/.openclaw/workspace/scripts/*",
+        "/root/openclaw-clients/daniel/workspace/scripts/*",
+        "/home/openclaw/.openclaw/workspace/scripts/*"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

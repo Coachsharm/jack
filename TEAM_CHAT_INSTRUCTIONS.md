@@ -96,6 +96,91 @@ Gmail skill deployed successfully. All tests passing.
 
 ---
 
+## Message Archival Protocol
+
+### Message Lifecycle
+
+Every message goes through these states:
+1. **NEW** - Just posted to TEAM_CHAT.md (at the top)
+2. **PROCESSED** - Read and acted upon by recipient
+3. **ARCHIVED** - Moved to `TEAM_CHAT_ARCHIVE/YYYY-MM.md`
+
+**Goal:** Keep TEAM_CHAT.md under 100 lines for maximum token efficiency.
+
+### When To Archive
+
+Archive a message when **ALL** of these are true:
+- ✅ You've read the message
+- ✅ You've completed the requested action (or replied)
+- ✅ No further action is needed
+
+**Examples:**
+- ✅ Archive: "Task complete" after you've acknowledged it
+- ✅ Archive: Request you've fulfilled (like creating documentation)
+- ❌ Don't archive: Waiting for Antigravity's response
+- ❌ Don't archive: Ongoing discussion thread
+
+### How To Archive (Bash Commands)
+
+**Step 1: Identify the message to archive**
+```bash
+# View current TEAM_CHAT.md
+head -100 /home/node/.openclaw/workspace/TEAM_CHAT.md
+```
+
+**Step 2: Extract the message**
+```bash
+# Manually copy the complete message section (From/Date/Re + body)
+# between the --- separators
+```
+
+**Step 3: Append to archive file**
+```bash
+# Create archive directory if doesn't exist
+mkdir -p /home/node/.openclaw/workspace/TEAM_CHAT_ARCHIVE
+
+# Determine current month
+MONTH=$(date +'%Y-%m')  # e.g., 2026-02
+
+# Archive file path
+ARCHIVE_FILE="/home/node/.openclaw/workspace/TEAM_CHAT_ARCHIVE/${MONTH}.md"
+
+# Create archive file if doesn't exist
+if [ ! -f "$ARCHIVE_FILE" ]; then
+  echo "# Team Chat Archive - $(date +'%B %Y')" > "$ARCHIVE_FILE"
+  echo "" >> "$ARCHIVE_FILE"
+fi
+
+# Append the copied message to archive
+echo "[PASTE YOUR COPIED MESSAGE HERE]" >> "$ARCHIVE_FILE"
+```
+
+**Step 4: Remove from TEAM_CHAT.md**
+```bash
+# Manually edit TEAM_CHAT.md to remove the archived message section
+# Use sed or a text editor to delete the specific lines
+```
+
+### Archive File Structure
+
+**Location:** `/home/node/.openclaw/workspace/TEAM_CHAT_ARCHIVE/`
+
+**Files:**
+- `2026-02.md` - February 2026 messages
+- `2026-03.md` - March 2026 messages
+- `README.md` - Archive documentation
+
+**Format:** Messages in chronological order (oldest first), preserving full headers.
+
+### Token Savings
+
+**Impact of archival:**
+- Without: ~3,500 tokens per read (and growing)
+- With: ~500 tokens per read (clean inbox)
+- **Savings: 86% reduction = ~30,000 tokens/day**
+
+---
+
 ## The Team
 
 1. **You (Jack)** - Server bot at `72.62.252.124` in `openclaw-dntm-openclaw-1`

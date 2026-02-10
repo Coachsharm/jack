@@ -1,0 +1,7 @@
+﻿#!/bin/sh
+# Read Docker secrets into environment variables
+export OPENCLAW_GATEWAY_TOKEN=$(cat /run/secrets/gateway_token 2>/dev/null || echo "")
+export TELEGRAM_BOT_TOKEN=$(cat /run/secrets/telegram_token 2>/dev/null || echo "")
+
+# Start OpenClaw
+exec "$@"

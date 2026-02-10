@@ -1,0 +1,63 @@
+﻿#!/bin/bash
+# Build and deploy Daniel (watchdog bot) following official OpenClaw Docker pattern
+# Based on /usr/lib/node_modules/openclaw/docs/install/docker.md
+
+set -e
+
+echo "=== Daniel Deployment - Official Pattern ==="
+echo ""
+
+# Step 1: Tag existing image for Daniel
+echo "Step 1: Creating openclaw-client-daniel:latest from openclaw-client:latest"
+docker tag openclaw-client:latest openclaw-client-daniel:latest
+echo "Γ£à Image tagged"
+echo ""
+
+# Step 2: Remove old Daniel container if exists
+echo "Step 2: Cleaning up old Daniel container..."
+docker stop openclaw-daniel 2>/dev/null || true
+docker rm openclaw-daniel 2>/dev/null || true
+echo "Γ£à Old container removed"
+echo ""
+
+# Step 3: Create Daniel with official pattern + root access for watchdog
+echo "Step 3: Creating Daniel container with official mounts..."
+docker run -d \
+  --name openclaw-daniel \
+  --restart unless-stopped \
+  --userns=host \
+  -v /root:/root \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /root/openclaw-clients/daniel/openclaw.json:/home/node/.openclaw/openclaw.json:ro \
+  -v /root/openclaw-clients/daniel/workspace:/home/node/.openclaw/workspace \
+  -v /root/openclaw-clients/daniel/data/agents:/home/node/.openclaw/agents \
+  -v /root/openclaw-clients/daniel/data/credentials:/home/node/.openclaw/credentials \
+  -v /root/openclaw-clients/daniel/data/telegram:/home/node/.openclaw/telegram \
+  -p 127.0.0.1:19489:18789 \
+  openclaw-client-daniel:latest
+
+echo "Γ£à Container created"
+echo ""
+
+# Step 4: Wait for startup
+echo "Step 4: Waiting 10 seconds for startup..."
+sleep 10
+echo ""
+
+# Step 5: Verify
+echo "Step 5: Verifying deployment..."
+echo ""
+echo "Container status:"
+docker ps | grep daniel
+echo ""
+echo "Recent logs:"
+docker logs openclaw-daniel 2>&1 | tail -20
+echo ""
+
+echo "=== Deployment Complete ==="
+echo ""
+echo "Next steps:"
+echo "1. Open Telegram and search for @thrive5bot"
+echo "2. Send: /start"
+echo "3. Daniel will pair with you"
+echo "4. Then he'll respond in Body Thrive Chat group"

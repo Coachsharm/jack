@@ -1,0 +1,15 @@
+│  WhatsApp configured, not enabled yet.  │
+│                                         │
+├─────────────────────────────────────────╯
+│
+◇  Doctor ──────────────────────────────────────────────╮
+│                                                       │
+│  Run "openclaw doctor --fix" to apply these changes.  │
+│                                                       │
+├───────────────────────────────────────────────────────╯
+ok
+ok
+2026-02-10 19:38:41 | SKIP: John file +5 lines, not for Ross
+2026-02-10 19:39:06 | ===== RELAY BRIDGE v4 STARTED =====
+2026-02-10 19:39:06 | John file: /root/openclaw-clients/john/workspace/BOT_CHAT.md
+2026-02-10 19:39:06 | Ross file: /root/openclaw-clients/ross/workspace/BOT_CHAT.md

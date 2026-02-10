@@ -1,0 +1,20 @@
+2026-02-10 19:14:06 | SKIP: John file +24 lines, not for Ross
+2026-02-10 19:14:19 | RELAY: John/Jack → Ross detected (lines 230 → 250)
+2026-02-10 19:14:20 | RELAY: Relayed to Ross + woke Ross
+ok
+2026-02-10 19:15:01 | ===== RELAY BRIDGE v4 STARTED =====
+2026-02-10 19:15:01 | John file: /root/openclaw-clients/john/workspace/BOT_CHAT.md
+2026-02-10 19:15:01 | Ross file: /root/openclaw-clients/ross/workspace/BOT_CHAT.md
+2026-02-10 19:15:15 | ===== RELAY BRIDGE v4 STARTED =====
+2026-02-10 19:15:15 | John file: /root/openclaw-clients/john/workspace/BOT_CHAT.md
+2026-02-10 19:15:15 | Ross file: /root/openclaw-clients/ross/workspace/BOT_CHAT.md
+2026-02-10 19:15:54 | ===== RELAY BRIDGE v4 STARTED =====
+2026-02-10 19:15:54 | John file: /root/openclaw-clients/john/workspace/BOT_CHAT.md
+2026-02-10 19:15:54 | Ross file: /root/openclaw-clients/ross/workspace/BOT_CHAT.md
+2026-02-10 19:24:15 | SKIP: John file +3 lines, not for Ross
+2026-02-10 19:24:38 | SKIP: John file +5 lines, not for Ross
+2026-02-10 19:26:45 | SKIP: John file +3 lines, not for Ross
+2026-02-10 19:27:09 | SKIP: John file +5 lines, not for Ross
+2026-02-10 19:27:53 | SKIP: John file +3 lines, not for Ross
+2026-02-10 19:27:55 | SKIP: John file +3 lines, not for Ross
+2026-02-10 19:28:21 | SKIP: John file +5 lines, not for Ross

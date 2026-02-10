@@ -1,0 +1,12 @@
+﻿/root/openclaw-clients/daniel/deploy-daniel-official.sh
+/root/openclaw-clients/daniel/deploy-daniel.sh
+/root/openclaw-clients/daniel/workspace/TOOLS.md
+/root/openclaw-clients/daniel/workspace/HEARTBEAT.md
+/root/openclaw-clients/daniel/workspace/USER.md
+/root/openclaw-clients/daniel/workspace/SOUL.md
+/root/openclaw-clients/daniel/workspace/AGENTS.md
+/root/openclaw-clients/daniel/openclaw.json
+/root/openclaw-clients/daniel/check-daniel-status.sh
+/root/openclaw-clients/daniel/fresh-start-daniel.sh
+/root/openclaw-clients/daniel/restart-with-new-model.sh
+/root/openclaw-clients/daniel/restart-daniel.sh

@@ -235,19 +235,44 @@ switch ($Target) {
         }
     }
 
+    # Jack 4 Native (Non-Docker)
+    { $_ -in "jack4", "native-jack4" } {
+        $creds = Get-ServerCredentials
+        if (-not $creds) { return }
+        
+        $backupName = "backup-native-jack4-$timestamp"
+        $destPath = Join-Path $backupRootDir $backupName
+        Write-Host "--- BACKING UP JACK4 (Native Install) ---"
+        Write-Host "Backing up ~/.openclaw directory from server..."
+        
+        New-Item -ItemType Directory -Path $destPath | Out-Null
+        
+        # Backup the entire .openclaw directory (config, workspace, sessions, agents, logs)
+        Write-Host "Downloading ~/.openclaw..."
+        pscp -batch -r -pw $($creds.Pass) "root@$($creds.IP):/root/.openclaw" "$destPath"
+        
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "Successfully backed up Jack4 to $destPath"
+        }
+        else {
+            Write-Warning "Jack4 backup completed with errors. Check the destination directory."
+        }
+    }
+
     { $_ -in "help", "list", "prompt" } {
         Write-Host "--- Backup Skill Help ---"
         Write-Host "Usage: .agent/skills/backup/scripts/backup.ps1 -Target <option>"
         Write-Host ""
         Write-Host "Options:"
         Write-Host "  jack1         : Backup LOCAL files only"
-        Write-Host "  docker-jack1  : Backup Jack 1 (Remote Config + Data)"
-        Write-Host "  docker-jack2  : Backup Jack 2 (Remote Config + Data)"
-        Write-Host "  docker-jack3  : Backup Jack 3 (Remote Config + Data)"
+        Write-Host "  docker-jack1  : Backup Jack 1 (Remote Docker Config + Data)"
+        Write-Host "  docker-jack2  : Backup Jack 2 (Remote Docker Config + Data)"
+        Write-Host "  docker-jack3  : Backup Jack 3 (Remote Docker Config + Data)"
+        Write-Host "  jack4         : Backup Jack 4 (Native ~/.openclaw)"
         Write-Host "  all           : NUCLEAR SNAPSHOT (Everything on server)"
         Write-Host "  <path>        : Backup specific local folder"
         Write-Host ""
-        Write-Host "Example: backup.ps1 -Target docker-jack2"
+        Write-Host "Example: backup.ps1 -Target jack4"
     }
 
     Default {

@@ -1,0 +1,61 @@
+﻿#!/bin/bash
+# Deploy Daniel with fresh container - proper Docker pattern
+
+set -e
+
+echo "=== Deploying Daniel (Watchdog Bot) ==="
+echo ""
+
+# Stop and remove old container
+echo "1. Cleaning up old container..."
+docker stop openclaw-daniel 2>/dev/null || true
+docker rm openclaw-daniel 2>/dev/null || true
+echo "Γ£à Cleanup done"
+echo ""
+
+# Verify config file exists and has new token
+echo "2. Verifying config..."
+if ! grep -q "8326665388:AAGNCLP0jiDbFbMG2N1DVa1B-df5D4jPeiM" /root/openclaw-clients/daniel/openclaw.json; then
+    echo "Γ¥î ERROR: Config doesn't have the new token!"
+    exit 1
+fi
+echo "Γ£à Config verified (new token present)"
+echo ""
+
+# Create fresh container
+echo "3. Creating Daniel container..."
+docker run -d \
+  --name openclaw-daniel \
+  --restart unless-stopped \
+  --userns=host \
+  -v /root:/root \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /root/openclaw-clients/daniel/openclaw.json:/home/node/.openclaw/openclaw.json \
+  -v /root/openclaw-clients/daniel/workspace:/home/node/.openclaw/workspace \
+  -v /root/openclaw-clients/daniel/data/agents:/home/node/.openclaw/agents \
+  -v /root/openclaw-clients/daniel/data/credentials:/home/node/.openclaw/credentials \
+  -v /root/openclaw-clients/daniel/data/telegram:/home/node/.openclaw/telegram \
+  -p 127.0.0.1:19489:18789 \
+  openclaw-client:latest
+
+echo "Γ£à Container created"
+echo ""
+
+# Wait for startup
+echo "4. Waiting 15 seconds for startup..."
+sleep 15
+echo ""
+
+# Check status
+echo "5. Status check..."
+docker ps | grep daniel
+echo ""
+
+# Show logs
+echo "6. Recent logs:"
+docker logs openclaw-daniel 2>&1 | tail -20
+echo ""
+
+echo "=== Deployment Complete ==="
+echo ""
+echo "Next: Send /start to @thrive5bot in Telegram"
