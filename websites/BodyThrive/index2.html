@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Thrive | Transform Your Body in 12 Weeks - Coach Sharm Singapore</title>
+    <meta name="description" content="Join 10,000+ transformations. Master Trainer with 25+ years experience. MSc Exercise Science. No diets, no shakes. Results guaranteed.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A0A0B',
+                        secondary: '#1F1F23',
+                        accent: '#FF6B35',
+                        'accent-dark': '#E55A2B',
+                        success: '#00D9A5',
+                        warning: '#FFC107',
+                        background: '#FAFAFA',
+                        text: '#0A0A0B'
+                    },
+                    fontFamily: {
+                        heading: ['"Barlow Condensed"', 'sans-serif'],
+                        body: ['Barlow', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B35 0%, #FFC107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+    </style>
+</head>
+<body class="font-body bg-background text-text antialiased">
+    
+    <!-- Urgent Banner -->
+    <div class="bg-gradient-to-r from-accent to-warning text-white py-3 px-4 text-center font-heading font-bold text-sm md:text-base animate-pulse-slow">
+        🔥 LIMITED SLOTS FEBRUARY 2026: Only 3 Personal Training Spots Left This Month!
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full bg-primary/98 backdrop-blur-md z-50 border-b border-accent/20 shadow-lg top-0">
+        <nav class="container mx-auto px-4 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center">
+                        <span class="text-white text-2xl font-heading font-black">BT</span>
+                    </div>
+                    <div class="text-2xl font-heading font-black text-white tracking-tight">
+                        BODY THRIVE
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#results" class="text-white/90 hover:text-accent transition-colors duration-200 cursor-pointer font-medium">Results</a>
+                    <a href="#programs" class="text-white/90 hover:text-accent transition-colors duration-200 cursor-pointer font-medium">Programs</a>
+                    <a href="#about" class="text-white/90 hover:text-accent transition-colors duration-200 cursor-pointer font-medium">Coach</a>
+                    <a href="https://wa.me/6588626460" target="_blank" class="bg-gradient-to-r from-accent to-warning hover:opacity-90 text-white px-6 py-3 rounded-full font-heading font-bold text-lg transition-all duration-200 cursor-pointer transform hover:scale-105 shadow-lg shadow-accent/50 animate-pulse-slow">
+                        START NOW →
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-28 px-4 lg:px-8 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-warning rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-white space-y-8">
+                    <div class="inline-flex items-center gap-3 bg-accent/20 border-2 border-accent text-accent px-5 py-3 rounded-full font-heading font-bold text-sm animate-bounce-slow">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        SINGAPORE'S TOP-RATED TRANSFORMATION COACH
+                    </div>
+                    
+                    <h1 class="text-6xl lg:text-8xl font-heading font-black leading-none tracking-tight">
+                        LOSE FAT.<br/>
+                        BUILD MUSCLE.<br/>
+                        <span class="gradient-text">IN 12 WEEKS.</span>
+                    </h1>
+                    
+                    <p class="text-2xl text-white/90 font-medium leading-relaxed">
+                        No meal replacements. No shakes. No BS.<br/>
+                        <span class="text-accent font-bold">Just proven science + real results.</span>
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-5">
+                        <a href="https://wa.me/6588626460" target="_blank" class="group bg-gradient-to-r from-accent to-warning hover:shadow-2xl hover:shadow-accent/50 text-white px-10 py-6 rounded-full font-heading font-black text-2xl transition-all duration-300 cursor-pointer transform hover:scale-110 shadow-xl inline-flex items-center gap-3">
+                            <span>GET STARTED FREE</span>
+                            <svg class="w-7 h-7 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <a href="#how-it-works" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white px-10 py-6 rounded-full font-heading font-bold text-xl transition-all duration-200 cursor-pointer">
+                            HOW IT WORKS
+                        </a>
+                    </div>
+                    
+                    <!-- Social Proof Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t-2 border-white/10">
+                        <div class="text-center">
+                            <div class="text-5xl font-heading font-black text-accent mb-2">10K+</div>
+                            <div class="text-white/70 text-sm font-medium">Transformations</div>
+                        </div>
+                        <div class="text-center border-x-2 border-white/10">
+                            <div class="text-5xl font-heading font-black text-success mb-2">4.9★</div>
+                            <div class="text-white/70 text-sm font-medium">Average Rating</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-5xl font-heading font-black text-warning mb-2">25+</div>
+                            <div class="text-white/70 text-sm font-medium">Years Pro</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative float-animation">
+                    <div class="relative">
+                        <!-- Main transformation showcase -->
+                        <div class="bg-gradient-to-br from-accent/30 via-warning/20 to-accent/30 rounded-3xl border-4 border-accent/50 p-12 backdrop-blur-sm shadow-2xl">
+                            <div class="text-center space-y-6">
+                                <div class="text-8xl font-heading font-black text-white">
+                                    BEFORE
+                                </div>
+                                <div class="text-9xl font-heading font-black gradient-text">
+                                    ↓
+                                </div>
+                                <div class="text-8xl font-heading font-black text-white">
+                                    AFTER
+                                </div>
+                                <div class="bg-success/20 border-2 border-success rounded-2xl p-6 mt-8">
+                                    <div class="text-success font-heading font-bold text-2xl">
+                                        ✓ GUARANTEED RESULTS
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -top-6 -right-6 bg-gradient-to-br from-warning to-accent text-white px-6 py-4 rounded-2xl shadow-2xl transform rotate-12 animate-bounce-slow">
+                            <div class="font-heading font-black text-xl">100%</div>
+                            <div class="text-sm font-bold">Money Back</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Results -->
+    <section id="results" class="py-24 px-4 lg:px-8 bg-white relative overflow-hidden">
+        <div class="container mx-auto">
+            <div class="text-center mb-20">
+                <div class="inline-block bg-accent/10 border-2 border-accent text-accent px-6 py-3 rounded-full font-heading font-bold text-sm mb-6">
+                    ⭐ VERIFIED TRANSFORMATIONS
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-heading font-black mb-6 leading-none">
+                    REAL PEOPLE.<br/>
+                    <span class="gradient-text">REAL RESULTS.</span>
+                </h2>
+                <p class="text-2xl text-text/60 font-medium max-w-3xl mx-auto">
+                    Join hundreds who've transformed without sacrificing their lifestyle
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10 mb-16">
+                <!-- Testimonial 1 - Enhanced -->
+                <div class="bg-gradient-to-br from-white to-background rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="flex items-start gap-5 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <span class="text-3xl font-heading font-black text-white">N</span>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-xl mb-1">Nisha</div>
+                            <div class="text-text/60 text-sm font-medium mb-2">Mother of 3, Age 48</div>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="bg-accent/10 rounded-2xl p-6 border-2 border-accent/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text/60 font-medium">Size</span>
+                                <span class="font-heading font-black text-4xl gradient-text">2XL → S</span>
+                            </div>
+                        </div>
+                        <p class="text-text/80 leading-relaxed italic text-lg border-l-4 border-accent pl-6">
+                            "Beyond my expectations. Not only lost weight but feel AMAZING. More energy. Insulin resistance in remission!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 - Enhanced -->
+                <div class="bg-gradient-to-br from-white to-background rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="flex items-start gap-5 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-success to-accent rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <span class="text-3xl font-heading font-black text-white">J</span>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-xl mb-1">James Wilbore</div>
+                            <div class="text-text/60 text-sm font-medium mb-2">Finance Director, Disney</div>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="bg-success/10 rounded-2xl p-6 border-2 border-success/30">
+                            <div class="font-heading font-black text-xl text-success">🏆 BEST ACROSS 3 COUNTRIES</div>
+                            <div class="text-text/60 text-sm mt-2">UK • Hong Kong • Singapore</div>
+                        </div>
+                        <p class="text-text/80 leading-relaxed italic text-lg border-l-4 border-success pl-6">
+                            "Best PT I've used across UK, Hong Kong, Singapore. Employs latest science and training techniques."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 - Enhanced -->
+                <div class="bg-gradient-to-br from-white to-background rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="flex items-start gap-5 mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-warning to-accent rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                            <span class="text-3xl font-heading font-black text-white">B</span>
+                        </div>
+                        <div>
+                            <div class="font-heading font-black text-xl mb-1">Benjamin Deregt</div>
+                            <div class="text-text/60 text-sm font-medium mb-2">Business Development Mgr</div>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="bg-accent/10 rounded-2xl p-6 border-2 border-accent/30">
+                            <div class="font-heading font-black text-xl gradient-text">✨ TRUE PERSONAL TRAINER</div>
+                            <div class="text-text/60 text-sm mt-2">Every session is different</div>
+                        </div>
+                        <p class="text-text/80 leading-relaxed italic text-lg border-l-4 border-warning pl-6">
+                            "Rare true personal trainer. Focuses on strengths, strengthens weaknesses. Best part - never stays the same!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/6588626460" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-accent to-warning hover:shadow-2xl hover:shadow-accent/50 text-white px-12 py-6 rounded-full font-heading font-black text-2xl transition-all duration-300 cursor-pointer transform hover:scale-110">
+                    <span>START YOUR TRANSFORMATION</span>
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 px-4 lg:px-8 bg-gradient-to-br from-primary via-secondary to-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-accent to-warning"></div>
+        </div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-6xl lg:text-7xl font-heading font-black mb-6">
+                    THE BODY THRIVE<br/>
+                    <span class="gradient-text">TRANSFORMATION SYSTEM</span>
+                </h2>
+                <p class="text-2xl text-white/70 max-w-3xl mx-auto font-medium">
+                    Proven 3-phase approach to sustainable results
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+                <div class="text-center space-y-6 bg-white/5 backdrop-blur-sm rounded-3xl p-10 border-2 border-accent/30 hover:border-accent transition-all hover-lift">
+                    <div class="w-28 h-28 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center mx-auto shadow-2xl">
+                        <span class="text-5xl font-heading font-black text-white">1</span>
+                    </div>
+                    <h3 class="text-3xl font-heading font-black text-accent">FOUNDATION</h3>
+                    <p class="text-xl text-white/80 leading-relaxed">
+                        Understand how YOUR body works. Set realistic goals. Build sustainable habits with expert 1-on-1 guidance.
+                    </p>
+                </div>
+
+                <div class="text-center space-y-6 bg-white/5 backdrop-blur-sm rounded-3xl p-10 border-2 border-warning/30 hover:border-warning transition-all hover-lift">
+                    <div class="w-28 h-28 bg-gradient-to-br from-warning to-accent rounded-full flex items-center justify-center mx-auto shadow-2xl">
+                        <span class="text-5xl font-heading font-black text-white">2</span>
+                    </div>
+                    <h3 class="text-3xl font-heading font-black text-warning">TRANSFORMATION</h3>
+                    <p class="text-xl text-white/80 leading-relaxed">
+                        Optimize metabolism & hormones. Master nutrition without deprivation. See real results FAST.
+                    </p>
+                </div>
+
+                <div class="text-center space-y-6 bg-white/5 backdrop-blur-sm rounded-3xl p-10 border-2 border-success/30 hover:border-success transition-all hover-lift">
+                    <div class="w-28 h-28 bg-gradient-to-br from-success to-accent rounded-full flex items-center justify-center mx-auto shadow-2xl">
+                        <span class="text-5xl font-heading font-black text-white">3</span>
+                    </div>
+                    <h3 class="text-3xl font-heading font-black text-success">MASTERY</h3>
+                    <p class="text-xl text-white/80 leading-relaxed">
+                        Establish sustainable routines. Maintain progress LONG-TERM. Live your best life forever.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-24 px-4 lg:px-8 bg-background">
+        <div class="container mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-6xl lg:text-7xl font-heading font-black mb-6">
+                    CHOOSE YOUR<br/>
+                    <span class="gradient-text">TRANSFORMATION PATH</span>
+                </h2>
+                <p class="text-2xl text-text/60 max-w-3xl mx-auto font-medium">
+                    1-on-1 coaching to online programs - find your perfect fit
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Personal Training - PREMIUM -->
+                <div class="bg-gradient-to-br from-accent to-accent-dark rounded-3xl p-10 text-white shadow-2xl transform hover:scale-105 transition-all duration-300 border-4 border-accent relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-warning text-primary px-6 py-2 rounded-bl-3xl font-heading font-black text-sm">
+                        🏆 BEST VALUE
+                    </div>
+                    <div class="mb-8 mt-6">
+                        <div class="font-heading font-black text-xl mb-3">PERSONAL TRAINING</div>
+                        <div class="text-white/90 font-medium text-lg">100% private gym sessions</div>
+                    </div>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">100% customized workouts</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Direct 1-on-1 coaching</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Nutrition guidance</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">24/7 support access</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/6588626460" target="_blank" class="block w-full bg-white hover:bg-white/90 text-accent text-center px-8 py-4 rounded-full font-heading font-black text-lg transition-all cursor-pointer shadow-xl">
+                        GET FREE CONSULTATION
+                    </a>
+                </div>
+
+                <!-- Small Group -->
+                <div class="bg-white rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="mb-8">
+                        <div class="text-accent font-heading font-bold text-sm mb-3">POPULAR CHOICE</div>
+                        <div class="font-heading font-black text-2xl mb-3">SMALL GROUP</div>
+                        <div class="text-text/60 font-medium text-lg">Train with motivated peers</div>
+                    </div>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Small focused groups</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Structured workouts</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Community support</span>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-4xl font-heading font-black gradient-text">$580</div>
+                        <div class="text-text/60 font-medium">10 sessions</div>
+                    </div>
+                    <a href="https://wa.me/6588626460" target="_blank" class="block w-full bg-primary hover:bg-primary/90 text-white text-center px-8 py-4 rounded-full font-heading font-black text-lg transition-all cursor-pointer">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <!-- Outdoor -->
+                <div class="bg-white rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="mb-8">
+                        <div class="text-success font-heading font-bold text-sm mb-3">ENERGIZING</div>
+                        <div class="font-heading font-black text-2xl mb-3">OUTDOOR WORKOUT</div>
+                        <div class="text-text/60 font-medium text-lg">Fresh air + fitness</div>
+                    </div>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Park workouts</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Bodyweight training</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Mood boost</span>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-4xl font-heading font-black gradient-text">$580</div>
+                        <div class="text-text/60 font-medium">10 sessions</div>
+                    </div>
+                    <a href="https://wa.me/6588626460" target="_blank" class="block w-full bg-primary hover:bg-primary/90 text-white text-center px-8 py-4 rounded-full font-heading font-black text-lg transition-all cursor-pointer">
+                        JOIN NOW
+                    </a>
+                </div>
+
+                <!-- Academy -->
+                <div class="bg-white rounded-3xl p-10 border-2 border-accent/20 hover:border-accent shadow-xl hover-lift">
+                    <div class="mb-8">
+                        <div class="text-warning font-heading font-bold text-sm mb-3">FLEXIBLE</div>
+                        <div class="font-heading font-black text-2xl mb-3">ONLINE ACADEMY</div>
+                        <div class="text-text/60 font-medium text-lg">12-week online program</div>
+                    </div>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-warning/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-warning" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Learn at your pace</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-warning/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-warning" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">24/7 support</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-warning/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-4 h-4 text-warning" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <span class="font-medium">Community access</span>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-text/60 font-medium text-sm mb-2">Launching Soon</div>
+                    </div>
+                    <a href="https://wa.me/6588626460" target="_blank" class="block w-full bg-primary hover:bg-primary/90 text-white text-center px-8 py-4 rounded-full font-heading font-black text-lg transition-all cursor-pointer">
+                        GET NOTIFIED
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Coach Sharm -->
+    <section id="about" class="py-24 px-4 lg:px-8 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="aspect-square bg-gradient-to-br from-accent/20 via-warning/10 to-accent/20 rounded-3xl border-4 border-accent/40 flex items-center justify-center shadow-2xl">
+                        <div class="text-center p-12">
+                            <div class="text-7xl font-heading font-black text-primary mb-6">COACH<br/>SHARM</div>
+                            <div class="text-xl text-text/60 font-bold mb-6">MSc Exercise Science</div>
+                            <div class="flex gap-2 justify-center">
+                                <div class="bg-accent/10 px-4 py-2 rounded-full text-accent font-heading font-bold text-sm">25+ Years</div>
+                                <div class="bg-success/10 px-4 py-2 rounded-full text-success font-heading font-bold text-sm">10K+ Clients</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Trust badges -->
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-br from-warning to-accent text-white px-8 py-6 rounded-2xl shadow-2xl">
+                        <div class="font-heading font-black text-3xl">4.9★</div>
+                        <div class="text-sm font-bold">Rated</div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="inline-block bg-accent/10 border-2 border-accent text-accent px-6 py-3 rounded-full font-heading font-bold text-sm mb-6">
+                            🏆 MASTER TRAINER
+                        </div>
+                        <h2 class="text-5xl lg:text-6xl font-heading font-black mb-6 leading-tight">
+                            YOUR TRANSFORMATION<br/>
+                            <span class="gradient-text">PARTNER</span>
+                        </h2>
+                        <p class="text-xl text-text/70 leading-relaxed font-medium">
+                            25+ years experience. Master of Science in Exercise Science (NTU). Helped 10,000+ busy professionals transform their bodies without sacrificing lifestyle.
+                        </p>
+                    </div>
+                    
+                    <div class="grid gap-6">
+                        <div class="flex items-start gap-4 bg-accent/5 rounded-2xl p-6 border-l-4 border-accent">
+                            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-heading font-black text-lg mb-1">Master of Science (MSc) - NTU</div>
+                                <div class="text-text/60 font-medium">Exercise, nutrition & sports psychology specialist</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 bg-warning/5 rounded-2xl p-6 border-l-4 border-warning">
+                            <div class="w-12 h-12 bg-warning/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-warning" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-heading font-black text-lg mb-1">Master Trainer Certifications</div>
+                                <div class="text-text/60 font-medium">BOSU, PRAMA, TRX, TWIST, NASM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 bg-success/5 rounded-2xl p-6 border-l-4 border-success">
+                            <div class="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-heading font-black text-lg mb-1">Government Partner & Presenter</div>
+                                <div class="text-text/60 font-medium">Co-creator "Lose To Win" (Health Promotion Board)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6">
+                        <a href="https://wa.me/6588626460" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-accent to-warning hover:shadow-2xl hover:shadow-accent/50 text-white px-10 py-5 rounded-full font-heading font-black text-xl transition-all duration-300 cursor-pointer transform hover:scale-110">
+                            <span>WORK WITH COACH SHARM</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-28 px-4 lg:px-8 bg-gradient-to-br from-primary via-secondary to-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-accent via-warning to-accent animate-pulse-slow"></div>
+        </div>
+        
+        <div class="container mx-auto max-w-5xl text-center relative z-10">
+            <h2 class="text-6xl lg:text-8xl font-heading font-black mb-8 leading-none">
+                READY TO<br/>
+                <span class="gradient-text">TRANSFORM?</span>
+            </h2>
+            <p class="text-2xl text-white/90 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
+                Join 10,000+ transformations. Limited slots available.<br/>
+                <span class="text-accent font-bold">Your journey starts today.</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                <a href="https://wa.me/6588626460" target="_blank" class="group bg-gradient-to-r from-accent to-warning hover:shadow-2xl hover:shadow-accent/50 text-white px-14 py-7 rounded-full font-heading font-black text-3xl transition-all duration-300 cursor-pointer transform hover:scale-110 inline-flex items-center justify-center gap-4">
+                    <span>GET STARTED FREE</span>
+                    <svg class="w-8 h-8 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-10 max-w-2xl mx-auto">
+                <div class="text-warning font-heading font-black text-xl mb-4">💯 100% SATISFACTION GUARANTEE</div>
+                <p class="text-white/90 text-lg font-medium">Not satisfied after your first session? It's FREE. No questions asked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16 px-4 lg:px-8 border-t-4 border-accent">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-warning rounded-full flex items-center justify-center">
+                            <span class="text-white text-xl font-heading font-black">BT</span>
+                        </div>
+                        <div class="text-2xl font-heading font-black">BODY THRIVE</div>
+                    </div>
+                    <p class="text-white/70 font-medium leading-relaxed">
+                        Transform your body,<br/>transform your life.<br/>
+                        <span class="text-accent font-bold">Since 1998.</span>
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-black text-lg mb-6 text-accent">PROGRAMS</h4>
+                    <ul class="space-y-3 text-white/80 font-medium">
+                        <li><a href="#programs" class="hover:text-accent transition-colors cursor-pointer">Personal Training</a></li>
+                        <li><a href="#programs" class="hover:text-accent transition-colors cursor-pointer">Small Group</a></li>
+                        <li><a href="#programs" class="hover:text-accent transition-colors cursor-pointer">Outdoor Workout</a></li>
+                        <li><a href="#programs" class="hover:text-accent transition-colors cursor-pointer">Online Academy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-black text-lg mb-6 text-accent">RESOURCES</h4>
+                    <ul class="space-y-3 text-white/80 font-medium">
+                        <li><a href="https://www.youtube.com/@CoachSharm" target="_blank" class="hover:text-accent transition-colors cursor-pointer">YouTube</a></li>
+                        <li><a href="https://www.instagram.com/coach.sharm/" target="_blank" class="hover:text-accent transition-colors cursor-pointer">Instagram</a></li>
+                        <li><a href="https://www.bodythrive.co/blog/" target="_blank" class="hover:text-accent transition-colors cursor-pointer">Blog</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors cursor-pointer">LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-black text-lg mb-6 text-accent">CONTACT</h4>
+                    <ul class="space-y-3 text-white/80 font-medium">
+                        <li><a href="https://wa.me/6588626460" target="_blank" class="hover:text-accent transition-colors cursor-pointer">WhatsApp: +65 8862 6460</a></li>
+                        <li><a href="mailto:hisham.musa@gmail.com" class="hover:text-accent transition-colors cursor-pointer">hisham.musa@gmail.com</a></li>
+                        <li>Singapore</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t-2 border-white/10 pt-8 text-center">
+                <p class="text-white/60 font-medium">© 2026 Body Thrive by Coach Sharm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

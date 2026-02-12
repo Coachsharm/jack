@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Fat Loss Coach | Fit Body Thrive</title>
+    <meta name="description" content="Master the art of sustainable fat loss coaching. Learn psychology, flexible eating, and habit building with Coach Sharm's signature certification.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            green: '#22C55E',
+                            greenHover: '#16A34A',
+                            dark: '#0F172A',
+                            darker: '#020617',
+                            card: '#1E293B',
+                            text: '#F8FAFC',
+                            muted: '#94A3B8',
+                            lightOrange: '#FB923C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Barlow', 'sans-serif'],
+                        condensed: ['Barlow Condensed', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel { background: rgba(30,41,59,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30,41,59,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .glass-card:hover { background: rgba(30,41,59,0.6); border-color: rgba(249,115,22,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(249,115,22,0.15); }
+        .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(to right, #F97316, #FBBF24); }
+        .hero-bg { background-color: #0F172A; background-image: radial-gradient(at 0% 0%, rgba(249,115,22,0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(34,197,94,0.1) 0px, transparent 50%), linear-gradient(to bottom, transparent, #0F172A); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="font-condensed text-2xl font-bold text-brand-orange">Fit Body Thrive</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Home</a>
+                    <div class="relative group">
+                        <button class="text-brand-muted hover:text-brand-text transition cursor-pointer flex items-center gap-1">Courses <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                        <div class="absolute top-full left-0 mt-2 w-64 glass-panel rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <p class="px-4 py-1 text-xs text-brand-orange font-semibold uppercase tracking-wider">Fitness</p>
+                            <a href="fitness-program-design.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Advanced Program Design</a>
+                            <a href="fitness-functional-training.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Functional Training</a>
+                            <a href="fitness-body-transformation.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Body Transformation</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-brand-green font-semibold uppercase tracking-wider">Nutrition</p>
+                            <a href="nutrition-foundations.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Nutrition Foundations</a>
+                            <a href="nutrition-sports-performance.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Sports Nutrition</a>
+                            <a href="nutrition-fat-loss-coach.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Fat Loss Coach</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-purple-400 font-semibold uppercase tracking-wider">Psychology</p>
+                            <a href="psychology-behaviour-change.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Behaviour Change & MI</a>
+                            <a href="psychology-coaching.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Coaching Psychology</a>
+                            <a href="psychology-mindset-habits.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Mindset & Habits</a>
+                        </div>
+                    </div>
+                    <a href="vip-fat-loss.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">VIP Academy</a>
+                    <a href="about.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">About</a>
+                    <a href="success-stories.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Success Stories</a>
+                    <a href="contact-wa.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Contact</a>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Fit%20Body%20Thrive%20programs." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2 rounded-lg font-semibold transition cursor-pointer">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-brand-muted hover:text-brand-text cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-panel border-t border-white/10">
+            <div class="px-4 py-3 space-y-2">
+                <a href="index.html" class="block py-2 text-brand-muted hover:text-brand-text">Home</a>
+                <p class="text-xs text-brand-orange font-semibold uppercase pt-2">Fitness Courses</p>
+                <a href="fitness-program-design.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Program Design</a>
+                <a href="fitness-functional-training.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Functional Training</a>
+                <a href="fitness-body-transformation.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Body Transformation</a>
+                <p class="text-xs text-brand-green font-semibold uppercase pt-2">Nutrition Courses</p>
+                <a href="nutrition-foundations.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Nutrition Foundations</a>
+                <a href="nutrition-sports-performance.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Sports Nutrition</a>
+                <a href="nutrition-fat-loss-coach.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Fat Loss Coach</a>
+                <p class="text-xs text-purple-400 font-semibold uppercase pt-2">Psychology Courses</p>
+                <a href="psychology-behaviour-change.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Behaviour Change</a>
+                <a href="psychology-coaching.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Coaching Psychology</a>
+                <a href="psychology-mindset-habits.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Mindset & Habits</a>
+                <hr class="border-white/10">
+                <a href="vip-fat-loss.html" class="block py-2 text-brand-muted hover:text-brand-text">VIP Academy</a>
+                <a href="about.html" class="block py-2 text-brand-muted hover:text-brand-text">About</a>
+                <a href="success-stories.html" class="block py-2 text-brand-muted hover:text-brand-text">Success Stories</a>
+                <a href="contact-wa.html" class="block py-2 text-brand-muted hover:text-brand-text">Contact</a>
+                <a href="https://wa.me/6591090995" target="_blank" class="block py-2 text-brand-orange font-semibold">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-bg overflow-hidden">
+        <div class="absolute top-20 right-0 -z-10 opacity-20 transform translate-x-1/3">
+            <div class="w-96 h-96 rounded-full bg-brand-green blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6 reveal">
+                    <span class="px-3 py-1 text-xs font-bold uppercase tracking-widest text-white bg-brand-green rounded-full">NUTRITION</span>
+                    <span class="px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-dark bg-yellow-400 rounded-full border border-yellow-500">SIGNATURE</span>
+                </div>
+                <h1 class="font-condensed text-5xl md:text-7xl font-bold text-white leading-tight mb-6 reveal" style="transition-delay: 100ms;">
+                    Sustainable Fat Loss <br><span class="text-brand-green">Nutrition Coach</span>
+                </h1>
+                <p class="text-xl text-brand-muted mb-8 max-w-2xl reveal" style="transition-delay: 200ms;">
+                    Coach Sharm's signature approach. Teach clients to build sustainable nutrition habits without deprivation, shakes, or extreme restriction.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 reveal" style="transition-delay: 300ms;">
+                    <a href="https://wa.me/6591090995?text=Hi!%20I'd%20like%20to%20know%20more%20about%20the%20Sustainable%20Fat%20Loss%20Coach%20cert." target="_blank" class="px-8 py-4 bg-brand-green hover:bg-brand-greenHover text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-brand-green/25 text-center">
+                        Apply Now
+                    </a>
+                    <a href="#curriculum" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-lg backdrop-blur-sm border border-white/10 transition-all text-center">
+                        View Curriculum
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-20 bg-brand-darker relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="font-condensed text-4xl font-bold text-white mb-6">Stop The Yo-Yo Dieting Cycle</h2>
+                    <div class="space-y-4 text-brand-muted">
+                        <p class="text-lg">
+                            Most coaches know how to write a meal plan, but few know how to change a life. The industry is full of quick fixes, meal replacements, and restrictive diets that fail long-term.
+                        </p>
+                        <p class="text-lg">
+                            This signature certification teaches you <strong class="text-brand-green">Coach Sharm's proven methodology</strong> for helping clients lose fat and keep it off—using psychology, habit formation, and flexible eating strategies that fit their real lives.
+                        </p>
+                        <p class="text-lg">
+                            No shakes. No starvation. No "good vs bad" foods. Just evidence-based science applied with deep human understanding.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 200ms;">
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-green">
+                        <div class="w-12 h-12 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-green">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white mb-2">Sustainable</h3>
+                        <p class="text-sm text-brand-muted">Habits that stick for life, not just 30 days.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-green">
+                        <div class="w-12 h-12 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-green">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white mb-2">Psychology First</h3>
+                        <p class="text-sm text-brand-muted">Address the "why" before the "what".</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-green">
+                        <div class="w-12 h-12 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-green">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <div class="font-bold text-white mb-2">Real Food</div>
+                        <p class="text-sm text-brand-muted">Navigating hawker centres & social meals.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-green">
+                        <div class="w-12 h-12 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-green">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white mb-2">Results</h3>
+                        <p class="text-sm text-brand-muted">Proven framework for fat loss success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section id="curriculum" class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-green font-bold tracking-wider uppercase">What You Will Learn</span>
+                <h2 class="font-condensed text-4xl font-bold text-white mt-2">Course Curriculum</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Module 1 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">01</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Psychology of Eating</h3>
+                    <p class="text-brand-muted">Understand the deep-seated habits and emotional triggers that drive overeating. Learn to coach the mind, not just the mouth.</p>
+                </div>
+                <!-- Module 2 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group" style="transition-delay: 100ms;">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">02</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Flexible & Intuitive Eating</h3>
+                    <p class="text-brand-muted">Master the principles of flexible dieting. Teach clients how to enjoy their favourite foods while still hitting their goals.</p>
+                </div>
+                <!-- Module 3 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group" style="transition-delay: 200ms;">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">03</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Calories & Macro Coaching</h3>
+                    <p class="text-brand-muted">Practical application of energy balance. How to calculate, adjust, and coach macros for real-world clients with varying needs.</p>
+                </div>
+                <!-- Module 4 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group" style="transition-delay: 300ms;">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">04</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Meal Prep for Pros</h3>
+                    <p class="text-brand-muted">Strategies for busy professionals. Simple, time-efficient meal prep systems that don't require spending Sunday in the kitchen.</p>
+                </div>
+                <!-- Module 5 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group" style="transition-delay: 400ms;">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">05</div>
+                    <h3 class="text-xl font-bold text-white mb-3">SG Food Culture</h3>
+                    <p class="text-brand-muted">The Singapore special. How to navigate hawker centres, food courts, and social gatherings without blowing the calorie budget.</p>
+                </div>
+                <!-- Module 6 -->
+                <div class="glass-card p-8 rounded-xl reveal hover:border-brand-green/50 group" style="transition-delay: 500ms;">
+                    <div class="text-5xl font-condensed font-bold text-white/5 absolute top-4 right-6 group-hover:text-brand-green/10 transition-colors">06</div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Coaching Business</h3>
+                    <p class="text-brand-muted">Packaging and pricing. How to structure, sell, and deliver a high-ticket nutrition coaching program as a standalone service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Details -->
+    <section class="py-20 bg-brand-darker border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel rounded-2xl p-8 md:p-12 relative overflow-hidden reveal">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-green/10 blur-3xl rounded-full -mr-16 -mt-16"></div>
+                
+                <h2 class="font-condensed text-3xl font-bold text-white mb-8 text-center">Certification Details</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Duration</h4>
+                                <p class="text-brand-muted">20 Hours (2.5 Weekends)<br>+ 4 Weeks Mentorship</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Certification</h4>
+                                <p class="text-brand-muted">Body Thrive Certified Nutrition Coach<br>+ CECs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">Investment</h4>
+                                <p class="text-2xl font-bold text-brand-green">$1,400</p>
+                                <p class="text-sm text-brand-lightOrange font-semibold">Early Bird: $1,200</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-white/10 text-center">
+                    <a href="https://wa.me/6591090995?text=Hi!%20I'd%20like%20to%20know%20more%20about%20the%20Sustainable%20Fat%20Loss%20Coach%20cert." target="_blank" class="inline-block px-10 py-4 bg-brand-green hover:bg-brand-greenHover text-white font-bold rounded-lg shadow-lg hover:shadow-brand-green/30 transition-all transform hover:-translate-y-1">
+                        Secure Your Spot via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-condensed text-4xl font-bold text-white mb-12 text-center reveal">What Graduates Say</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-xl reveal">
+                    <div class="flex gap-1 text-yellow-500 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-brand-muted mb-6 italic">"This course completely changed how I approach nutrition with my clients. I stopped giving out generic meal plans that nobody followed, and started coaching habits. My client retention has doubled since taking this certification."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center font-bold text-brand-green">JD</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Jeremy D.</p>
+                            <p class="text-xs text-brand-muted">Personal Trainer, Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-xl reveal" style="transition-delay: 100ms;">
+                    <div class="flex gap-1 text-yellow-500 mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-brand-muted mb-6 italic">"Coach Sharm's approach is refreshing. He cuts through the BS and focuses on what actually works. The section on hawker food navigation was a game-changer for my local clients. Highly recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center font-bold text-brand-green">SL</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Sarah L.</p>
+                            <p class="text-xs text-brand-muted">Fitness Coach, Singapore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-condensed text-xl font-bold text-brand-orange mb-4">Fit Body Thrive</h3>
+                    <p class="text-brand-muted text-sm">Singapore's premier fitness education academy. Elevate your coaching with evidence-based courses by Coach Sharm.</p>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Courses</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="fitness-program-design.html" class="hover:text-brand-orange transition cursor-pointer">Program Design</a></li>
+                        <li><a href="fitness-functional-training.html" class="hover:text-brand-orange transition cursor-pointer">Functional Training</a></li>
+                        <li><a href="fitness-body-transformation.html" class="hover:text-brand-orange transition cursor-pointer">Body Transformation</a></li>
+                        <li><a href="nutrition-foundations.html" class="hover:text-brand-orange transition cursor-pointer">Nutrition Foundations</a></li>
+                        <li><a href="psychology-behaviour-change.html" class="hover:text-brand-orange transition cursor-pointer">Behaviour Change</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="vip-fat-loss.html" class="hover:text-brand-orange transition cursor-pointer">VIP Fat Loss Academy</a></li>
+                        <li><a href="corporate-wellness.html" class="hover:text-brand-orange transition cursor-pointer">Corporate Wellness</a></li>
+                        <li><a href="executive-coaching.html" class="hover:text-brand-orange transition cursor-pointer">Executive Coaching</a></li>
+                        <li><a href="success-stories.html" class="hover:text-brand-orange transition cursor-pointer">Success Stories</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-orange transition cursor-pointer">Blog & Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li>📱 <a href="https://wa.me/6591090995" target="_blank" class="hover:text-brand-orange transition cursor-pointer">+65 9109 0995</a></li>
+                        <li>📧 hisham.musa@gmail.com</li>
+                        <li class="flex gap-3 pt-2">
+                            <a href="https://www.instagram.com/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">Instagram</a>
+                            <a href="https://www.linkedin.com/in/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">LinkedIn</a>
+                            <a href="https://www.youtube.com/@coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-brand-muted">
+                <p>&copy; 2026 Fit Body Thrive by Coach Sharm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6591090995" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer" aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

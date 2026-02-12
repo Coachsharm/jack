@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Fit Body Thrive</title>
+    <meta name="description" content="Get in touch with Coach Sharm for expert fitness and nutrition coaching in Singapore. WhatsApp, email, or connect on social media to start your transformation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            green: '#22C55E',
+                            greenHover: '#16A34A',
+                            dark: '#0F172A',
+                            darker: '#020617',
+                            card: '#1E293B',
+                            text: '#F8FAFC',
+                            muted: '#94A3B8',
+                            lightOrange: '#FB923C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Barlow', 'sans-serif'],
+                        condensed: ['Barlow Condensed', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel { background: rgba(30,41,59,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30,41,59,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .glass-card:hover { background: rgba(30,41,59,0.6); border-color: rgba(249,115,22,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(249,115,22,0.15); }
+        .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(to right, #F97316, #FBBF24); }
+        .hero-bg { background-color: #0F172A; background-image: radial-gradient(at 0% 0%, rgba(249,115,22,0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(34,197,94,0.1) 0px, transparent 50%), linear-gradient(to bottom, transparent, #0F172A); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="font-condensed text-2xl font-bold text-brand-orange">Fit Body Thrive</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Home</a>
+                    <div class="relative group">
+                        <button class="text-brand-muted hover:text-brand-text transition cursor-pointer flex items-center gap-1">Courses <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                        <div class="absolute top-full left-0 mt-2 w-64 glass-panel rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <p class="px-4 py-1 text-xs text-brand-orange font-semibold uppercase tracking-wider">Fitness</p>
+                            <a href="fitness-program-design.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Advanced Program Design</a>
+                            <a href="fitness-functional-training.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Functional Training</a>
+                            <a href="fitness-body-transformation.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Body Transformation</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-brand-green font-semibold uppercase tracking-wider">Nutrition</p>
+                            <a href="nutrition-foundations.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Nutrition Foundations</a>
+                            <a href="nutrition-sports-performance.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Sports Nutrition</a>
+                            <a href="nutrition-fat-loss-coach.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Fat Loss Coach</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-purple-400 font-semibold uppercase tracking-wider">Psychology</p>
+                            <a href="psychology-behaviour-change.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Behaviour Change & MI</a>
+                            <a href="psychology-coaching.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Coaching Psychology</a>
+                            <a href="psychology-mindset-habits.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Mindset & Habits</a>
+                        </div>
+                    </div>
+                    <a href="vip-fat-loss.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">VIP Academy</a>
+                    <a href="about.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">About</a>
+                    <a href="success-stories.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Success Stories</a>
+                    <a href="contact-wa.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Contact</a>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Fit%20Body%20Thrive%20programs." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2 rounded-lg font-semibold transition cursor-pointer">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-brand-muted hover:text-brand-text cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-panel border-t border-white/10">
+            <div class="px-4 py-3 space-y-2">
+                <a href="index.html" class="block py-2 text-brand-muted hover:text-brand-text">Home</a>
+                <p class="text-xs text-brand-orange font-semibold uppercase pt-2">Fitness Courses</p>
+                <a href="fitness-program-design.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Program Design</a>
+                <a href="fitness-functional-training.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Functional Training</a>
+                <a href="fitness-body-transformation.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Body Transformation</a>
+                <p class="text-xs text-brand-green font-semibold uppercase pt-2">Nutrition Courses</p>
+                <a href="nutrition-foundations.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Nutrition Foundations</a>
+                <a href="nutrition-sports-performance.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Sports Nutrition</a>
+                <a href="nutrition-fat-loss-coach.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Fat Loss Coach</a>
+                <p class="text-xs text-purple-400 font-semibold uppercase pt-2">Psychology Courses</p>
+                <a href="psychology-behaviour-change.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Behaviour Change</a>
+                <a href="psychology-coaching.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Coaching Psychology</a>
+                <a href="psychology-mindset-habits.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Mindset & Habits</a>
+                <hr class="border-white/10">
+                <a href="vip-fat-loss.html" class="block py-2 text-brand-muted hover:text-brand-text">VIP Academy</a>
+                <a href="about.html" class="block py-2 text-brand-muted hover:text-brand-text">About</a>
+                <a href="success-stories.html" class="block py-2 text-brand-muted hover:text-brand-text">Success Stories</a>
+                <a href="contact-wa.html" class="block py-2 text-brand-muted hover:text-brand-text">Contact</a>
+                <a href="https://wa.me/6591090995" target="_blank" class="block py-2 text-brand-orange font-semibold">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-[50vh] flex items-center pt-20 pb-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-3xl mx-auto reveal">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-4 block">Let's Connect</span>
+                <h1 class="font-condensed text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                    Get In <span class="text-gradient">Touch</span>
+                </h1>
+                <p class="text-lg md:text-xl text-brand-muted mb-8 leading-relaxed">
+                    Ready to transform your body and health? Have questions about our courses? We're here to help you start your journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'd%20like%20to%20learn%20more%20about%20your%20programs." target="_blank" class="bg-brand-green hover:bg-brand-greenHover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-lg shadow-brand-green/20 flex items-center justify-center gap-2 cursor-pointer">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods Grid -->
+    <section class="py-16 bg-brand-dark relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- WhatsApp Card -->
+                <div class="glass-card p-8 rounded-2xl text-center reveal border-t-4 border-brand-green">
+                    <div class="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-2">WhatsApp</h3>
+                    <p class="text-brand-muted mb-4">Fastest response time. Direct chat with Coach Sharm.</p>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'd%20like%20to%20learn%20more%20about%20your%20programs." target="_blank" class="text-brand-green font-bold text-lg hover:text-brand-greenHover transition cursor-pointer block break-all">
+                        +65 9109 0995
+                    </a>
+                </div>
+
+                <!-- Email Card -->
+                <div class="glass-card p-8 rounded-2xl text-center reveal border-t-4 border-brand-orange">
+                    <div class="w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-orange">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-2">Email</h3>
+                    <p class="text-brand-muted mb-4">For course inquiries and business proposals.</p>
+                    <a href="mailto:hisham.musa@gmail.com" class="text-brand-orange font-bold text-lg hover:text-brand-orangeHover transition cursor-pointer block break-all">
+                        hisham.musa@gmail.com
+                    </a>
+                </div>
+
+                <!-- Social Media Card -->
+                <div class="glass-card p-8 rounded-2xl text-center reveal border-t-4 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-purple-400">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-2">Follow Us</h3>
+                    <p class="text-brand-muted mb-6">Daily tips, workouts, and motivation.</p>
+                    <div class="flex justify-center gap-4">
+                        <a href="https://www.instagram.com/coachsharm" target="_blank" class="bg-white/10 p-3 rounded-full hover:bg-brand-orange hover:text-white transition cursor-pointer" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/coachsharm" target="_blank" class="bg-white/10 p-3 rounded-full hover:bg-brand-orange hover:text-white transition cursor-pointer" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@coachsharm" target="_blank" class="bg-white/10 p-3 rounded-full hover:bg-brand-orange hover:text-white transition cursor-pointer" aria-label="YouTube">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@coachsharm" target="_blank" class="bg-white/10 p-3 rounded-full hover:bg-brand-orange hover:text-white transition cursor-pointer" aria-label="TikTok">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl mb-16 reveal" id="contact-form-section">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="text-brand-orange font-bold">/</span>
+                    <h2 class="font-condensed text-3xl font-bold">Professional Contact Form</h2>
+                </div>
+                <p class="text-brand-muted mb-8 max-w-3xl">Send us your details and we’ll get back to you quickly. This form opens WhatsApp with your message pre‑filled for faster response.</p>
+                <form id="contact-form" class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm text-brand-muted mb-2" for="name">Full Name</label>
+                        <input id="name" name="name" type="text" required placeholder="Your full name" class="w-full bg-brand-darker/60 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-brand-muted mb-2" for="email">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="you@email.com" class="w-full bg-brand-darker/60 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-brand-muted mb-2" for="phone">Mobile (WhatsApp)</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+65 9XXX XXXX" class="w-full bg-brand-darker/60 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-brand-muted mb-2" for="interest">I’m interested in</label>
+                        <select id="interest" name="interest" class="w-full bg-brand-darker/60 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer">
+                            <option>Course Enquiry</option>
+                            <option>VIP Fat Loss Academy</option>
+                            <option>Corporate Wellness</option>
+                            <option>Executive Coaching</option>
+                            <option>General Enquiry</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-brand-muted mb-2" for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help" class="w-full bg-brand-darker/60 border border-white/10 rounded-lg px-4 py-3 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-orange cursor-pointer"></textarea>
+                    </div>
+                    <div class="md:col-span-2 flex flex-col sm:flex-row gap-4 items-center">
+                        <button type="submit" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-3 rounded-xl font-bold text-lg transition-all transform hover:scale-[1.02] shadow-lg shadow-brand-orange/20 cursor-pointer">Send Message</button>
+                        <p id="form-note" class="text-brand-muted text-sm">Your message opens in WhatsApp so you can send it instantly.</p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-start reveal">
+                <!-- Location Map -->
+                <div>
+                    <h2 class="font-condensed text-3xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-brand-orange">/</span> Our Location
+                    </h2>
+                    <div class="glass-card p-2 rounded-2xl overflow-hidden h-[400px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.2263842637!2d103.67943501170792!3d1.3143323062635933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da11238a8b9375%3A0x887869cf52abf5c4!2sSingapore!5e0!3m2!1sen!2ssg!4v1707746400000!5m2!1sen!2ssg" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-xl grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100">
+                        </iframe>
+                    </div>
+                    <p class="mt-4 text-brand-muted flex items-start gap-2">
+                        <svg class="w-5 h-5 text-brand-orange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>Based in Singapore. Available for in-person coaching in SG and online coaching worldwide.</span>
+                    </p>
+                </div>
+
+                <!-- FAQ -->
+                <div>
+                    <h2 class="font-condensed text-3xl font-bold mb-6 flex items-center gap-2">
+                        <span class="text-brand-orange">/</span> Frequently Asked Questions
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="glass-card rounded-xl p-6 group cursor-pointer">
+                            <h3 class="font-bold text-lg mb-2 text-white group-hover:text-brand-orange transition">Where do you conduct training?</h3>
+                            <p class="text-brand-muted text-sm">I work with clients at various gym locations across Singapore, or I can come to your condo gym. For international clients, my online coaching program is fully comprehensive.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 group cursor-pointer">
+                            <h3 class="font-bold text-lg mb-2 text-white group-hover:text-brand-orange transition">Do you work with beginners?</h3>
+                            <p class="text-brand-muted text-sm">Absolutely. Whether you're just starting your fitness journey or are an experienced athlete, I tailor the program specifically to your current fitness level and goals.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 group cursor-pointer">
+                            <h3 class="font-bold text-lg mb-2 text-white group-hover:text-brand-orange transition">How do I start?</h3>
+                            <p class="text-brand-muted text-sm">The best way is to send me a WhatsApp message. We'll have a quick chat to understand your goals and see if we're a good fit for each other.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-condensed text-xl font-bold text-brand-orange mb-4">Fit Body Thrive</h3>
+                    <p class="text-brand-muted text-sm">Singapore's premier fitness education academy. Elevate your coaching with evidence-based courses by Coach Sharm.</p>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Courses</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="fitness-program-design.html" class="hover:text-brand-orange transition cursor-pointer">Program Design</a></li>
+                        <li><a href="fitness-functional-training.html" class="hover:text-brand-orange transition cursor-pointer">Functional Training</a></li>
+                        <li><a href="fitness-body-transformation.html" class="hover:text-brand-orange transition cursor-pointer">Body Transformation</a></li>
+                        <li><a href="nutrition-foundations.html" class="hover:text-brand-orange transition cursor-pointer">Nutrition Foundations</a></li>
+                        <li><a href="psychology-behaviour-change.html" class="hover:text-brand-orange transition cursor-pointer">Behaviour Change</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="vip-fat-loss.html" class="hover:text-brand-orange transition cursor-pointer">VIP Fat Loss Academy</a></li>
+                        <li><a href="corporate-wellness.html" class="hover:text-brand-orange transition cursor-pointer">Corporate Wellness</a></li>
+                        <li><a href="executive-coaching.html" class="hover:text-brand-orange transition cursor-pointer">Executive Coaching</a></li>
+                        <li><a href="success-stories.html" class="hover:text-brand-orange transition cursor-pointer">Success Stories</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-orange transition cursor-pointer">Blog & Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li>📱 <a href="https://wa.me/6591090995" target="_blank" class="hover:text-brand-orange transition cursor-pointer">+65 9109 0995</a></li>
+                        <li>📧 hisham.musa@gmail.com</li>
+                        <li class="flex gap-3 pt-2">
+                            <a href="https://www.instagram.com/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">Instagram</a>
+                            <a href="https://www.linkedin.com/in/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">LinkedIn</a>
+                            <a href="https://www.youtube.com/@coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-brand-muted">
+                <p>&copy; 2026 Fit Body Thrive by Coach Sharm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6591090995" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer" aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Contact form → WhatsApp
+        const form = document.getElementById('contact-form');
+        form?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value.trim();
+            const text = `Hi Coach Sharm!%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AInterest: ${encodeURIComponent(interest)}%0AMessage: ${encodeURIComponent(message)}`;
+            window.open(`https://wa.me/6591090995?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>

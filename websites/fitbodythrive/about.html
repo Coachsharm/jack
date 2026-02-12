@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Coach Sharm | Fit Body Thrive</title>
+    <meta name="description" content="Meet Coach Sharm, Singapore's premier fitness educator with 25+ years of experience. MSc in Exercise Science, HPB partner, and author of 30+ books.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            green: '#22C55E',
+                            greenHover: '#16A34A',
+                            dark: '#0F172A',
+                            darker: '#020617',
+                            card: '#1E293B',
+                            text: '#F8FAFC',
+                            muted: '#94A3B8',
+                            lightOrange: '#FB923C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Barlow', 'sans-serif'],
+                        condensed: ['Barlow Condensed', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel { background: rgba(30,41,59,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30,41,59,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .glass-card:hover { background: rgba(30,41,59,0.6); border-color: rgba(249,115,22,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(249,115,22,0.15); }
+        .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(to right, #F97316, #FBBF24); }
+        .hero-bg { background-color: #0F172A; background-image: radial-gradient(at 0% 0%, rgba(249,115,22,0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(34,197,94,0.1) 0px, transparent 50%), linear-gradient(to bottom, transparent, #0F172A); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        /* Timeline specifics */
+        .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, #F97316, #22C55E); z-index: 0; }
+        @media (max-width: 768px) { .timeline-line { left: 20px; } }
+    </style>
+</head>
+<body class="bg-brand-darker text-brand-text font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="font-condensed text-2xl font-bold text-brand-orange">Fit Body Thrive</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Home</a>
+                    <div class="relative group">
+                        <button class="text-brand-muted hover:text-brand-text transition cursor-pointer flex items-center gap-1">Courses <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                        <div class="absolute top-full left-0 mt-2 w-64 glass-panel rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <p class="px-4 py-1 text-xs text-brand-orange font-semibold uppercase tracking-wider">Fitness</p>
+                            <a href="fitness-program-design.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Advanced Program Design</a>
+                            <a href="fitness-functional-training.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Functional Training</a>
+                            <a href="fitness-body-transformation.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Body Transformation</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-brand-green font-semibold uppercase tracking-wider">Nutrition</p>
+                            <a href="nutrition-foundations.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Nutrition Foundations</a>
+                            <a href="nutrition-sports-performance.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Sports Nutrition</a>
+                            <a href="nutrition-fat-loss-coach.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Fat Loss Coach</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-purple-400 font-semibold uppercase tracking-wider">Psychology</p>
+                            <a href="psychology-behaviour-change.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Behaviour Change & MI</a>
+                            <a href="psychology-coaching.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Coaching Psychology</a>
+                            <a href="psychology-mindset-habits.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Mindset & Habits</a>
+                        </div>
+                    </div>
+                    <a href="vip-fat-loss.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">VIP Academy</a>
+                    <a href="about.html" class="text-brand-text font-semibold transition cursor-pointer">About</a>
+                    <a href="success-stories.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Success Stories</a>
+                    <a href="contact-wa.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Contact</a>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Fit%20Body%20Thrive%20programs." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2 rounded-lg font-semibold transition cursor-pointer">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-brand-muted hover:text-brand-text cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-panel border-t border-white/10">
+            <div class="px-4 py-3 space-y-2">
+                <a href="index.html" class="block py-2 text-brand-muted hover:text-brand-text">Home</a>
+                <p class="text-xs text-brand-orange font-semibold uppercase pt-2">Fitness Courses</p>
+                <a href="fitness-program-design.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Program Design</a>
+                <a href="fitness-functional-training.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Functional Training</a>
+                <a href="fitness-body-transformation.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Body Transformation</a>
+                <p class="text-xs text-brand-green font-semibold uppercase pt-2">Nutrition Courses</p>
+                <a href="nutrition-foundations.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Nutrition Foundations</a>
+                <a href="nutrition-sports-performance.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Sports Nutrition</a>
+                <a href="nutrition-fat-loss-coach.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Fat Loss Coach</a>
+                <p class="text-xs text-purple-400 font-semibold uppercase pt-2">Psychology Courses</p>
+                <a href="psychology-behaviour-change.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Behaviour Change</a>
+                <a href="psychology-coaching.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Coaching Psychology</a>
+                <a href="psychology-mindset-habits.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Mindset & Habits</a>
+                <hr class="border-white/10">
+                <a href="vip-fat-loss.html" class="block py-2 text-brand-muted hover:text-brand-text">VIP Academy</a>
+                <a href="about.html" class="block py-2 text-brand-text font-semibold">About</a>
+                <a href="success-stories.html" class="block py-2 text-brand-muted hover:text-brand-text">Success Stories</a>
+                <a href="contact-wa.html" class="block py-2 text-brand-muted hover:text-brand-text">Contact</a>
+                <a href="https://wa.me/6591090995" target="_blank" class="block py-2 text-brand-orange font-semibold">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 reveal active">
+                    <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider text-brand-orange uppercase bg-orange-500/10 rounded-full border border-orange-500/20">The Man Behind The Movement</span>
+                    <h1 class="text-5xl md:text-7xl font-condensed font-bold mb-6 leading-tight">Meet <span class="text-gradient">Coach Sharm</span></h1>
+                    <p class="text-lg text-brand-muted mb-8 leading-relaxed">
+                        With over two decades of experience shaping the fitness landscape in Singapore, Coach Sharm combines academic rigour with practical mastery. His mission is simple yet profound: to help you build a sound mind in a sound body.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'd%20like%20to%20connect." class="px-8 py-3 bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-orange-500/25">Connect with Coach</a>
+                        <a href="#bio" class="px-8 py-3 glass-card hover:bg-white/5 text-white font-semibold rounded-lg transition-all">Read Full Bio</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 reveal delay-200">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-orange to-brand-green rounded-2xl blur-2xl opacity-20"></div>
+                        <!-- Placeholder for Coach Sharm Image -->
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl glass-card aspect-[4/5] flex items-center justify-center bg-brand-card">
+                            <div class="text-center p-8">
+                                <div class="w-32 h-32 mx-auto bg-brand-dark rounded-full flex items-center justify-center mb-4 border-2 border-brand-orange">
+                                    <span class="text-4xl">CS</span>
+                                </div>
+                                <p class="text-brand-muted italic">"Fitness is not just about the body.<br>It is about life."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Qualifications Banner -->
+    <section class="py-12 border-y border-white/5 bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+                <div class="p-4">
+                    <h3 class="text-4xl font-condensed font-bold text-white mb-1">25+</h3>
+                    <p class="text-sm text-brand-orange uppercase tracking-wider">Years Experience</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-4xl font-condensed font-bold text-white mb-1">30+</h3>
+                    <p class="text-sm text-brand-green uppercase tracking-wider">Books & Courses</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-4xl font-condensed font-bold text-white mb-1">MSc</h3>
+                    <p class="text-sm text-purple-400 uppercase tracking-wider">Exercise Science</p>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-4xl font-condensed font-bold text-white mb-1">HPB</h3>
+                    <p class="text-sm text-blue-400 uppercase tracking-wider">Partner & Co-Creator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Bio Section -->
+    <section id="bio" class="py-20 bg-brand-darker relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-12">
+                <!-- Academic Credentials -->
+                <div class="md:col-span-4 space-y-6 reveal">
+                    <h3 class="font-condensed text-2xl font-bold text-white border-l-4 border-brand-orange pl-4">Academic Qualifications</h3>
+                    <div class="glass-card p-6 rounded-xl">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                                <div>
+                                    <h4 class="font-bold text-white">MSc Exercise & Sports Science</h4>
+                                    <p class="text-sm text-brand-muted">Nanyang Technological University (NTU)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                                <div>
+                                    <h4 class="font-bold text-white">PGDip PE & Sports Science</h4>
+                                    <p class="text-sm text-brand-muted">National Institute of Education (Distinction)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-brand-orange mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                                <div>
+                                    <h4 class="font-bold text-white">BA (Merit)</h4>
+                                    <p class="text-sm text-brand-muted">National University of Singapore (NUS)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-condensed text-2xl font-bold text-white border-l-4 border-brand-green pl-4 pt-6">Master Trainer Certifications</h3>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">NASM</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">BOSU</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">TRX</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">PRAMA</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">TWIST</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-white">ViPR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biography Text -->
+                <div class="md:col-span-8 space-y-6 reveal delay-200">
+                    <h2 class="font-condensed text-4xl font-bold text-white mb-6">A Lifetime Dedicated to <span class="text-brand-orange">Excellence</span></h2>
+                    <div class="prose prose-lg prose-invert text-brand-muted">
+                        <p>
+                            Coach Sharm is a distinguished figure in Singapore's fitness industry, bringing a rare combination of high-level academic qualifications and decades of on-the-ground coaching experience.
+                        </p>
+                        <p>
+                            Starting his journey over 25 years ago, he has evolved from a passionate trainer to a sought-after educator and mentor for the next generation of fitness professionals. His deep understanding of exercise physiology, coupled with practical application, allows him to bridge the gap between complex science and real-world results.
+                        </p>
+                        <p>
+                            As a partner to the <strong>National Healthy Lifestyle Campaign</strong> and co-creator of the Health Promotion Board's highly successful <strong>"Lose To Win"</strong> programme, Coach Sharm has played a pivotal role in shaping public health initiatives in Singapore. His expertise has helped thousands of Singaporeans take their first steps towards a healthier life.
+                        </p>
+                        <p>
+                            He is also a prolific author, having written and produced over <strong>30 books and courses</strong> covering topics from fat loss and functional training to coaching psychology. His voice is frequently featured in the media, with appearances on TV, radio, magazines, and features in <em>The Straits Times</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-20 bg-brand-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <svg class="w-16 h-16 text-brand-orange mx-auto mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16H11.983C10.8784 16 9.983 16.8954 9.983 18L9.983 21L2.017 21L2.017 17.5603C2.017 15.6908 3.26875 14.0485 5.06645 13.4991L9 12.2965L9 9L8 9L8 7L16 7L16 9L15 9L15 12.2965L18.9336 13.4991C20.7313 14.0485 21.983 15.6908 21.983 17.5603L21.983 21L14.017 21ZM12 6C10.8954 6 10 5.10457 10 4C10 2.89543 10.8954 2 12 2C13.1046 2 14 2.89543 14 4C14 5.10457 13.1046 6 12 6Z"/></svg>
+            <h2 class="font-condensed text-4xl md:text-5xl font-bold text-white mb-8">"Sound Mind in a Sound Body"</h2>
+            <p class="text-xl text-brand-muted mb-10 leading-relaxed max-w-3xl mx-auto">
+                Inspired by the ancient Athenian concept, Coach Sharm's philosophy goes beyond just physical aesthetics. True fitness is the harmonious balance of physical strength, mental resilience, and emotional well-being.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 text-left reveal">
+                <div class="glass-card p-6 rounded-xl border-t-4 border-brand-orange">
+                    <h4 class="font-bold text-white text-lg mb-2">Sustainable Change</h4>
+                    <p class="text-brand-muted text-sm">No meal replacements. No shakes. No extreme diets. We build habits that last a lifetime, not just 12 weeks.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl border-t-4 border-brand-green">
+                    <h4 class="font-bold text-white text-lg mb-2">Evidence-Based</h4>
+                    <p class="text-brand-muted text-sm">Every method is backed by science. We don't follow fads; we follow physiology and proven psychological principles.</p>
+                </div>
+                <div class="glass-card p-6 rounded-xl border-t-4 border-blue-500">
+                    <h4 class="font-bold text-white text-lg mb-2">Holistic Approach</h4>
+                    <p class="text-brand-muted text-sm">We coach the whole person. Stress, sleep, mindset, and nutrition are just as important as the workout itself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Milestones / Timeline -->
+    <section class="py-20 bg-brand-darker relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm">The Journey</span>
+                <h2 class="font-condensed text-4xl font-bold text-white mt-2">Career Milestones</h2>
+            </div>
+            
+            <div class="relative py-8">
+                <!-- Vertical Line -->
+                <div class="timeline-line rounded-full"></div>
+
+                <!-- Item 1 -->
+                <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between w-full reveal">
+                    <div class="order-1 md:w-5/12 text-center md:text-right px-4 glass-card p-6 rounded-xl md:mr-auto">
+                        <span class="text-brand-green font-bold text-xl block mb-1">2001</span>
+                        <h4 class="text-white font-bold text-lg">Foundation</h4>
+                        <p class="text-sm text-brand-muted">Graduated with BA (Merit) from NUS and began professional coaching career.</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-brand-dark border-4 border-brand-orange rounded-full w-8 h-8 mx-auto md:mx-0"></div>
+                    <div class="order-1 md:w-5/12 px-4 md:ml-auto"></div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between w-full reveal">
+                    <div class="order-1 md:w-5/12 px-4 md:mr-auto"></div>
+                    <div class="z-20 flex items-center order-1 bg-brand-dark border-4 border-brand-green rounded-full w-8 h-8 mx-auto md:mx-0"></div>
+                    <div class="order-1 md:w-5/12 text-center md:text-left px-4 glass-card p-6 rounded-xl md:ml-auto">
+                        <span class="text-brand-orange font-bold text-xl block mb-1">2005</span>
+                        <h4 class="text-white font-bold text-lg">Academic Excellence</h4>
+                        <p class="text-sm text-brand-muted">Completed MSc in Exercise & Sports Science at NTU, cementing a science-first approach.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between w-full reveal">
+                    <div class="order-1 md:w-5/12 text-center md:text-right px-4 glass-card p-6 rounded-xl md:mr-auto">
+                        <span class="text-brand-green font-bold text-xl block mb-1">2010</span>
+                        <h4 class="text-white font-bold text-lg">National Impact</h4>
+                        <p class="text-sm text-brand-muted">Partnered with Health Promotion Board to co-create the "Lose To Win" programme.</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-brand-dark border-4 border-brand-orange rounded-full w-8 h-8 mx-auto md:mx-0"></div>
+                    <div class="order-1 md:w-5/12 px-4 md:ml-auto"></div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative z-10 mb-12 flex flex-col md:flex-row items-center justify-between w-full reveal">
+                    <div class="order-1 md:w-5/12 px-4 md:mr-auto"></div>
+                    <div class="z-20 flex items-center order-1 bg-brand-dark border-4 border-brand-green rounded-full w-8 h-8 mx-auto md:mx-0"></div>
+                    <div class="order-1 md:w-5/12 text-center md:text-left px-4 glass-card p-6 rounded-xl md:ml-auto">
+                        <span class="text-brand-orange font-bold text-xl block mb-1">2018</span>
+                        <h4 class="text-white font-bold text-lg">Master Trainer</h4>
+                        <p class="text-sm text-brand-muted">Achieved Master Trainer status for BOSU, TRX, and other global fitness brands.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between w-full reveal">
+                    <div class="order-1 md:w-5/12 text-center md:text-right px-4 glass-card p-6 rounded-xl md:mr-auto">
+                        <span class="text-brand-green font-bold text-xl block mb-1">Present</span>
+                        <h4 class="text-white font-bold text-lg">Fit Body Thrive</h4>
+                        <p class="text-sm text-brand-muted">Leading the next generation of coaches and transforming lives through the academy.</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-brand-dark border-4 border-brand-orange rounded-full w-8 h-8 mx-auto md:mx-0"></div>
+                    <div class="order-1 md:w-5/12 px-4 md:ml-auto"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="py-16 bg-brand-dark border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <p class="text-brand-muted mb-8 uppercase tracking-widest text-sm">Featured In</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Text Placeholders for Logos -->
+                <span class="text-2xl font-bold font-condensed text-white">The Straits Times</span>
+                <span class="text-2xl font-bold font-condensed text-white">Channel NewsAsia</span>
+                <span class="text-2xl font-bold font-condensed text-white">Mediacorp Radio</span>
+                <span class="text-2xl font-bold font-condensed text-white">Health No.1</span>
+                <span class="text-2xl font-bold font-condensed text-white">Shape Magazine</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-orange/10"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+            <h2 class="font-condensed text-4xl md:text-5xl font-bold text-white mb-6">Ready to Learn from the Best?</h2>
+            <p class="text-lg text-brand-muted mb-8">
+                Whether you're looking to transform your own body or build a career as a fitness professional, Coach Sharm has the roadmap for you.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'd%20like%20to%20learn%20more%20about%20your%20coaching." target="_blank" class="px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold rounded-lg text-lg transition-all shadow-lg hover:shadow-orange-500/50 flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                    Chat on WhatsApp
+                </a>
+                <a href="index.html" class="px-8 py-4 glass-card hover:bg-white/10 text-white font-bold rounded-lg text-lg transition-all flex items-center justify-center">
+                    Explore Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-condensed text-xl font-bold text-brand-orange mb-4">Fit Body Thrive</h3>
+                    <p class="text-brand-muted text-sm">Singapore's premier fitness education academy. Elevate your coaching with evidence-based courses by Coach Sharm.</p>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Courses</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="fitness-program-design.html" class="hover:text-brand-orange transition cursor-pointer">Program Design</a></li>
+                        <li><a href="fitness-functional-training.html" class="hover:text-brand-orange transition cursor-pointer">Functional Training</a></li>
+                        <li><a href="fitness-body-transformation.html" class="hover:text-brand-orange transition cursor-pointer">Body Transformation</a></li>
+                        <li><a href="nutrition-foundations.html" class="hover:text-brand-orange transition cursor-pointer">Nutrition Foundations</a></li>
+                        <li><a href="psychology-behaviour-change.html" class="hover:text-brand-orange transition cursor-pointer">Behaviour Change</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="vip-fat-loss.html" class="hover:text-brand-orange transition cursor-pointer">VIP Fat Loss Academy</a></li>
+                        <li><a href="corporate-wellness.html" class="hover:text-brand-orange transition cursor-pointer">Corporate Wellness</a></li>
+                        <li><a href="executive-coaching.html" class="hover:text-brand-orange transition cursor-pointer">Executive Coaching</a></li>
+                        <li><a href="success-stories.html" class="hover:text-brand-orange transition cursor-pointer">Success Stories</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-orange transition cursor-pointer">Blog & Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li>📱 <a href="https://wa.me/6591090995" target="_blank" class="hover:text-brand-orange transition cursor-pointer">+65 9109 0995</a></li>
+                        <li>📧 hisham.musa@gmail.com</li>
+                        <li class="flex gap-3 pt-2">
+                            <a href="https://www.instagram.com/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">Instagram</a>
+                            <a href="https://www.linkedin.com/in/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">LinkedIn</a>
+                            <a href="https://www.youtube.com/@coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-brand-muted">
+                <p>&copy; 2026 Fit Body Thrive by Coach Sharm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6591090995" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer" aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

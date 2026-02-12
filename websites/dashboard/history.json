@@ -1,0 +1,44 @@
+{
+  "faith": {
+    "hourly": [
+      {
+        "t": "19:30",
+        "claude": 20,
+        "gemini": 60
+      },
+      {
+        "t": "20:38",
+        "claude": 20,
+        "gemini": 60
+      }
+    ],
+    "daily": [
+      {
+        "d": "Thu",
+        "claude": 20,
+        "gemini": 60
+      }
+    ]
+  },
+  "black": {
+    "hourly": [
+      {
+        "t": "19:30",
+        "claude": 20,
+        "gemini": 60
+      },
+      {
+        "t": "20:38",
+        "claude": 20,
+        "gemini": 60
+      }
+    ],
+    "daily": [
+      {
+        "d": "Thu",
+        "claude": 20,
+        "gemini": 60
+      }
+    ]
+  }
+}

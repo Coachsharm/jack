@@ -5,15 +5,15 @@
 
 ## 🎯 Current Status Summary
 
-**Active Bots:** 3  
+**Active Bots:** 4  
 **Server:** VPS `72.62.252.124` (Hostinger)  
 
-| Bot | Type | Status | Channel |
-|-----|------|--------|---------|
-| **Jack** | Native | ✅ Running | Telegram (@thrive2bot) |
-| **John** | Docker | ✅ Running | Telegram (Body Thrive Chat) |
-| **Ross** | Docker | ✅ Running | Telegram (Body Thrive Chat) |
-| **Daniel** | Docker | ❌ Stopped | Was crashing, manually stopped |
+| Bot | Type | Status | Channel | Role |
+|-----|------|--------|---------|------|
+| **Jack** | Native | ✅ Running | Telegram (@thrive2bot) | Primary engineer |
+| **John** | Docker | ✅ Running | Telegram (Body Thrive Chat) | Product template |
+| **Ross** | Docker | ✅ Running | Telegram (Body Thrive Chat) | Watchdog |
+| **Sarah** | Docker | ✅ Running | Telegram (@thrive5bot) | Client-facing coach |
 
 ---
 
@@ -55,10 +55,15 @@
 │   ├── Port: 19386 → 18789 (container)
 │   └── Channel: Telegram (Body Thrive Chat)
 │
-├── 🔴 Daniel (STOPPED - Docker)
-│   ├── Container: openclaw-daniel
-│   ├── Status: Stopped (was crash-looping)
-│   └── Note: Manually stopped 2026-02-10
+├── 🟢 Sarah (ACTIVE - Docker, Client-Facing)
+│   ├── Container: openclaw-sarah
+│   ├── Host dir: /root/openclaw-clients/sarah/
+│   ├── Config: /root/openclaw-clients/sarah/openclaw.json (RO mount)
+│   ├── Workspace: /root/openclaw-clients/sarah/workspace/
+│   ├── Port: 19490 → 18789 (container)
+│   ├── Security: Hardened (no root, caps dropped, read-only config, NO host mounts)
+│   ├── Role: Business, fitness, nutrition & psychology coach
+│   └── Channel: Telegram (@thrive5bot)
 │
 ├── 🔵 Relay System
 │   ├── /root/openclaw-clients/bot-chat-relay.sh (v4.2)
@@ -134,7 +139,10 @@ The bots communicate through `BOT_CHAT.md` files, but the architecture creates a
 | `/root/openclaw-clients/.relay-state/` | Relay state tracking |
 | `/root/openclaw-watchdog/` | Watchdog scripts |
 | `/root/openclaw-docs-sync/` | OpenClaw docs sync |
-| `/root/backups/` | Server-side backups |
+| `/root/openclaw-backups/` | Backup scripts + destinations |
+| `/root/openclaw-backups/jack/` | Jack full backups |
+| `/root/openclaw-backups/jack-config/` | Jack config-only backups |
+| `/root/openclaw-backups/ross/` | Ross backups |
 
 ---
 
@@ -175,23 +183,31 @@ The bots communicate through `BOT_CHAT.md` files, but the architecture creates a
 
 ---
 
-## 🛠️ Backup Strategy
+## 🛠️ Backup Strategy (Updated Feb 2026)
 
-### Server-Side
-- `/root/backups/pre-relay-improvements-10feb26-0702pm/` — Pre-improvement snapshot (81MB)
+> **⚠️ The old hourly/daily/weekly backup system has been REMOVED.**
+> `/root/.openclaw/backups/`, `backup-hourly.sh`, `restore.sh` no longer exist.
+
+### Server-Side (Current)
+- **Auto `.bak` files:** OpenClaw creates `.bak` → `.bak.4` on config changes
+- **Watchdog:** `/root/openclaw-watchdog/watchdog.sh` auto-restores every 5 min on failure
+- **Manual backup:** Tell Jack "backup Jack" on Telegram
+  - **Option 1:** Config only (~1-5MB) → `/root/openclaw-backups/jack-config/`
+  - **Option 2:** Full backup (~160MB) → `/root/openclaw-backups/jack/`
+  - Scripts: `/root/openclaw-backups/backup.sh` and `backup-config.sh`
+- **Source of truth:** `/root/.openclaw/workspace/BACKUP_MANUAL.md`
 
 ### Local (Coach's PC)
-- `backups/pre-relay-improvements-10feb26-0702pm.tar.gz` — Compressed copy (23MB)
 - Auto backups via `.agent/skills/backup/scripts/backup.ps1`
+- Full guide: `lessons/jack4_backup_and_recovery_system.md`
 
 ### Backup Targets
 ```powershell
-.agent\skills\backup\scripts\backup.ps1 -Target jack4      # Jack native
-.agent\skills\backup\scripts\backup.ps1 -Target docker-jack1  # Jack1 Docker volumes
+.agent\skills\backup\scripts\backup.ps1 -Target jack4      # Jack native (~/.openclaw download)
 ```
 
 ---
 
-**Last Updated**: February 10, 2026, 8:40 PM SGT  
+**Last Updated**: February 11, 2026, 10:17 AM SGT  
 **Updated By**: Antigravity  
-**Reason**: Added John, Ross, Daniel, relay system v4.2, dedup monitors v3, full crontab
+**Reason**: Deleted Daniel (archived), deployed Sarah (client-facing coaching bot on port 19490, @thrive5bot)

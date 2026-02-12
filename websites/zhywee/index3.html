@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Zhywee | Olympic Esports Athlete & AFC Personal Trainer of the Year</title>
+    <meta name="description" content="AFC 2023+ Personal Trainer of the Year. Olympic Esports Athlete 2023. Singapore's most decorated fitness educator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#18181B',
+                        secondary: '#3F3F46',
+                        cta: '#DC2626',
+                        accent: '#F97316',
+                        bg: '#FAFAFA',
+                        txt: '#09090B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: #FAFAFA;
+            color: #09090B;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        /* CUSTOM CURSOR */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #DC2626;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #DC2626;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.05s ease;
+        }
+
+        /* HERO - MONOCHROME WITH RED ACCENT */
+        .hero {
+            background: #18181B;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, #DC2626 0%, #18181B 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            opacity: 0.15;
+        }
+
+        /* ASYMMETRIC TYPOGRAPHY */
+        .mega {
+            font-size: clamp(4rem, 18vw, 16rem);
+            line-height: 0.85;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .offset-number {
+            font-size: clamp(10rem, 25vw, 20rem);
+            line-height: 0.7;
+            letter-spacing: -0.08em;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* SCROLL REVEAL SYSTEM */
+        .reveal {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left { transform: translateX(-100px); opacity: 0; }
+        .reveal-left.active { transform: translateX(0); opacity: 1; }
+
+        .reveal-right { transform: translateX(100px); opacity: 0; }
+        .reveal-right.active { transform: translateX(0); opacity: 1; }
+
+        .reveal-scale { transform: scale(0.8); opacity: 0; }
+        .reveal-scale.active { transform: scale(1); opacity: 1; }
+
+        /* STAGGER DELAYS */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* DIAGONAL TRANSITIONS */
+        .diagonal-clip {
+            clip-path: polygon(0 8%, 100% 0%, 100% 92%, 0% 100%);
+        }
+
+        .diagonal-clip-reverse {
+            clip-path: polygon(0 0%, 100% 8%, 100% 100%, 0% 92%);
+        }
+
+        /* OVERLAPPING SECTIONS */
+        .overlap-up {
+            margin-top: -120px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* STICKY CTA BAR */
+        .sticky-cta {
+            position: fixed;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            background: #DC2626;
+            z-index: 100;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+        }
+
+        .sticky-cta.visible {
+            bottom: 0;
+        }
+
+        /* COUNTER ANIMATION */
+        .counter {
+            font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CARD HOVER - CURSOR AWARE */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(220, 38, 38, 0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        /* ASYMMETRIC GRID */
+        .grid-asymmetric {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .span-5 { grid-column: span 5; }
+        .span-7 { grid-column: span 7; }
+        .span-4 { grid-column: span 4; }
+        .span-8 { grid-column: span 8; }
+        .span-6 { grid-column: span 6; }
+
+        @media (max-width: 768px) {
+            .span-5, .span-7, .span-4, .span-8, .span-6 {
+                grid-column: span 12;
+            }
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* REDUCE MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            body { cursor: auto; }
+            .cursor, .cursor-follower { display: none; }
+        }
+
+        /* VARIABLE SPACING RHYTHM */
+        .space-tight { padding: 3rem 0; }
+        .space-normal { padding: 6rem 0; }
+        .space-loose { padding: 10rem 0; }
+        .space-xl { padding: 15rem 0; }
+
+        @media (max-width: 768px) {
+            .space-tight { padding: 2rem 0; }
+            .space-normal { padding: 3rem 0; }
+            .space-loose { padding: 5rem 0; }
+            .space-xl { padding: 7rem 0; }
+        }
+
+        /* OLYMPIC GOLD SHIMMER */
+        .gold-shimmer {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FFD700 50%, #FFA500 75%, #FFD700 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* NAV HIDE ON SCROLL */
+        nav {
+            transition: transform 0.3s ease;
+        }
+
+        nav.hide {
+            transform: translateY(-100%);
+        }
+
+        /* SURPRISE ELEMENTS */
+        .easter-egg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #DC2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .easter-egg:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        /* MONOCHROME MOMENTS */
+        .mono {
+            filter: grayscale(1);
+            transition: filter 0.4s ease;
+        }
+
+        .mono:hover {
+            filter: grayscale(0);
+        }
+
+        /* DESKTOP ONLY CURSOR */
+        @media (max-width: 1024px) {
+            body { cursor: auto; }
+            .cursor, .cursor-follower { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR (Desktop Only) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- NAVIGATION -->
+    <nav id="nav" class="fixed top-0 w-full bg-primary/95 backdrop-blur-lg z-50 border-b-2 border-cta">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="text-3xl font-black tracking-tight">
+                    <span class="text-white">ZHYWEE</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#olympic" class="text-white hover:text-cta transition-colors font-semibold">Olympic</a>
+                    <a href="#credentials" class="text-white hover:text-cta transition-colors font-semibold">Credentials</a>
+                    <a href="#philosophy" class="text-white hover:text-cta transition-colors font-semibold">Philosophy</a>
+                    <a href="#schedule" class="text-white hover:text-cta transition-colors font-semibold">Classes</a>
+                    <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="bg-cta text-white px-6 py-2 rounded-full font-bold hover:bg-accent transition-all">FOLLOW</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-80 bg-primary z-50 shadow-2xl">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-6">
+                <button id="close-menu-btn" class="text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 px-6">
+                <a href="#olympic" class="text-white text-2xl font-bold hover:text-cta transition-colors mobile-link">Olympic Story</a>
+                <a href="#credentials" class="text-white text-2xl font-bold hover:text-cta transition-colors mobile-link">Credentials</a>
+                <a href="#philosophy" class="text-white text-2xl font-bold hover:text-cta transition-colors mobile-link">Philosophy</a>
+                <a href="#schedule" class="text-white text-2xl font-bold hover:text-cta transition-colors mobile-link">Classes</a>
+                <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="bg-cta text-white px-8 py-4 rounded-full font-bold text-center hover:bg-accent transition-colors mobile-link">FOLLOW @ZHYWEE</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO - MONOCHROME + RED BURST -->
+    <section class="hero flex items-center justify-center pt-20 px-6">
+        <div class="max-w-7xl mx-auto w-full py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 reveal delay-1">
+                    <div class="text-cta text-xl md:text-2xl font-bold mb-4 tracking-wide">SINGAPORE 🇸🇬</div>
+                    <h1 class="mega text-white mb-6">
+                        COACH<br>
+                        <span class="text-cta">ZHYWEE</span>
+                    </h1>
+                    <div class="text-white/80 text-xl md:text-2xl font-light mb-8 max-w-2xl leading-relaxed">
+                        AFC Personal Trainer of the Year<br>
+                        Olympic Esports Athlete 2023<br>
+                        Radical Fitness Master Trainer
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#schedule" class="bg-cta text-white px-10 py-5 rounded-full text-lg font-black hover:bg-accent transition-all inline-block text-center">
+                            📍 SUNDAY CLASSES
+                        </a>
+                        <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="bg-white text-primary px-10 py-5 rounded-full text-lg font-black hover:bg-gray-100 transition-all inline-block text-center">
+                            FOLLOW @ZHYWEE
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 reveal reveal-scale delay-3">
+                    <div class="relative">
+                        <div class="offset-number text-cta">🏆</div>
+                        <div class="text-white text-3xl md:text-5xl font-black mt-4">
+                            2023+<br>
+                            <span class="text-white/60">Personal Trainer</span><br>
+                            <span class="text-cta">OF THE YEAR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OLYMPIC SECTION - ASYMMETRIC LAYOUT -->
+    <section id="olympic" class="diagonal-clip bg-white space-loose px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid-asymmetric">
+                <div class="span-7 reveal reveal-left delay-1">
+                    <div class="gold-shimmer inline-block px-6 py-3 rounded-full text-primary font-black text-base mb-6">
+                        🥇 OLYMPIC ESPORTS WEEK 2023
+                    </div>
+                    <h2 class="text-6xl md:text-8xl font-black text-primary mb-6 leading-tight">
+                        ONE OF<br>
+                        <span class="text-cta">8 FINALISTS</span><br>
+                        WORLDWIDE
+                    </h2>
+                    <div class="space-y-4 text-lg md:text-xl text-secondary leading-relaxed max-w-2xl">
+                        <p>Represented <strong class="text-primary">🇸🇬 Singapore</strong> at the inaugural Olympic Esports Week in Just Dance, competing at Suntec Convention Centre.</p>
+                        <p>One of <strong class="text-cta">3 women</strong> among 8 global finalists. Advanced to <strong class="text-accent">quarter-finals</strong>.</p>
+                        <p class="text-2xl font-bold text-primary pt-4">Discipline. Versatility. Breaking boundaries.</p>
+                    </div>
+                </div>
+                <div class="span-5 reveal reveal-scale delay-3">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-600 p-10 rounded-3xl shadow-2xl">
+                        <div class="counter text-white mb-4" data-target="8">0</div>
+                        <div class="text-2xl font-bold text-white/90 mb-8">Finalists Worldwide</div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/20 backdrop-blur p-6 rounded-2xl text-center">
+                                <div class="text-5xl font-black text-white counter" data-target="3">0</div>
+                                <div class="text-sm font-semibold text-white/80 mt-2">Women</div>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur p-6 rounded-2xl text-center">
+                                <div class="text-4xl font-black text-white">Q-F</div>
+                                <div class="text-sm font-semibold text-white/80 mt-2">Quarter-Finals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS - MONOCHROME WITH COLOR BURSTS -->
+    <section id="credentials" class="diagonal-clip-reverse bg-primary space-loose px-6 overlap-up">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-6xl md:text-8xl font-black text-white mb-4">
+                    AWARD-WINNING<br>
+                    <span class="text-cta">CREDENTIALS</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-white p-10 rounded-3xl reveal delay-1 flex flex-col justify-center items-center text-center min-h-[300px]">
+                    <div class="text-7xl mb-6">🏆</div>
+                    <h3 class="text-4xl font-black text-primary mb-2">AFC 2023+</h3>
+                    <p class="text-2xl font-bold text-cta">PERSONAL TRAINER</p>
+                    <p class="text-2xl font-bold text-cta">OF THE YEAR</p>
+                </div>
+
+                <div class="card-hover bg-cta p-10 rounded-3xl text-white reveal delay-2">
+                    <div class="text-6xl mb-4">💪</div>
+                    <h3 class="text-3xl font-black mb-3">Radical Fitness</h3>
+                    <p class="text-xl font-bold mb-2">Master Trainer</p>
+                    <p class="text-base opacity-80">Fight Do, OT-Oxigeno</p>
+                    <p class="text-sm opacity-60 mt-3">Since Nov 2016</p>
+                </div>
+
+                <div class="card-hover bg-accent p-10 rounded-3xl text-white reveal delay-3">
+                    <div class="text-6xl mb-4">📚</div>
+                    <h3 class="text-3xl font-black mb-3">AFAA GX</h3>
+                    <p class="text-xl font-bold">Educator</p>
+                    <p class="text-base opacity-80 mt-2">Certified Group Exercise Instructor</p>
+                </div>
+
+                <div class="card-hover bg-secondary p-10 rounded-3xl text-white reveal delay-4">
+                    <div class="text-6xl mb-4">⚡</div>
+                    <h3 class="text-3xl font-black mb-3">FIT Asia</h3>
+                    <p class="text-xl font-bold">Master Trainer</p>
+                    <p class="text-base opacity-80 mt-2">Elite Level Coach</p>
+                </div>
+
+                <div class="card-hover bg-white p-10 rounded-3xl md:col-span-2 reveal delay-5">
+                    <div class="text-6xl mb-4">🌟</div>
+                    <h3 class="text-4xl font-black text-primary mb-6">Leadership</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <p class="font-black text-cta text-xl mb-1">ZFitSquad</p>
+                            <p class="text-secondary">Founder</p>
+                        </div>
+                        <div>
+                            <p class="font-black text-accent text-xl mb-1">FitWarriors</p>
+                            <p class="text-secondary">Co-Founder</p>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-xl mb-1">Alpha Fitness</p>
+                            <p class="text-secondary">Fitness Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY - ASYMMETRIC STORYTELLING -->
+    <section id="philosophy" class="bg-bg space-xl px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid-asymmetric gap-8">
+                <div class="span-12 reveal text-center mb-12">
+                    <h2 class="text-6xl md:text-8xl font-black text-primary leading-tight">
+                        EDUCATION OVER<br>
+                        <span class="text-cta">PRESCRIPTION</span>
+                    </h2>
+                    <p class="text-2xl md:text-3xl text-secondary mt-6 max-w-3xl mx-auto leading-relaxed">
+                        "Balance over extremes. Knowledge over quick fixes. Community over competition."
+                    </p>
+                </div>
+
+                <div class="span-6 card-hover bg-gradient-to-br from-cta to-accent p-12 rounded-3xl text-white reveal reveal-left delay-1 min-h-[320px]">
+                    <div class="text-7xl mb-6">🎓</div>
+                    <h3 class="text-4xl font-black mb-4">Empower Through Knowledge</h3>
+                    <p class="text-lg opacity-90 leading-relaxed">I don't just give you exercises—I teach you WHY they work and HOW to build lifelong habits.</p>
+                </div>
+
+                <div class="span-6 card-hover bg-primary p-12 rounded-3xl text-white reveal reveal-right delay-2 min-h-[320px]">
+                    <div class="text-7xl mb-6">🌱</div>
+                    <h3 class="text-4xl font-black mb-4">Accessible for All</h3>
+                    <p class="text-lg opacity-80 leading-relaxed">From complete beginners to advanced athletes—everyone starts somewhere. I meet you where you are.</p>
+                </div>
+
+                <div class="span-4 card-hover bg-gradient-to-br from-yellow-400 to-orange-500 p-10 rounded-3xl text-white reveal reveal-scale delay-3">
+                    <div class="text-6xl mb-4">🍫</div>
+                    <h3 class="text-3xl font-black mb-3">I Love Chocolate</h3>
+                    <p class="text-base opacity-90">Real talk: I love chocolate. Fitness is about balance, not deprivation.</p>
+                </div>
+
+                <div class="span-8 card-hover bg-secondary p-12 rounded-3xl text-white reveal reveal-scale delay-4">
+                    <div class="text-7xl mb-6">💙</div>
+                    <h3 class="text-4xl font-black mb-4">Autism Mum with Deep Empathy</h3>
+                    <p class="text-lg opacity-80 leading-relaxed">Raising my child has taught me patience, adaptability, and the power of celebrating small victories. Every client deserves that same care and understanding.</p>
+                </div>
+
+                <div class="span-12 card-hover bg-accent p-12 rounded-3xl text-white reveal delay-5 text-center">
+                    <div class="text-7xl mb-6">🤝</div>
+                    <h3 class="text-4xl font-black mb-4">Community First</h3>
+                    <p class="text-xl opacity-90 max-w-3xl mx-auto">Transformation happens together. That's why I founded ZFitSquad and co-founded FitWarriors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINES - VISUAL DOMINANCE -->
+    <section class="bg-primary space-loose px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-6xl md:text-8xl font-black text-white mb-4">
+                    MULTI-<span class="text-cta">DISCIPLINE</span><br>
+                    EXPERT
+                </h2>
+                <p class="text-xl text-white/70">From martial arts to mindfulness—comprehensive fitness education</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="card-hover bg-gradient-to-br from-cta to-red-800 p-12 rounded-3xl text-white md:col-span-2 md:row-span-2 reveal delay-1 flex flex-col justify-center min-h-[400px]">
+                    <div class="text-9xl mb-8">🥋</div>
+                    <h3 class="text-6xl font-black mb-6">FIGHT DO</h3>
+                    <p class="text-2xl leading-relaxed opacity-90">Martial arts high-intensity training that builds strength, power, and confidence</p>
+                </div>
+
+                <div class="card-hover bg-secondary p-8 rounded-3xl text-white reveal delay-2">
+                    <div class="text-6xl mb-4">🎵</div>
+                    <h3 class="text-3xl font-black mb-2">ZUMBA</h3>
+                    <p class="text-base opacity-70">Dance fitness</p>
+                </div>
+
+                <div class="card-hover bg-accent p-8 rounded-3xl text-white reveal delay-3">
+                    <div class="text-6xl mb-4">☀️</div>
+                    <h3 class="text-3xl font-black mb-2">YOGA</h3>
+                    <p class="text-base opacity-70">Mind-body wellness</p>
+                </div>
+
+                <div class="card-hover bg-gradient-to-br from-yellow-400 to-orange-600 p-10 rounded-3xl text-white md:col-span-2 reveal delay-4">
+                    <div class="text-7xl mb-6">💪</div>
+                    <h3 class="text-4xl font-black mb-4">BEGINNER STRENGTH</h3>
+                    <p class="text-xl opacity-90">Foundational fitness training for newcomers—my specialty via ZFitSquad</p>
+                </div>
+
+                <div class="card-hover bg-secondary p-8 rounded-3xl text-white reveal delay-5">
+                    <div class="text-6xl mb-4">❤️</div>
+                    <h3 class="text-3xl font-black mb-2">OT-OXIGENO</h3>
+                    <p class="text-base opacity-70">Oxygen-based training</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHEDULE - URGENCY + CLARITY -->
+    <section id="schedule" class="bg-white space-loose px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-6xl md:text-8xl font-black text-primary mb-6">
+                    JOIN <span class="text-cta">SUNDAY</span><br>
+                    CLASSES
+                </h2>
+                <p class="text-2xl text-secondary">ZFitSquad Beginner Strength Training</p>
+                <p class="text-xl text-secondary mt-2">📍 Sultan Plaza (Nicoll Highway MRT)</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-cta to-orange-600 p-12 md:p-16 rounded-3xl shadow-2xl reveal reveal-scale">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white/20 backdrop-blur p-10 rounded-2xl text-center">
+                        <div class="text-white/80 text-xl mb-2 font-bold">EVERY SUNDAY</div>
+                        <div class="counter text-white mb-2" data-target="10">0</div>
+                        <div class="text-3xl text-white">AM</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur p-10 rounded-2xl text-center">
+                        <div class="text-white/80 text-xl mb-2 font-bold">EVERY SUNDAY</div>
+                        <div class="text-7xl font-black text-white">11:30</div>
+                        <div class="text-3xl text-white">AM</div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-cta px-12 py-6 rounded-full text-2xl font-black hover:bg-gray-100 transition-all shadow-2xl">
+                        📸 FOLLOW @ZHYWEE TO JOIN
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - RICH & ENGAGING -->
+    <footer class="bg-primary space-normal px-6 border-t-4 border-cta">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h4 class="text-3xl font-black text-white mb-4">COACH <span class="text-cta">ZHYWEE</span></h4>
+                    <p class="text-white/70 leading-relaxed mb-6">Singapore's award-winning fitness educator transforming lives through knowledge and community.</p>
+                    <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="inline-block bg-cta text-white px-8 py-3 rounded-full font-bold hover:bg-accent transition-all">
+                        FOLLOW @ZHYWEE
+                    </a>
+                </div>
+
+                <div>
+                    <h5 class="text-xl font-black text-white mb-4">SUNDAY CLASSES</h5>
+                    <div class="text-white/80 space-y-2">
+                        <p>🕙 10:00 AM</p>
+                        <p>🕦 11:30 AM</p>
+                        <p>📍 Sultan Plaza</p>
+                        <p class="text-sm text-white/60">Nicoll Highway MRT</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-xl font-black text-white mb-4">CONNECT</h5>
+                    <div class="space-y-3">
+                        <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="block text-white/80 hover:text-cta transition-colors">
+                            📸 @zhywee
+                        </a>
+                        <a href="https://instagram.com/zfitsquad" target="_blank" rel="noopener noreferrer" class="block text-white/80 hover:text-accent transition-colors">
+                            💪 ZFitSquad
+                        </a>
+                        <a href="https://instagram.com/fitwarriors_sg" target="_blank" rel="noopener noreferrer" class="block text-white/80 hover:text-accent transition-colors">
+                            ⚔️ FitWarriors SG
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-white/50 text-sm">© 2026 Coach Zhywee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY CTA BAR -->
+    <div id="sticky-cta" class="sticky-cta">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-white">
+                <p class="font-black text-xl">Ready to transform?</p>
+                <p class="text-sm opacity-80">Join Sunday classes at Sultan Plaza</p>
+            </div>
+            <a href="https://instagram.com/zhywee" target="_blank" rel="noopener noreferrer" class="bg-white text-cta px-8 py-3 rounded-full font-black hover:bg-gray-100 transition-all whitespace-nowrap">
+                FOLLOW @ZHYWEE
+            </a>
+        </div>
+    </div>
+
+    <!-- EASTER EGG -->
+    <div class="easter-egg" title="🏆 AFC 2023+ POTY">🏆</div>
+
+    <script>
+        // CUSTOM CURSOR
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        // MOBILE MENU
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // SCROLL REVEAL
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // COUNTER ANIMATION
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            entry.target.textContent = target;
+                            clearInterval(timer);
+                            entry.target.classList.add('counted');
+                        } else {
+                            entry.target.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // STICKY CTA BAR
+        const stickyCta = document.getElementById('sticky-cta');
+        let hasShownSticky = false;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroHeight = document.querySelector('.hero').offsetHeight;
+            
+            if (scrollY > heroHeight && !hasShownSticky) {
+                stickyCta.classList.add('visible');
+                hasShownSticky = true;
+            }
+        });
+
+        // CARD CURSOR TRACKING
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // NAV HIDE ON SCROLL DOWN
+        let lastScroll = 0;
+        const nav = document.getElementById('nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.classList.add('hide');
+            } else {
+                nav.classList.remove('hide');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // EASTER EGG
+        const easterEgg = document.querySelector('.easter-egg');
+        let clickCount = 0;
+        
+        easterEgg.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 3) {
+                alert('🏆 AFC 2023+ Personal Trainer of the Year! Thanks for exploring!');
+                clickCount = 0;
+            }
+        });
+    </script>
+</body>
+</html>

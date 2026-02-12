@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+9664e084e54d   openclaw-client:latest   "node /usr/lib/node_…"   14 seconds ago   Up 13 seconds   0.0.0.0:19789->18789/tcp, [::]:19789->18789/tcp   openclaw-ross

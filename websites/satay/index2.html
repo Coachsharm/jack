@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satay Street SG — The Art of Charcoal Grilling</title>
+    <meta name="description" content="Singapore's legendary charcoal-grilled satay. 40 years of heritage, secret marinades, and fire-kissed perfection.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP for High-End Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#DC2626',
+                        secondary: '#F87171',
+                        cta: '#CA8A04',
+                        bgsoft: '#FEF2F2',
+                        textdark: '#450A0A',
+                        charcoal: '#1a1a1a'
+                    },
+                    fontFamily: {
+                        'display': ['"Playfair Display SC"', 'serif'],
+                        'body': ['Karla', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'grain': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #DC2626;
+            --secondary: #F87171;
+        }
+        
+        body {
+            background-color: #FEF2F2;
+            color: #450A0A;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FEF2F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DC2626;
+            border-radius: 5px;
+        }
+
+        /* Typography Enhancements */
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+        
+        .text-shadow-glow {
+            text-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+        }
+
+        /* Image Masks & Shapes */
+        .mask-arch {
+            mask-image: radial-gradient(circle at center top, black 55%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center top, black 55%, transparent 100%);
+        }
+
+        /* Interactive Elements */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .menu-card {
+            transition: all 0.4s ease;
+        }
+        .menu-card:hover .menu-img {
+            transform: scale(1.1);
+        }
+        
+        /* Loading Screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #450A0A;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Cinematic Hero */
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Spark particles */
+        .spark {
+            position: absolute;
+            background: #CA8A04;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-clip {
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Grain Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50 bg-grain opacity-40 mix-blend-overlay"></div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="text-center">
+            <h1 class="text-secondary text-4xl md:text-6xl font-display font-bold mb-4 tracking-wider animate-pulse">SATAY STREET</h1>
+            <div class="w-48 h-1 bg-white/20 mx-auto rounded-full overflow-hidden">
+                <div class="w-full h-full bg-cta origin-left animate-[grow_1.5s_ease-in-out]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="relative group">
+                <span class="text-2xl font-display font-bold text-white group-hover:text-cta transition-colors">SATAY STREET<span class="text-cta">.</span></span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="#heritage" class="text-white/80 hover:text-cta font-medium tracking-wide transition-colors text-sm uppercase">Heritage</a>
+                <a href="#process" class="text-white/80 hover:text-cta font-medium tracking-wide transition-colors text-sm uppercase">The Craft</a>
+                <a href="#menu" class="text-white/80 hover:text-cta font-medium tracking-wide transition-colors text-sm uppercase">Menu</a>
+                <a href="#reviews" class="text-white/80 hover:text-cta font-medium tracking-wide transition-colors text-sm uppercase">Reviews</a>
+                <a href="#order" class="bg-cta text-white px-8 py-3 rounded-none font-bold uppercase tracking-widest hover:bg-white hover:text-cta transition-all duration-300 transform hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
+                    Order Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white z-50 relative group">
+                <div class="space-y-2">
+                    <span class="block w-8 h-0.5 bg-white transition-all group-hover:bg-cta"></span>
+                    <span class="block w-8 h-0.5 bg-white transition-all group-hover:bg-cta ml-auto w-6"></span>
+                    <span class="block w-8 h-0.5 bg-white transition-all group-hover:bg-cta"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-textdark z-30 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
+        <a href="#heritage" class="mobile-link text-4xl font-display text-white mb-8 hover:text-cta transition-colors">Heritage</a>
+        <a href="#process" class="mobile-link text-4xl font-display text-white mb-8 hover:text-cta transition-colors">The Craft</a>
+        <a href="#menu" class="mobile-link text-4xl font-display text-white mb-8 hover:text-cta transition-colors">Menu</a>
+        <a href="#order" class="text-2xl font-bold bg-cta text-white px-10 py-4 uppercase tracking-widest mt-8">Order Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden hero-clip bg-textdark">
+        <!-- Parallax Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img id="hero-bg" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 scale-110" alt="Charcoal grilling satay">
+            <div class="absolute inset-0 bg-gradient-to-t from-textdark via-textdark/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-textdark via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-6">
+            <div class="overflow-hidden">
+                <p class="text-cta font-bold tracking-[0.2em] uppercase mb-4 translate-y-full hero-anim">Since 1982</p>
+            </div>
+            <div class="overflow-hidden mb-2">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-white leading-none translate-y-full hero-anim">
+                    MASTERS OF
+                </h1>
+            </div>
+            <div class="overflow-hidden mb-8">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-bold text-primary leading-none translate-y-full hero-anim">
+                    THE FLAME
+                </h1>
+            </div>
+            
+            <div class="max-w-xl overflow-hidden mb-12">
+                <p class="text-xl md:text-2xl text-white/80 font-light translate-y-full hero-anim leading-relaxed">
+                    Experience the smoky alchemy of Singapore's finest satay. Hand-skewered, charcoal-grilled, and served with a legacy of obsession.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 hero-anim opacity-0 translate-y-10">
+                <a href="#menu" class="group relative px-8 py-4 bg-primary text-white font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="relative z-10 group-hover:text-textdark transition-colors duration-300">View Menu</span>
+                    <div class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
+                </a>
+                <a href="#process" class="group flex items-center space-x-4 text-white hover:text-cta transition-colors cursor-pointer">
+                    <div class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:border-cta transition-colors">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <span class="font-bold tracking-widest text-sm uppercase">Watch The Craft</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+            <span class="text-white/50 text-xs uppercase tracking-widest mb-2">Scroll</span>
+            <svg class="w-6 h-6 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </section>
+
+    <!-- Stats Marquee -->
+    <div class="bg-primary py-8 transform -rotate-1 origin-left scale-110 border-y-4 border-black relative z-20">
+        <div class="marquee-container">
+            <div class="marquee-content text-4xl md:text-6xl font-display font-bold text-textdark uppercase tracking-tighter">
+                ★ 1 Million Skewers Sold ★ 40 Years Tradition ★ No MSG ★ Fresh Charcoal Daily ★ Hand-Marinated ★ 100% Halal ★ 1 Million Skewers Sold ★ 40 Years Tradition ★ No MSG ★ Fresh Charcoal Daily ★ Hand-Marinated ★ 100% Halal
+            </div>
+        </div>
+    </div>
+
+    <!-- Heritage / Story Section -->
+    <section id="heritage" class="py-32 bg-bgsoft relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="relative group">
+                <div class="absolute -inset-4 bg-pattern-dots opacity-10"></div>
+                <div class="relative overflow-hidden rounded-sm shadow-2xl transform rotate-3 transition-transform duration-700 group-hover:rotate-0">
+                    <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=1200" alt="Old school grilling" class="w-full h-[600px] object-cover filter sepia-[.2] contrast-125">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <p class="font-display text-4xl">Since 1982</p>
+                        <p class="font-body text-sm uppercase tracking-widest opacity-80">Chinatown Street Market</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gsap-reveal">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm block mb-4">Our Heritage</span>
+                <h2 class="text-5xl md:text-7xl font-display font-bold text-textdark mb-8 leading-[0.9]">
+                    NOT JUST FOOD.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cta">A RITUAL.</span>
+                </h2>
+                <div class="space-y-6 text-lg text-textdark/70 font-light leading-relaxed">
+                    <p>
+                        In a world of gas grills and shortcuts, we choose the hard way. The <strong class="text-primary font-bold">charcoal way</strong>.
+                    </p>
+                    <p>
+                        Our founder, Uncle Lim, started with a single pushcart in 1982. His philosophy was simple: fire is a flavor. You can't fake the smoke. You can't rush the caramelization.
+                    </p>
+                    <p>
+                        Every morning at 4 AM, we pound fresh lemongrass, turmeric, and galangal. By 5 PM, the coals are glowing red. This isn't fast food. This is slow, deliberate, delicious art.
+                    </p>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-3 gap-8 border-t border-textdark/10 pt-8">
+                    <div>
+                        <span class="block text-4xl font-display font-bold text-primary counter" data-target="42">0</span>
+                        <span class="text-xs uppercase tracking-widest text-textdark/60">Years Heritage</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-display font-bold text-primary counter" data-target="1500">0</span>
+                        <span class="text-xs uppercase tracking-widest text-textdark/60">Daily Skewers</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-display font-bold text-primary counter" data-target="100">0</span>
+                        <span class="text-xs uppercase tracking-widest text-textdark/60">% Handmade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Process (Horizontal Scroll) -->
+    <section id="process" class="bg-textdark text-white py-32 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 mb-20 text-center">
+            <span class="text-cta font-bold tracking-[0.2em] uppercase text-sm block mb-4">The Craft</span>
+            <h2 class="text-5xl md:text-6xl font-display font-bold">FROM SPICE TO SMOKE</h2>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="group relative bg-white/5 p-8 border border-white/10 hover:border-cta/50 transition-colors duration-300">
+                    <div class="absolute -top-6 -right-6 text-8xl font-display font-bold text-white/5 group-hover:text-cta/10 transition-colors">01</div>
+                    <div class="h-48 mb-8 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Spices">
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-cta">The Marinade</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        Fresh turmeric, lemongrass, coriander, and cumin. Ground daily. Marinated for 12 hours minimum to penetrate the meat fibers.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="group relative bg-white/5 p-8 border border-white/10 hover:border-cta/50 transition-colors duration-300">
+                    <div class="absolute -top-6 -right-6 text-8xl font-display font-bold text-white/5 group-hover:text-cta/10 transition-colors">02</div>
+                    <div class="h-48 mb-8 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1532635234223-94764348259e?w=800&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Skewering">
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-cta">The Skewering</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        Hand-threaded by our aunties with decades of experience. Just the right amount of fat-to-meat ratio for juiciness.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="group relative bg-white/5 p-8 border border-white/10 hover:border-cta/50 transition-colors duration-300">
+                    <div class="absolute -top-6 -right-6 text-8xl font-display font-bold text-white/5 group-hover:text-cta/10 transition-colors">03</div>
+                    <div class="h-48 mb-8 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=800&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" alt="Grilling">
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-4 text-cta">The Fire</h3>
+                    <p class="text-white/60 leading-relaxed">
+                        Grilled over mangrove wood charcoal. Fanned constantly to control the heat. The result? That signature smoky char.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section (Interactive) -->
+    <section id="menu" class="py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 max-w-3xl mx-auto">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm block mb-4">The Selection</span>
+                <h2 class="text-6xl font-display font-bold text-textdark mb-6">SIGNATURE SKEWERS</h2>
+                <p class="text-xl text-textdark/60">Served with our secret peanut sauce (with pineapple puree), fresh cucumber, onions, and ketupat.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-card group flex flex-col md:flex-row bg-bgsoft rounded-none overflow-hidden hover:shadow-2xl hover:shadow-primary/20 cursor-pointer border-b-4 border-transparent hover:border-primary">
+                    <div class="w-full md:w-1/2 overflow-hidden h-64 md:h-auto relative">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&fit=crop" class="menu-img w-full h-full object-cover" alt="Chicken Satay">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">Bestseller</div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-2xl font-display font-bold text-textdark group-hover:text-primary transition-colors">Chicken Gold</h3>
+                            <span class="text-xl font-bold text-primary">$12</span>
+                        </div>
+                        <p class="text-sm uppercase tracking-widest text-textdark/40 mb-4">10 Skewers</p>
+                        <p class="text-textdark/70 leading-relaxed mb-6">Boneless thigh meat, turmeric marinade, glazed with honey while grilling.</p>
+                        <button class="self-start text-xs font-bold uppercase tracking-[0.2em] text-textdark border-b border-textdark pb-1 group-hover:text-primary group-hover:border-primary transition-colors">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-card group flex flex-col md:flex-row bg-bgsoft rounded-none overflow-hidden hover:shadow-2xl hover:shadow-primary/20 cursor-pointer border-b-4 border-transparent hover:border-primary">
+                    <div class="w-full md:w-1/2 overflow-hidden h-64 md:h-auto relative">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&fit=crop" class="menu-img w-full h-full object-cover" alt="Mutton Satay">
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-2xl font-display font-bold text-textdark group-hover:text-primary transition-colors">Royal Mutton</h3>
+                            <span class="text-xl font-bold text-primary">$15</span>
+                        </div>
+                        <p class="text-sm uppercase tracking-widest text-textdark/40 mb-4">10 Skewers</p>
+                        <p class="text-textdark/70 leading-relaxed mb-6">Premium leg cut, robust spices (cumin, fennel), zero gamey smell. Rich & smoky.</p>
+                        <button class="self-start text-xs font-bold uppercase tracking-[0.2em] text-textdark border-b border-textdark pb-1 group-hover:text-primary group-hover:border-primary transition-colors">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-card group flex flex-col md:flex-row bg-bgsoft rounded-none overflow-hidden hover:shadow-2xl hover:shadow-primary/20 cursor-pointer border-b-4 border-transparent hover:border-primary">
+                    <div class="w-full md:w-1/2 overflow-hidden h-64 md:h-auto relative">
+                        <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&fit=crop" class="menu-img w-full h-full object-cover" alt="Beef Satay">
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-2xl font-display font-bold text-textdark group-hover:text-primary transition-colors">Wagyu Beef</h3>
+                            <span class="text-xl font-bold text-primary">$18</span>
+                        </div>
+                        <p class="text-sm uppercase tracking-widest text-textdark/40 mb-4">10 Skewers</p>
+                        <p class="text-textdark/70 leading-relaxed mb-6">Grain-fed beef, lemongrass glaze. Melt-in-your-mouth tenderness.</p>
+                        <button class="self-start text-xs font-bold uppercase tracking-[0.2em] text-textdark border-b border-textdark pb-1 group-hover:text-primary group-hover:border-primary transition-colors">Order Now</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-card group flex flex-col md:flex-row bg-gradient-to-br from-primary to-secondary rounded-none overflow-hidden hover:shadow-2xl hover:shadow-primary/20 cursor-pointer text-white">
+                    <div class="w-full md:w-1/2 overflow-hidden h-64 md:h-auto relative">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800&fit=crop" class="menu-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" alt="Platter">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-2xl font-display font-bold text-white">Grand Platter</h3>
+                            <span class="text-xl font-bold text-cta">$45</span>
+                        </div>
+                        <p class="text-sm uppercase tracking-widest text-white/60 mb-4">30 Skewers + Sides</p>
+                        <p class="text-white/90 leading-relaxed mb-6">The ultimate feast. 10 Chicken, 10 Mutton, 10 Beef. Extra sauce & ketupat.</p>
+                        <button class="self-start text-xs font-bold uppercase tracking-[0.2em] text-white border-b border-white pb-1 hover:text-cta hover:border-cta transition-colors">Order Feast</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof (Masonry) -->
+    <section id="reviews" class="py-32 bg-bgsoft">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm block mb-4">The Verdict</span>
+                    <h2 class="text-5xl font-display font-bold text-textdark">WALL OF LOVE</h2>
+                </div>
+                <div class="flex items-center space-x-2 mt-4 md:mt-0">
+                    <span class="text-3xl font-bold text-textdark">4.9</span>
+                    <div class="flex text-cta">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <span class="text-sm text-textdark/50 ml-2">(2,408 reviews)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+                <!-- Review 1 -->
+                <div class="row-span-2 bg-white p-8 border border-textdark/5 hover-lift shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-full mr-4" alt="User">
+                        <div>
+                            <p class="font-bold">Jessica Wong</p>
+                            <p class="text-xs text-textdark/50">Local Guide • 58 Reviews</p>
+                        </div>
+                    </div>
+                    <div class="text-cta mb-4">★★★★★</div>
+                    <p class="text-lg italic leading-relaxed text-textdark/80">"I've eaten satay all over Malaysia and Indonesia. This place? It competes with the best. The char is aggressive in the best way possible. The peanut sauce has that authentic pineapple tang you rarely find anymore."</p>
+                    <div class="mt-6 h-48 rounded overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?w=500" class="w-full h-full object-cover" alt="User Photo">
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 border border-textdark/5 hover-lift shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="text-cta">★★★★★</div>
+                        <span class="ml-auto text-xs text-textdark/40">2 days ago</span>
+                    </div>
+                    <p class="text-md leading-relaxed text-textdark/80">"Worth the 45 minute queue. Pro tip: Order the mixed platter so you can try everything. The mutton is surprisingly tender."</p>
+                    <p class="font-bold mt-4 text-sm">— David Chen</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="row-span-2 bg-textdark text-white p-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div class="text-cta text-3xl">★★★★★</div>
+                        <blockquote class="text-2xl font-display leading-tight">
+                            "The best satay in Singapore, hands down. If you don't eat here, you haven't really visited."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <img src="https://i.pravatar.cc/150?img=11" class="w-10 h-10 rounded-full border-2 border-white mr-3" alt="User">
+                            <span class="font-bold">Mark T.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white p-8 border border-textdark/5 hover-lift shadow-sm">
+                    <p class="text-md leading-relaxed text-textdark/80">"My grandfather used to bring me here in the 90s. The taste hasn't changed a bit. Still the same smoky goodness."</p>
+                    <div class="flex items-center mt-4">
+                        <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xs mr-3">AL</div>
+                        <p class="font-bold text-sm">Amanda Lim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA (Cinematic) -->
+    <section id="order" class="relative py-40 bg-primary overflow-hidden flex items-center justify-center text-center">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 animate-pulse"></div>
+            <div class="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-br from-primary via-red-900 to-black opacity-60 animate-[spin_20s_linear_infinite]"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl px-6">
+            <h2 class="text-6xl md:text-8xl font-display font-bold text-white mb-8 text-shadow-glow">
+                TASTE THE FIRE
+            </h2>
+            <p class="text-2xl text-white/90 font-light mb-12 max-w-2xl mx-auto">
+                We sell out daily. Don't miss your chance to experience the legend.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="https://wa.me/6512345678" class="group relative bg-white text-textdark px-12 py-6 text-xl font-bold uppercase tracking-widest overflow-hidden hover:text-white transition-colors duration-300 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transform hover:translate-x-1 hover:translate-y-1">
+                    <span class="relative z-10 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp Order
+                </span>
+                <div class="absolute inset-0 bg-green-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+                </a>
+                
+                <a href="tel:+6512345678" class="flex items-center justify-center px-12 py-6 text-xl font-bold uppercase tracking-widest text-white border-2 border-white hover:bg-white hover:text-textdark transition-all duration-300">
+                    Call Now
+                </a>
+            </div>
+            
+            <p class="mt-8 text-white/50 text-sm uppercase tracking-widest">
+                <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                Kitchen Open until 11:00 PM
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="text-4xl font-display font-bold mb-6">SATAY STREET SG</h3>
+                <p class="text-white/50 max-w-sm mb-8">
+                    Preserving the art of Singaporean charcoal grilling since 1982. No shortcuts. Just fire, passion, and patience.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white/50 hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="text-white/50 hover:text-white transition-colors">Facebook</a>
+                    <a href="#" class="text-white/50 hover:text-white transition-colors">TikTok</a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-6 text-cta">Visit Us</h4>
+                <p class="text-white/70 mb-2">123 Satay Street</p>
+                <p class="text-white/70 mb-2">Singapore 123456</p>
+                <a href="#" class="text-primary hover:text-white transition-colors text-sm uppercase font-bold mt-4 inline-block underline">Get Directions -></a>
+            </div>
+            
+            <div>
+                <h4 class="font-bold uppercase tracking-widest mb-6 text-cta">Hours</h4>
+                <p class="text-white/70 mb-2">Tue - Sun: 5pm - 11pm</p>
+                <p class="text-white/70 mb-2">Mon: Closed</p>
+                <p class="text-white/70 mt-4 text-xs opacity-50">*Or until sold out</p>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-white/30 uppercase tracking-widest">
+            <p>&copy; 2026 Satay Street SG</p>
+            <p>Designed with Fire & Code</p>
+        </div>
+    </footer>
+
+    <!-- Animations & Logic -->
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    revealHero();
+                }, 500);
+            }, 1500);
+        });
+
+        // Hero Animations
+        function revealHero() {
+            gsap.to('.hero-anim', {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: 'power4.out'
+            });
+        }
+
+        // Parallax Effect
+        gsap.to('#hero-bg', {
+            yPercent: 30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero-clip',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // Navbar Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-textdark/90', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-textdark/90', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        mobileBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.style.transform = 'translateX(0)';
+                // Animate links
+                gsap.fromTo(mobileLinks, 
+                    { x: 50, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.5, stagger: 0.1, delay: 0.3 }
+                );
+            } else {
+                mobileMenu.style.transform = 'translateX(100%)';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.style.transform = 'translateX(100%)';
+            });
+        });
+
+        // Counters Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            ScrollTrigger.create({
+                trigger: counter,
+                start: 'top 80%',
+                once: true,
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: 2,
+                        snap: { innerHTML: 1 },
+                        ease: 'power2.out'
+                    });
+                }
+            });
+        });
+
+        // Reveal Animations for Sections
+        const revealElements = document.querySelectorAll('.gsap-reveal');
+        revealElements.forEach(element => {
+            gsap.fromTo(element, 
+                { y: 50, opacity: 0 },
+                {
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        ease: 'power3.out'
+                    }
+                }
+            );
+        });
+        
+        // Add subtle spark particles
+        function createSpark() {
+            const spark = document.createElement('div');
+            spark.classList.add('spark');
+            
+            // Random size
+            const size = Math.random() * 4 + 2;
+            spark.style.width = `${size}px`;
+            spark.style.height = `${size}px`;
+            
+            // Position randomly in hero
+            const hero = document.querySelector('.hero-clip');
+            if(!hero) return;
+            
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            
+            spark.style.left = `${x}px`;
+            spark.style.top = `${y}px`;
+            spark.style.position = 'absolute';
+            spark.style.zIndex = '5';
+            
+            hero.appendChild(spark);
+            
+            // Animate
+            gsap.to(spark, {
+                y: y - 100 - Math.random() * 200,
+                x: x + (Math.random() - 0.5) * 50,
+                opacity: 0,
+                duration: 1 + Math.random() * 2,
+                ease: 'power1.out',
+                onComplete: () => {
+                    spark.remove();
+                }
+            });
+            
+            gsap.to(spark, {
+                opacity: 1,
+                duration: 0.2,
+                yoyo: true,
+                repeat: 1
+            });
+        }
+        
+        setInterval(createSpark, 200);
+
+    </script>
+</body>
+</html>

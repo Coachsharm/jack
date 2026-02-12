@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombal Talk — Cheesy Indonesian Pick-Up Lines</title>
+    <meta name="description" content="Generate the cheesiest Indonesian gombal lines. Sweet talk, flirty pick-up lines, and romantic one-liners that'll make anyone blush.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-hearts" id="bgHearts"></div>
+    
+    <header>
+        <div class="logo">
+            <span class="logo-icon">💕</span>
+            <h1>Gombal<span class="highlight">Talk</span></h1>
+        </div>
+        <p class="tagline">Rayuan maut yang bikin baper ✨</p>
+    </header>
+
+    <main>
+        <section class="generator">
+            <div class="card" id="gombalCard">
+                <div class="card-inner">
+                    <div class="quote-mark">"</div>
+                    <p class="gombal-text" id="gombalText">Kamu tahu kenapa aku suka hujan? Karena setiap tetes air mengingatkanku pada senyummu yang menyegarkan hariku.</p>
+                    <p class="gombal-translation" id="gombalTranslation">You know why I love rain? Because every drop reminds me of your smile that refreshes my day.</p>
+                    <div class="category-badge" id="categoryBadge">🌹 Romantic</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn-generate" id="btnGenerate" onclick="generateGombal()">
+                    <span class="btn-icon">💘</span>
+                    <span class="btn-text">Gombalin Aku!</span>
+                </button>
+                <button class="btn-copy" id="btnCopy" onclick="copyGombal()">
+                    <span class="btn-icon">📋</span>
+                    <span class="btn-text">Copy</span>
+                </button>
+                <button class="btn-share" id="btnShare" onclick="shareGombal()">
+                    <span class="btn-icon">📤</span>
+                    <span class="btn-text">Share</span>
+                </button>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-cat="all" onclick="setFilter('all', this)">🎯 All</button>
+                <button class="filter-btn" data-cat="romantic" onclick="setFilter('romantic', this)">🌹 Romantic</button>
+                <button class="filter-btn" data-cat="cheesy" onclick="setFilter('cheesy', this)">🧀 Cheesy</button>
+                <button class="filter-btn" data-cat="funny" onclick="setFilter('funny', this)">😂 Funny</button>
+                <button class="filter-btn" data-cat="smooth" onclick="setFilter('smooth', this)">😎 Smooth</button>
+                <button class="filter-btn" data-cat="sweet" onclick="setFilter('sweet', this)">🍯 Sweet</button>
+            </div>
+        </section>
+
+        <section class="favourites" id="favouritesSection" style="display:none;">
+            <h2>💖 Your Favourites</h2>
+            <div class="fav-list" id="favList"></div>
+        </section>
+
+        <section class="about">
+            <h2>Apa itu Gombal? 🤔</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">💬</div>
+                    <h3>Sweet Talk</h3>
+                    <p>Gombal is the Indonesian art of cheesy, over-the-top romantic lines designed to make someone smile, laugh, or blush uncontrollably.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🇮🇩</div>
+                    <h3>Indonesian Culture</h3>
+                    <p>A beloved part of Indonesian social culture. From WhatsApp forwards to TikTok trends — gombal is everywhere and everyone loves it.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">😂</div>
+                    <h3>Intentionally Cheesy</h3>
+                    <p>The whole point is to be so corny it's endearing. The worse the line, the bigger the laugh. It's an art form.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with 💕 by <strong>GombalTalk</strong></p>
+        <p class="footer-sub">Spreading cheesy vibes since 2026</p>
+    </footer>
+
+    <div class="toast" id="toast">Copied to clipboard! 💕</div>
+    <div class="heart-burst" id="heartBurst"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Wellness | Fit Body Thrive</title>
+    <meta name="description" content="Boost team productivity and health with Fit Body Thrive's corporate wellness programs in Singapore. Lunch-hour fitness sessions, health talks, and team bonding challenges.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                            green: '#22C55E',
+                            greenHover: '#16A34A',
+                            dark: '#0F172A',
+                            darker: '#020617',
+                            card: '#1E293B',
+                            text: '#F8FAFC',
+                            muted: '#94A3B8',
+                            lightOrange: '#FB923C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Barlow', 'sans-serif'],
+                        condensed: ['Barlow Condensed', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel { background: rgba(30,41,59,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .glass-card { background: rgba(30,41,59,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .glass-card:hover { background: rgba(30,41,59,0.6); border-color: rgba(249,115,22,0.5); transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(249,115,22,0.15); }
+        .text-gradient { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-image: linear-gradient(to right, #F97316, #FBBF24); }
+        .hero-bg { background-color: #0F172A; background-image: radial-gradient(at 0% 0%, rgba(249,115,22,0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(34,197,94,0.1) 0px, transparent 50%), linear-gradient(to bottom, transparent, #0F172A); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-white pt-16">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="font-condensed text-2xl font-bold text-brand-orange">Fit Body Thrive</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Home</a>
+                    <div class="relative group">
+                        <button class="text-brand-muted hover:text-brand-text transition cursor-pointer flex items-center gap-1">Courses <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                        <div class="absolute top-full left-0 mt-2 w-64 glass-panel rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <p class="px-4 py-1 text-xs text-brand-orange font-semibold uppercase tracking-wider">Fitness</p>
+                            <a href="fitness-program-design.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Advanced Program Design</a>
+                            <a href="fitness-functional-training.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Functional Training</a>
+                            <a href="fitness-body-transformation.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Body Transformation</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-brand-green font-semibold uppercase tracking-wider">Nutrition</p>
+                            <a href="nutrition-foundations.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Nutrition Foundations</a>
+                            <a href="nutrition-sports-performance.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Sports Nutrition</a>
+                            <a href="nutrition-fat-loss-coach.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Fat Loss Coach</a>
+                            <hr class="border-white/10 my-1">
+                            <p class="px-4 py-1 text-xs text-purple-400 font-semibold uppercase tracking-wider">Psychology</p>
+                            <a href="psychology-behaviour-change.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Behaviour Change & MI</a>
+                            <a href="psychology-coaching.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Coaching Psychology</a>
+                            <a href="psychology-mindset-habits.html" class="block px-4 py-2 text-sm text-brand-muted hover:text-brand-text hover:bg-white/5 cursor-pointer">Mindset & Habits</a>
+                        </div>
+                    </div>
+                    <a href="vip-fat-loss.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">VIP Academy</a>
+                    <a href="about.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">About</a>
+                    <a href="success-stories.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Success Stories</a>
+                    <a href="contact-wa.html" class="text-brand-muted hover:text-brand-text transition cursor-pointer">Contact</a>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Fit%20Body%20Thrive%20programs." target="_blank" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2 rounded-lg font-semibold transition cursor-pointer">Get Started</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-brand-muted hover:text-brand-text cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-panel border-t border-white/10">
+            <div class="px-4 py-3 space-y-2">
+                <a href="index.html" class="block py-2 text-brand-muted hover:text-brand-text">Home</a>
+                <p class="text-xs text-brand-orange font-semibold uppercase pt-2">Fitness Courses</p>
+                <a href="fitness-program-design.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Program Design</a>
+                <a href="fitness-functional-training.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Functional Training</a>
+                <a href="fitness-body-transformation.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Body Transformation</a>
+                <p class="text-xs text-brand-green font-semibold uppercase pt-2">Nutrition Courses</p>
+                <a href="nutrition-foundations.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Nutrition Foundations</a>
+                <a href="nutrition-sports-performance.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Sports Nutrition</a>
+                <a href="nutrition-fat-loss-coach.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Fat Loss Coach</a>
+                <p class="text-xs text-purple-400 font-semibold uppercase pt-2">Psychology Courses</p>
+                <a href="psychology-behaviour-change.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Behaviour Change</a>
+                <a href="psychology-coaching.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Coaching Psychology</a>
+                <a href="psychology-mindset-habits.html" class="block py-1 pl-3 text-sm text-brand-muted hover:text-brand-text">Mindset & Habits</a>
+                <hr class="border-white/10">
+                <a href="vip-fat-loss.html" class="block py-2 text-brand-muted hover:text-brand-text">VIP Academy</a>
+                <a href="about.html" class="block py-2 text-brand-muted hover:text-brand-text">About</a>
+                <a href="success-stories.html" class="block py-2 text-brand-muted hover:text-brand-text">Success Stories</a>
+                <a href="contact-wa.html" class="block py-2 text-brand-muted hover:text-brand-text">Contact</a>
+                <a href="https://wa.me/6591090995" target="_blank" class="block py-2 text-brand-orange font-semibold">💬 WhatsApp Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-20 overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-semibold tracking-wide mb-6 border border-brand-orange/20">Corporate Wellness Solutions</span>
+                <h1 class="font-condensed text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+                    Empower Your <span class="text-gradient">Workforce</span> to Thrive
+                </h1>
+                <p class="text-xl text-brand-muted mb-8 leading-relaxed">
+                    Workplace fitness programmes designed for forward-thinking companies. Invest in your team's health to boost productivity, reduce sick days, and build a stronger company culture.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/6591090995?text=Hi!%20I'd%20like%20to%20discuss%20corporate%20wellness%20programs%20for%20our%20company." target="_blank" class="px-8 py-4 bg-brand-orange hover:bg-brand-orangeHover text-white rounded-lg font-bold text-lg transition shadow-lg shadow-brand-orange/25 text-center cursor-pointer">
+                        Book Corporate Wellness
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="py-16 bg-brand-darker relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center reveal">
+                <div class="glass-card p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-orange">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-3">HR Departments</h3>
+                    <p class="text-brand-muted">Enhance your employee benefits package with impactful health initiatives that staff actually enjoy.</p>
+                </div>
+                <div class="glass-card p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-green">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-3">Wellness Committees</h3>
+                    <p class="text-brand-muted">Support your internal initiatives with professional fitness coaching and expert-led workshops.</p>
+                </div>
+                <div class="glass-card p-8 rounded-xl">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-400">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-condensed text-2xl font-bold text-white mb-3">C-Suite & Founders</h3>
+                    <p class="text-brand-muted">Invest in your company's greatest asset—your people. Healthy teams are high-performing teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-condensed text-4xl font-bold text-white mb-4">Our <span class="text-brand-orange">Wellness Solutions</span></h2>
+                <p class="text-lg text-brand-muted max-w-2xl mx-auto">Customisable packages tailored to your organisation's needs, culture, and space.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 reveal">
+                <!-- Service 1 -->
+                <div class="glass-panel p-8 rounded-xl flex gap-6 items-start hover:border-brand-orange/30 transition duration-300">
+                    <div class="w-12 h-12 bg-brand-orange rounded-lg flex-shrink-0 flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-condensed text-2xl font-bold text-white mb-3">Lunch-Hour Fitness</h3>
+                        <p class="text-brand-muted mb-4">Efficient 45-minute sessions designed to energise, not exhaust. HIIT, functional training, or mobility work right in your office or nearby park.</p>
+                        <ul class="text-sm text-brand-muted space-y-1">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Equipment provided</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Suitable for all fitness levels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-panel p-8 rounded-xl flex gap-6 items-start hover:border-brand-orange/30 transition duration-300">
+                    <div class="w-12 h-12 bg-brand-green rounded-lg flex-shrink-0 flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-condensed text-2xl font-bold text-white mb-3">Health & Nutrition Talks</h3>
+                        <p class="text-brand-muted mb-4">Interactive seminars on nutrition, stress management, sleep, and ergonomics. Practical tips for busy professionals.</p>
+                        <ul class="text-sm text-brand-muted space-y-1">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> "Eating for Energy" workshops</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Q&A with experts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-panel p-8 rounded-xl flex gap-6 items-start hover:border-brand-orange/30 transition duration-300">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg flex-shrink-0 flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-condensed text-2xl font-bold text-white mb-3">Team Challenges</h3>
+                        <p class="text-brand-muted mb-4">Gamified fitness challenges (e.g., "10k Steps Challenge", "Weight Loss Warriors") to foster friendly competition and accountability.</p>
+                        <ul class="text-sm text-brand-muted space-y-1">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Leaderboards & prizes</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Team bonding focus</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-panel p-8 rounded-xl flex gap-6 items-start hover:border-brand-orange/30 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex-shrink-0 flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="font-condensed text-2xl font-bold text-white mb-3">Wellness Workshops</h3>
+                        <p class="text-brand-muted mb-4">Hands-on sessions covering mobility, posture correction, and stress relief techniques that can be done at the desk.</p>
+                        <ul class="text-sm text-brand-muted space-y-1">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Pain-free desk work</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Stress reduction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-brand-darker border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="font-condensed text-4xl font-bold text-white mb-6">Why Invest in <span class="text-brand-green">Corporate Wellness?</span></h2>
+                    <p class="text-brand-muted mb-8">A healthy team is a productive team. Our evidence-based approach ensures tangible ROI for your organisation.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center text-brand-green font-bold shrink-0">01</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Improved Productivity</h4>
+                                <p class="text-brand-muted text-sm">Exercise boosts cognitive function, focus, and energy levels, leading to better work output.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center text-brand-green font-bold shrink-0">02</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Reduced Sick Days</h4>
+                                <p class="text-brand-muted text-sm">Healthier employees have stronger immune systems and lower risk of chronic lifestyle diseases.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center text-brand-green font-bold shrink-0">03</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Enhanced Team Bonding</h4>
+                                <p class="text-brand-muted text-sm">Sweating together builds camaraderie and breaks down silos outside the meeting room.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal delay-200">
+                    <div class="absolute inset-0 bg-brand-orange/20 blur-3xl rounded-full"></div>
+                    <div class="glass-card p-8 rounded-2xl relative border border-white/10">
+                        <h3 class="font-condensed text-3xl font-bold text-white mb-6 text-center">Get Your Custom Proposal</h3>
+                        <p class="text-center text-brand-muted mb-8">Every company is unique. Let's discuss a package that fits your budget and goals.</p>
+                        <a href="https://wa.me/6591090995?text=Hi!%20I'd%20like%20to%20discuss%20corporate%20wellness%20programs%20for%20our%20company." target="_blank" class="block w-full bg-brand-green hover:bg-brand-greenHover text-white font-bold py-4 rounded-xl text-center transition-all transform hover:scale-[1.02] shadow-lg shadow-brand-green/25 cursor-pointer">
+                            <span class="flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                                WhatsApp Enquiry
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-condensed text-xl font-bold text-brand-orange mb-4">Fit Body Thrive</h3>
+                    <p class="text-brand-muted text-sm">Singapore's premier fitness education academy. Elevate your coaching with evidence-based courses by Coach Sharm.</p>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Courses</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="fitness-program-design.html" class="hover:text-brand-orange transition cursor-pointer">Program Design</a></li>
+                        <li><a href="fitness-functional-training.html" class="hover:text-brand-orange transition cursor-pointer">Functional Training</a></li>
+                        <li><a href="fitness-body-transformation.html" class="hover:text-brand-orange transition cursor-pointer">Body Transformation</a></li>
+                        <li><a href="nutrition-foundations.html" class="hover:text-brand-orange transition cursor-pointer">Nutrition Foundations</a></li>
+                        <li><a href="psychology-behaviour-change.html" class="hover:text-brand-orange transition cursor-pointer">Behaviour Change</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Programs</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="vip-fat-loss.html" class="hover:text-brand-orange transition cursor-pointer">VIP Fat Loss Academy</a></li>
+                        <li><a href="corporate-wellness.html" class="hover:text-brand-orange transition cursor-pointer">Corporate Wellness</a></li>
+                        <li><a href="executive-coaching.html" class="hover:text-brand-orange transition cursor-pointer">Executive Coaching</a></li>
+                        <li><a href="success-stories.html" class="hover:text-brand-orange transition cursor-pointer">Success Stories</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-orange transition cursor-pointer">Blog & Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-condensed text-lg font-semibold text-brand-text mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li>📱 <a href="https://wa.me/6591090995" target="_blank" class="hover:text-brand-orange transition cursor-pointer">+65 9109 0995</a></li>
+                        <li>📧 hisham.musa@gmail.com</li>
+                        <li class="flex gap-3 pt-2">
+                            <a href="https://www.instagram.com/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">Instagram</a>
+                            <a href="https://www.linkedin.com/in/coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">LinkedIn</a>
+                            <a href="https://www.youtube.com/@coachsharm" target="_blank" class="hover:text-brand-orange transition cursor-pointer">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-sm text-brand-muted">
+                <p>&copy; 2026 Fit Body Thrive by Coach Sharm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6591090995" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer" aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.913.913l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.512-.767-6.262-2.063l-.438-.33-3.198 1.072 1.072-3.198-.33-.438A9.958 9.958 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

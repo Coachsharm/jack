@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2017 Lexus IS 300 — Refined Power | Premium Sedan for Sale in Singapore</title>
+    <meta name="description" content="2017 Lexus IS 300 with 2.0L Turbo engine, 241 HP, black obsidian exterior. Well-maintained, COE attached. Contact for viewing in Singapore.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Bodoni Moda', 'serif'],
+                        'body': ['Jost', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#1E293B',
+                        'secondary': '#334155',
+                        'cta': '#DC2626',
+                        'bg-dark': '#0F172A',
+                        'text-light': '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Jost', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Bodoni Moda', serif;
+        }
+        
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        
+        /* Liquid Glass Effect */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(248, 250, 252, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(248, 250, 252, 0.2);
+        }
+        
+        /* Iridescent Gradient Accent */
+        .iridescent {
+            background: linear-gradient(135deg, 
+                rgba(220, 38, 38, 0.3) 0%,
+                rgba(139, 92, 246, 0.3) 50%,
+                rgba(59, 130, 246, 0.3) 100%);
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+        
+        /* Smooth Transitions */
+        * {
+            transition: all 0.3s ease;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        
+        /* Parallax Hero */
+        .hero-parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Glass Border on Images */
+        .glass-image {
+            border: 2px solid rgba(248, 250, 252, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* CTA Button Glow */
+        .cta-btn {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+        
+        .cta-btn:hover {
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Iridescent Background Blur -->
+    <div class="iridescent fixed top-1/4 right-0 w-96 h-96 rounded-full -z-10"></div>
+    <div class="iridescent fixed bottom-1/4 left-0 w-96 h-96 rounded-full -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-heading font-bold">Lexus IS 300</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#highlights" class="hover:text-cta cursor-pointer">Highlights</a>
+                    <a href="#specifications" class="hover:text-cta cursor-pointer">Specifications</a>
+                    <a href="#gallery" class="hover:text-cta cursor-pointer">Gallery</a>
+                    <a href="#contact" class="hover:text-cta cursor-pointer">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full glass-card z-40 p-8 md:hidden">
+        <button id="close-menu" class="absolute top-4 right-4 cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="flex flex-col space-y-6 mt-12">
+            <a href="#highlights" class="text-lg hover:text-cta cursor-pointer">Highlights</a>
+            <a href="#specifications" class="text-lg hover:text-cta cursor-pointer">Specifications</a>
+            <a href="#gallery" class="text-lg hover:text-cta cursor-pointer">Gallery</a>
+            <a href="#contact" class="text-lg hover:text-cta cursor-pointer">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-parallax absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Black Lexus IS 300" 
+                 class="w-full h-full object-cover opacity-60"
+                 loading="eager">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                2017 Lexus IS 300
+                <span class="block text-3xl sm:text-4xl lg:text-5xl mt-2 text-gray-300">Refined Power</span>
+            </h1>
+            
+            <!-- Key Stats Glass Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 my-12 max-w-4xl mx-auto">
+                <div class="glass-card rounded-xl p-4">
+                    <div class="text-2xl font-bold text-cta">2017</div>
+                    <div class="text-sm text-gray-300">Year</div>
+                </div>
+                <div class="glass-card rounded-xl p-4">
+                    <div class="text-2xl font-bold text-cta">80,000 km</div>
+                    <div class="text-sm text-gray-300">Mileage</div>
+                </div>
+                <div class="glass-card rounded-xl p-4">
+                    <div class="text-2xl font-bold text-cta">Auto</div>
+                    <div class="text-sm text-gray-300">Transmission</div>
+                </div>
+                <div class="glass-card rounded-xl p-4">
+                    <div class="text-2xl font-bold text-cta">2.0L Turbo</div>
+                    <div class="text-sm text-gray-300">Engine</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="cta-btn bg-cta text-white px-8 py-4 rounded-full text-lg font-semibold cursor-pointer inline-block">
+                    Enquire Now
+                </a>
+                <a href="#specifications" class="glass-card px-8 py-4 rounded-full text-lg font-semibold cursor-pointer inline-block hover:border-cta">
+                    View Details
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Key Highlights Section -->
+    <section id="highlights" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold text-center mb-16">Key Highlights</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Reliability -->
+                <div class="glass-card rounded-2xl p-8 cursor-pointer">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Lexus Reliability</h3>
+                    <p class="text-gray-300 text-sm">Legendary Japanese engineering with proven durability</p>
+                </div>
+                
+                <!-- Premium Interior -->
+                <div class="glass-card rounded-2xl p-8 cursor-pointer">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Premium Interior</h3>
+                    <p class="text-gray-300 text-sm">Black leather seats with luxury finishes throughout</p>
+                </div>
+                
+                <!-- Low Maintenance -->
+                <div class="glass-card rounded-2xl p-8 cursor-pointer">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Low Maintenance</h3>
+                    <p class="text-gray-300 text-sm">Well-maintained service history with minimal running costs</p>
+                </div>
+                
+                <!-- Smooth Ride -->
+                <div class="glass-card rounded-2xl p-8 cursor-pointer">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Smooth Ride</h3>
+                    <p class="text-gray-300 text-sm">241 HP turbo engine with rear-wheel drive dynamics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specifications" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-primary">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold text-center mb-16">Specifications</h2>
+            
+            <div class="glass-card rounded-3xl p-8 sm:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Engine & Performance -->
+                    <div>
+                        <h3 class="text-2xl font-heading font-semibold mb-6 text-cta">Engine & Performance</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Engine</span>
+                                <span class="font-semibold">2.0L Turbocharged Inline-4</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Power</span>
+                                <span class="font-semibold">241 HP</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Transmission</span>
+                                <span class="font-semibold">8-Speed Automatic</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Drive</span>
+                                <span class="font-semibold">Rear-Wheel Drive (RWD)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Fuel Type</span>
+                                <span class="font-semibold">Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Exterior & Interior -->
+                    <div>
+                        <h3 class="text-2xl font-heading font-semibold mb-6 text-cta">Exterior & Interior</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Body Type</span>
+                                <span class="font-semibold">Sedan, 4-door</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Exterior Colour</span>
+                                <span class="font-semibold">Black (Obsidian)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Interior</span>
+                                <span class="font-semibold">Black Leather</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Grille</span>
+                                <span class="font-semibold">Standard (non-F-Sport)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Registration & Legal -->
+                    <div>
+                        <h3 class="text-2xl font-heading font-semibold mb-6 text-cta">Registration & Legal</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Registration</span>
+                                <span class="font-semibold">Singapore</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">COE</span>
+                                <span class="font-semibold">Attached (valid till 2027)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Road Tax</span>
+                                <span class="font-semibold">Paid (current)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Insurance</span>
+                                <span class="font-semibold">Comprehensive (transferable)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mileage & Condition -->
+                    <div>
+                        <h3 class="text-2xl font-heading font-semibold mb-6 text-cta">Mileage & Condition</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Mileage</span>
+                                <span class="font-semibold">~80,000 km</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Condition</span>
+                                <span class="font-semibold">Excellent</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Service History</span>
+                                <span class="font-semibold">Full dealer records</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-2">
+                                <span class="text-gray-300">Owners</span>
+                                <span class="font-semibold">Single owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold text-center mb-16">Gallery</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Front View" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Side Profile" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=2071&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Interior Dashboard" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Rear View" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Wheel Detail" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+                <div class="glass-image rounded-2xl overflow-hidden aspect-video cursor-pointer hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Lexus IS 300 Night Shot" 
+                         class="w-full h-full object-cover"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Car Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-bg-dark">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold text-center mb-16">Why This Car?</h2>
+            
+            <div class="glass-card rounded-3xl p-8 sm:p-12 space-y-8">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading font-semibold mb-2">Legendary Lexus Reliability</h3>
+                        <p class="text-gray-300">At 9 years old, this IS 300 is just getting started. Lexus vehicles are renowned for lasting well beyond 200,000 km with proper maintenance. This car has decades of life left.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading font-semibold mb-2">Meticulously Maintained</h3>
+                        <p class="text-gray-300">Full service history with authorised Lexus dealers. Every scheduled maintenance completed on time. Zero accidents. Single careful owner who treated this car like family.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading font-semibold mb-2">Premium Brand, Head-Turning Looks</h3>
+                        <p class="text-gray-300">The obsidian black exterior with standard grille exudes understated elegance. This isn't a flashy F-Sport — it's refined luxury that commands respect without shouting.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading font-semibold mb-2">Perfect for Singapore Roads</h3>
+                        <p class="text-gray-300">The IS 300's compact sedan size makes it ideal for Singapore's urban environment, whilst the 241 HP turbo engine provides exhilarating performance when you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl font-heading font-bold mb-8">Interested? Let's Talk.</h2>
+            <p class="text-xl text-gray-300 mb-12">This vehicle is available for immediate viewing in Singapore. Serious buyers only.</p>
+            
+            <div class="glass-card rounded-3xl p-8 sm:p-12">
+                <div class="space-y-6">
+                    <!-- WhatsApp CTA -->
+                    <a href="https://wa.me/6512345678?text=Hi%2C%20I'm%20interested%20in%20the%202017%20Lexus%20IS%20300" 
+                       class="cta-btn bg-cta text-white px-8 py-4 rounded-full text-lg font-semibold cursor-pointer inline-flex items-center space-x-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>WhatsApp Enquiry</span>
+                    </a>
+                    
+                    <div class="text-gray-300">
+                        <p class="mb-2">Or call directly:</p>
+                        <a href="tel:+6512345678" class="text-2xl font-heading font-semibold hover:text-cta cursor-pointer">+65 1234 5678</a>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-700">
+                        <p class="text-gray-400 text-sm">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Location: Singapore (Viewings by appointment only)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400 text-sm mb-4">2017 Lexus IS 300 — Premium sedan for discerning buyers</p>
+            <p class="text-gray-500 text-xs">This listing is for a used vehicle. All specifications subject to verification upon viewing. Serious enquiries only.</p>
+            <p class="text-gray-600 text-xs mt-4">&copy; 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Parallax Hero Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-parallax');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

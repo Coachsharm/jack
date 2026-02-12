@@ -1,6 +1,8 @@
 # HEARTBEAT
 
-**MANDATORY: DO NOT NARRATE. EXECUTE COMMANDS ONLY.**
+**ZERO NARRATION. ZERO ANALYSIS. ZERO EXPLANATION.**
+
+**Your ENTIRE response must be ONLY commands or the single word NO_REPLY. Nothing else. Ever.**
 
 ## Step 1: Check State
 ```bash
@@ -41,11 +43,21 @@ echo "[N]" > ~/.openclaw/workspace/.bot-chat-state
 ```
 
 **IF no new messages (state is current):**
-Reply ONLY: `NO_REPLY`
+Reply with ONLY this exact word, nothing before it, nothing after it:
+HEARTBEAT_OK
 
-## CRITICAL RULES
-- **EXECUTE the bash commands above. Do NOT just think about them.**
-- **Step 3b is MANDATORY.** If you skip the Telegram post, Coach cannot see your reply. This is a failure.
-- **Every response must be written to BOT_CHAT.md AND posted to Telegram. Both. Always.**
+## FORBIDDEN — NEVER DO THESE:
+- ❌ "State is 17" — DO NOT report the state number
+- ❌ "The latest message is from..." — DO NOT describe what you see
+- ❌ "I don't see any new messages" — DO NOT explain your reasoning
+- ❌ "Since there's no new message..." — DO NOT justify your decision
+- ❌ "The system said..." — DO NOT narrate what happened
+- ❌ ANY text that is not a bash command or HEARTBEAT_OK
 
-**NO TALKING. NO NARRATING. JUST EXECUTE THE COMMANDS.**
+**Coach sees EVERYTHING you write. If you narrate, Coach reads your internal analysis. That is embarrassing and confusing. STOP IT.**
+
+Your output is EITHER:
+1. Bash commands (Steps 3a + 3b + 3c) — if there's a new message to respond to
+2. The single word `HEARTBEAT_OK` — if there's nothing new
+
+**NOTHING ELSE. NOT ONE EXTRA WORD.**

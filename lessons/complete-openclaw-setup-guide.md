@@ -312,152 +312,62 @@ ollama rm phi3
 
 ---
 
-## Part 3: Automated Backup System
+## Part 3: Backup System
 
-### Requirements
+> **⚠️ UPDATE (2026-02-11):** The original hourly/daily/weekly backup system documented below has been **replaced**. The old scripts (`backup-hourly.sh`, `restore.sh`) and directory (`/root/.openclaw/backups/`) have been removed from the server. The current system uses a simpler 2-option approach.
 
-- ✅ Hourly automatic execution
-- ✅ Protection against file corruption
-- ✅ Easy restore process with safety confirmations
-- ✅ Minimal disk usage (~18MB for 70 backups)
-- ✅ Full logging with timestamps
+### Current Backup System (as of Feb 2026)
 
-### Implementation (04:52 UTC)
+**Two-Option Manual Backup:**
 
-Created two scripts:
-1. `/root/.openclaw/backup-hourly.sh` - Main backup script
-2. `/root/.openclaw/restore.sh` - Interactive restore tool
+When you tell Jack "backup Jack" on Telegram, he asks you to choose:
 
-#### Script 1: Backup Script
+| Option | What It Saves | Size | Script |
+|--------|--------------|------|--------|
+| **Option 1: Config only** | Personality, config, memory files | ~1-5MB | `/root/openclaw-backups/backup-config.sh` |
+| **Option 2: Full backup** | Everything except old backups and logs | ~160MB | `/root/openclaw-backups/backup.sh` |
 
-**File:** `/root/.openclaw/backup-hourly.sh`
-
-**What It Backs Up:**
-
-```bash
-/root/.openclaw/openclaw.json          # Main configuration
-/root/.openclaw/workspace/             # All user files, lessons, memory
-/root/.openclaw/skills/                # Custom skill configurations
-/root/.openclaw/sessions/*.json        # Session metadata only (not full transcripts)
-```
-
-**Exclusions:**
-
-```bash
---exclude='node_modules'     # Too large, can be reinstalled
---exclude='*.log'            # Temporary log files
---exclude='.git'             # Git repositories
---exclude='sessions/*.txt'   # Full session transcripts (too large)
-```
-
-**Three-Tier Retention Policy:**
-
-```bash
-HOURLY_RETENTION=48   # Last 48 hours (2 days)
-DAILY_RETENTION=14    # Last 14 days (2 weeks)
-WEEKLY_RETENTION=8    # Last 8 weeks (2 months)
-```
-
-**Directory Structure:**
+**Backup Locations:**
 
 ```
-/root/.openclaw/backups/
-├── hourly/
-│   ├── backup_20260204_020000/
-│   ├── backup_20260204_030000/
-│   ├── backup_20260204_040000/
-│   └── ... (up to 48 backups)
-├── daily/
-│   ├── backup_20260204/
-│   ├── backup_20260203/
-│   └── ... (up to 14 backups)
-└── weekly/
-    ├── backup_2026_week05/
-    ├── backup_2026_week04/
-    └── ... (up to 8 backups)
+/root/openclaw-backups/
+├── jack-config/             # Config-only backups (Option 1)
+├── jack/                    # Full backups (Option 2)
+├── ross/                    # Ross backups
+├── backup.sh                # Full backup script
+└── backup-config.sh         # Config-only backup script
 ```
 
-**Promotion Logic:**
+Backup folders are named with `-config` or `-full` suffix for easy identification.
 
-- **Midnight backup** (00:00 UTC) → Promoted to `daily/`
-- **Sunday midnight backup** → Promoted to `weekly/`
-- Old backups beyond retention limits are auto-deleted
+**Auto-Backups (Still Active):**
 
-**Cron Setup:**
-
-```bash
-# Edit root's crontab
-crontab -e
-
-# Add this line (runs at the top of every hour)
-0 * * * * /root/.openclaw/backup-hourly.sh
+OpenClaw still automatically creates `.bak` files on config changes:
+```
+/root/.openclaw/
+├── openclaw.json.bak        # Latest auto-backup
+├── openclaw.json.bak.1      # Previous
+├── openclaw.json.bak.2      # Older
+├── openclaw.json.bak.3      # Even older
+└── openclaw.json.bak.4      # Oldest
 ```
 
-**Logging Configuration:**
+**Watchdog Auto-Restore (Still Active):**
 
-```bash
-LOG_FILE="/var/log/openclaw-backup.log"
+The watchdog at `/root/openclaw-watchdog/watchdog.sh` still runs every 5 minutes via cron and auto-restores from the `.bak` cascade on failure.
 
-# View real-time logs
-tail -f /var/log/openclaw-backup.log
+**Single Source of Truth:** `/root/.openclaw/workspace/BACKUP_MANUAL.md` on the server.
 
-# Check for errors
-grep -i error /var/log/openclaw-backup.log
+**Full Guide:** See `lessons/jack4_backup_and_recovery_system.md` (local).
 
-# View last 24 hours
-grep "$(date -d '24 hours ago' +'%Y-%m-%d')" /var/log/openclaw-backup.log
-```
+### ❌ What Was Removed (Historical)
 
-#### Script 2: Restore Script
-
-**File:** `/root/.openclaw/restore.sh`
-
-**Features:**
-
-1. Lists all available backups (hourly/daily/weekly)
-2. Shows metadata: timestamp, file count, total size
-3. Creates pre-restore safety backup
-4. Requires interactive confirmation (`yes` to proceed)
-5. Provides rollback instructions
-
-**Usage Examples:**
-
-```bash
-# List all available backups
-/root/.openclaw/restore.sh
-
-# Output:
-# === Available Backups ===
-# 
-# HOURLY (last 48 hours):
-#   /root/.openclaw/backups/hourly/backup_20260204_050000
-#   /root/.openclaw/backups/hourly/backup_20260204_040000
-#   ...
-# 
-# DAILY (last 14 days):
-#   /root/.openclaw/backups/daily/backup_20260204
-#   /root/.openclaw/backups/daily/backup_20260203
-#   ...
-
-# Restore from specific backup
-/root/.openclaw/restore.sh /root/.openclaw/backups/hourly/backup_20260204_050000
-
-# Interactive confirmation:
-# This will restore from: backup_20260204_050000
-# Current config will be backed up to: /root/.openclaw/backups/pre-restore_20260204_055530/
-# Type 'yes' to proceed: yes
-
-# After restore:
-systemctl restart openclaw
-```
-
-**Safety Features:**
-
-1. **Pre-restore Backup:** Always creates safety backup before changes
-2. **Confirmation Required:** Must type `yes` to proceed (not just `y`)
-3. **Safety Backup Location:** `/root/.openclaw/backups/pre-restore_TIMESTAMP/`
-4. **Maximum Data Loss:** 1 hour (time between hourly backups)
-5. **Rollback Available:** Pre-restore backup can be used to rollback if needed
+The following no longer exist on the server:
+- `/root/.openclaw/backups/` (hourly/daily/weekly directories)
+- `/root/.openclaw/backup-hourly.sh`
+- `/root/.openclaw/restore.sh`
+- Cron entry for `backup-hourly.sh`
+- `/var/log/openclaw-backup.log`
 
 ---
 
@@ -511,11 +421,12 @@ All documentation stored in: `/root/.openclaw/workspace/lesson/`
 /root/.openclaw/workspace/                       # User workspace directory
 /root/.openclaw/workspace/lesson/                # Documentation storage
 /root/.openclaw/workspace/memory/                # Daily memory files
-/root/.openclaw/backups/                         # Backup storage (hourly/daily/weekly)
-/root/.openclaw/backup-hourly.sh                 # Automated backup script
-/root/.openclaw/restore.sh                       # Interactive restore script
-/var/log/openclaw-backup.log                     # Backup operation logs
-/home/node/.openclaw/workspace/TEAM_CHAT.md      # Team collaboration bridge
+/root/.openclaw/workspace/BACKUP_MANUAL.md       # Backup procedures (source of truth)
+/root/openclaw-backups/backup.sh                 # Full backup script
+/root/openclaw-backups/backup-config.sh          # Config-only backup script
+/root/openclaw-backups/jack/                     # Full backups destination
+/root/openclaw-backups/jack-config/              # Config backups destination
+/root/openclaw-watchdog/watchdog.sh              # Auto-restore watchdog
 ```
 
 ### Critical Commands Reference
@@ -552,23 +463,20 @@ ollama rm model-name
 du -sh ~/.ollama/models/*
 ```
 
-**Backup Operations:**
+**Backup Operations (Updated Feb 2026):**
 
 ```bash
-# Manual backup (runs same logic as cron)
-/root/.openclaw/backup-hourly.sh
+# Manual backup — tell Jack "backup Jack" on Telegram
+# Option 1: Config only (~1-5MB) → /root/openclaw-backups/jack-config/
+# Option 2: Full backup (~160MB) → /root/openclaw-backups/jack/
 
-# List all available backups with metadata
-/root/.openclaw/restore.sh
+# Check available backups
+ls -lh /root/openclaw-backups/jack-config/
+ls -lh /root/openclaw-backups/jack/
 
-# Restore from specific backup
-/root/.openclaw/restore.sh /path/to/backup
-
-# Check backup disk usage
-du -sh /root/.openclaw/backups/*
-
-# View backup logs
-tail -f /var/log/openclaw-backup.log
+# Restore from .bak file
+cp /root/.openclaw/openclaw.json.bak /root/.openclaw/openclaw.json
+openclaw gateway restart
 ```
 
 **Gateway Control:**
@@ -637,27 +545,15 @@ Creates sentinel file confirming restart
 
 Both `/model hermes` and `/model 7` switch to `ollama/hermes3`.
 
-#### 3. Backup Strategy Rationale
+#### 3. Backup Strategy (Updated Feb 2026)
 
-**Why Three Tiers?**
+> **Note:** The original 3-tier hourly/daily/weekly system has been replaced.
 
-- **Hourly:** Frequent recent changes (code iterations, config tweaks)
-- **Daily:** Short-term history (week-old versions for comparisons)
-- **Weekly:** Long-term archive (monthly retrospectives)
-
-**Why Auto-Promotion?**
-
-- Prevents duplicate storage
-- Single backup serves multiple tiers
-- Reduces total disk usage by ~60%
-
-**Estimated Disk Usage:**
-
-- Single backup: ~248KB
-- 48 hourly: ~11.9MB
-- 14 daily: ~3.5MB (minus promotions from hourly)
-- 8 weekly: ~2.0MB (minus promotions from daily)
-- **Total:** ~18MB for complete retention
+**Current approach:**
+- **Auto `.bak` files:** OpenClaw creates `.bak` → `.bak.4` on config changes (automatic)
+- **Watchdog:** Auto-restores from `.bak` cascade every 5 minutes on failure
+- **Manual 2-option:** Config-only (~1-5MB) or Full backup (~160MB) via Telegram
+- **See:** `lessons/jack4_backup_and_recovery_system.md` for full details
 
 #### 4. Thinking vs Non-Thinking Models
 
@@ -751,46 +647,25 @@ openclaw gateway config.get | jq '.models.providers.ollama.models[].id'
 **Solutions:**
 
 ```bash
-# 1. Check backup availability
-/root/.openclaw/restore.sh
+# 1. Check .bak files
+ls -lh /root/.openclaw/openclaw.json.bak*
 
-# 2. Restore from most recent backup
-/root/.openclaw/restore.sh /root/.openclaw/backups/hourly/backup_LATEST
+# 2. Restore from most recent .bak
+cp /root/.openclaw/openclaw.json.bak /root/.openclaw/openclaw.json
 
 # 3. Restart OpenClaw
-systemctl restart openclaw
+openclaw gateway restart
 
 # 4. Verify config is valid JSON
 cat /root/.openclaw/openclaw.json | jq empty
 # (No output = valid JSON)
 ```
 
-### Issue: Backup not running
+**Note:** The watchdog at `/root/openclaw-watchdog/watchdog.sh` should auto-detect and fix this within 5 minutes.
 
-**Symptoms:** No new backups appearing in `/root/.openclaw/backups/hourly/`
-
-**Solutions:**
-
-```bash
-# 1. Check cron is running
-systemctl status cron
-
-# 2. Check crontab entry
-crontab -l | grep backup-hourly
-
-# 3. Test backup script manually
-/root/.openclaw/backup-hourly.sh
-
-# 4. Check logs for errors
-tail -50 /var/log/openclaw-backup.log
-
-# 5. Verify script is executable
-ls -l /root/.openclaw/backup-hourly.sh
-# Should show: -rwxr-xr-x (executable)
-
-# 6. If not executable:
-chmod +x /root/.openclaw/backup-hourly.sh
-```
+> **Note (Feb 2026):** The old hourly cron backup system (`backup-hourly.sh`) has been replaced.
+> Backups are now done manually via Telegram ("backup Jack" → Option 1 or 2).
+> The watchdog still runs automatically. See `lessons/jack4_backup_and_recovery_system.md`.
 
 ### Issue: Ollama model switch slow
 
@@ -828,12 +703,13 @@ ollama rm unused-model
 # Switch to free uncensored model
 /model 7
 
-# List all backups
-/root/.openclaw/restore.sh
+# Check available backups
+ls -lh /root/openclaw-backups/jack-config/
+ls -lh /root/openclaw-backups/jack/
 
-# Restore from backup
-/root/.openclaw/restore.sh /path/to/backup
-systemctl restart openclaw
+# Restore from .bak
+cp /root/.openclaw/openclaw.json.bak /root/.openclaw/openclaw.json
+openclaw gateway restart
 
 # Check OpenClaw status
 openclaw status
@@ -846,9 +722,6 @@ openclaw gateway config.patch '{"key": "value"}'
 
 # List Ollama models
 ollama list
-
-# Check backup logs
-tail -f /var/log/openclaw-backup.log
 ```
 
 ### Model Numbers Quick Reference
@@ -866,12 +739,11 @@ tail -f /var/log/openclaw-backup.log
 ### File Paths Quick Reference
 
 ```
-/root/.openclaw/openclaw.json           - Main config
-/root/.openclaw/workspace/              - User files
-/root/.openclaw/backups/                - All backups
-/root/.openclaw/backup-hourly.sh        - Backup script
-/root/.openclaw/restore.sh              - Restore script
-/var/log/openclaw-backup.log            - Backup logs
+/root/.openclaw/openclaw.json               - Main config
+/root/.openclaw/workspace/                  - User files
+/root/.openclaw/workspace/BACKUP_MANUAL.md  - Backup procedures
+/root/openclaw-backups/                     - All backup scripts + destinations
+/root/openclaw-watchdog/watchdog.sh         - Auto-restore watchdog
 ```
 
 ---
@@ -879,9 +751,9 @@ tail -f /var/log/openclaw-backup.log
 ## Lessons Learned
 
 1. **Always backup before config changes**
-   - Implemented as automated hourly system
-   - Maximum 1-hour data loss window
-   - No manual backup needed
+   - Auto `.bak` files handle config changes
+   - Watchdog auto-restores within 5 minutes
+   - Manual backups available via Telegram
 
 2. **Use `config.patch`, never manual edits**
    - JSON validation prevents corruption
@@ -898,13 +770,8 @@ tail -f /var/log/openclaw-backup.log
    - 4/10 quality not worth 2.2GB disk space
    - Better to use fewer high-quality models
 
-5. **Three-tier retention = optimal storage**
-   - Single backup serves multiple tiers
-   - Auto-promotion prevents duplicates
-   - 60% storage reduction vs flat retention
-
-6. **Document everything immediately**
-   - Created 6 lesson files during session
+5. **Document everything immediately**
+   - Created lesson files during session
    - Real-time documentation = accurate details
    - Future replication becomes copy-paste
 

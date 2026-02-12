@@ -1,0 +1,2 @@
+2026-02-12T02:19:25.487Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).
+2026-02-12T13:07:51.133Z Missing config. Run `openclaw setup` or set gateway.mode=local (or pass --allow-unconfigured).

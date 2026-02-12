@@ -28,4 +28,15 @@ env_draft.txt
 FINAL_TASK_STATUS.md
 
 # OpenClaw config files (contain API keys)
+
+# OpenClaw config files (contain API keys)
 openclaw_step*.json
+**/openclaw.json
+**/ross-openclaw.json
+**/jack_config_current.json
+**/*config*.json
+**/audit-dump.txt
+server_updates/*.log
+server_updates/*.txt
+server_updates/*.json
+# Keep .sh, .py, .md in server_updates

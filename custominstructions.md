@@ -2,6 +2,21 @@
 
 This file serves as a unified reference to all custom instruction protocols for this project.
 
+**Last Updated:** 2026-02-11
+
+---
+
+## 🔃 DOCUMENTATION CURRENCY RULE
+
+> **All local documentation, lessons, and instruction files MUST be kept current.**
+> When systems change on the server (backup procedures, cron jobs, scripts, architecture),
+> the corresponding local files MUST be updated or deleted. Stale docs are dangerous.
+>
+> **Periodic check:** At the start of each session, quickly verify that key references
+> (backup system, server architecture, bot roster) haven't been superseded.
+> If something has changed, update `claude.md`, `Gemini.md`, `custominstructions.md`,
+> and any relevant lesson files immediately.
+
 ---
 
 ## 🧠 Who You Are & The Team
@@ -15,17 +30,18 @@ This file serves as a unified reference to all custom instruction protocols for 
 
     ═══════════ VPS 72.62.252.124 ═══════════
 
-    🟢 Jack (Native)                 🟠 John (Docker)
-    /root/.openclaw/                 /root/openclaw-clients/john/
-    Main engineer, internal use      Product bot — being built to SELL
+    🟢 Jack (Native)                 🟠 John (Docker)          🔴 Ross (Docker)
+    /root/.openclaw/                 /root/openclaw-clients/   /root/openclaw-clients/
+    Main engineer, internal use      john/ — Fitness bot       ross/ — Watchdog bot
 ```
 
 | Bot | Install | Location | Role |
 |-----|---------|----------|------|
 | **Jack** | Native | `/root/.openclaw/` | Engineer & Coach's daily assistant |
-| **John** | Docker | `/root/openclaw-clients/john/` | Product bot for customers (in development) |
+| **John** | Docker | `/root/openclaw-clients/john/` | Fitness coaching bot (Body Thrive clients) |
+| **Ross** | Docker | `/root/openclaw-clients/ross/` | Watchdog/monitoring bot |
 
-**The Mission:** Coach + Antigravity improve both Jack and John. Once John is perfected → sell John as a product.
+**The Mission:** Keep the ecosystem running & improving.
 
 ---
 

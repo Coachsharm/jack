@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombal Talk — Rayuan Maut Indonesia</title>
+    <meta name="description" content="The art of Indonesian sweet talk. Beautiful cheesy pick-up lines that'll make anyone blush. Gombalin seseorang hari ini!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="rose-overlay"></div>
+
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>GombalTalk</span>
+            </div>
+            <div class="nav-links">
+                <a href="#generator">Generate</a>
+                <a href="#collection">Collection</a>
+                <a href="#about">About</a>
+            </div>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#generator">Generate</a>
+            <a href="#collection">Collection</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="hero">
+            <p class="hero-eyebrow">The Art of Indonesian Sweet Talk</p>
+            <h1>Gombal<span class="gold">Talk</span></h1>
+            <p class="hero-sub">Rayuan maut yang bikin baper. 40+ cheesy lines crafted to make hearts flutter.</p>
+            <a href="#generator" class="hero-cta">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Gombalin Aku!
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="generator" id="generator">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">Generator</span>
+                <span class="label-line"></span>
+            </div>
+
+            <div class="filters" role="tablist" aria-label="Category filter">
+                <button class="chip active" data-cat="all" role="tab" aria-selected="true" onclick="setFilter('all',this)">All</button>
+                <button class="chip" data-cat="romantic" role="tab" aria-selected="false" onclick="setFilter('romantic',this)">Romantic</button>
+                <button class="chip" data-cat="cheesy" role="tab" aria-selected="false" onclick="setFilter('cheesy',this)">Cheesy</button>
+                <button class="chip" data-cat="funny" role="tab" aria-selected="false" onclick="setFilter('funny',this)">Funny</button>
+                <button class="chip" data-cat="smooth" role="tab" aria-selected="false" onclick="setFilter('smooth',this)">Smooth</button>
+                <button class="chip" data-cat="sweet" role="tab" aria-selected="false" onclick="setFilter('sweet',this)">Sweet</button>
+            </div>
+
+            <div class="quote-card" id="quoteCard">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <svg class="quote-svg" viewBox="0 0 24 24" width="36" height="36"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" fill="currentColor" opacity="0.15"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" fill="currentColor" opacity="0.15"/></svg>
+                    <p class="quote-indo" id="quoteIndo">Kamu tahu kenapa aku suka hujan? Karena setiap tetes air mengingatkanku pada senyummu yang menyegarkan hariku.</p>
+                    <p class="quote-en" id="quoteEn">You know why I love rain? Because every drop reminds me of your smile that refreshes my day.</p>
+                    <div class="card-footer">
+                        <span class="cat-tag" id="catTag">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            Romantic
+                        </span>
+                        <div class="card-actions">
+                            <button class="icon-btn" onclick="toggleFav()" aria-label="Add to favourites" id="favBtn">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            </button>
+                            <button class="icon-btn" onclick="copyGombal()" aria-label="Copy to clipboard">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                            <button class="icon-btn" onclick="shareGombal()" aria-label="Share">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-main" id="btnMain" onclick="generateGombal()">
+                <span class="btn-shimmer"></span>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Generate New Gombal
+            </button>
+
+            <p class="hint">Press <kbd>Space</kbd> for a new line</p>
+        </section>
+
+        <section class="collection" id="collection">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">Your Collection</span>
+                <span class="label-line"></span>
+            </div>
+            <p class="collection-empty" id="collectionEmpty">Tap the bookmark icon to save your favourites here.</p>
+            <div class="collection-grid" id="collectionGrid"></div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="section-label">
+                <span class="label-line"></span>
+                <span class="label-text">What is Gombal?</span>
+                <span class="label-line"></span>
+            </div>
+            <div class="about-cards">
+                <div class="info-card" data-aos>
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>The Art of Sweet Talk</h3>
+                    <p>Gombal is Indonesia's beloved tradition of over-the-top, cheesy romantic lines. Think pick-up lines, but turned up to eleven with poetic Indonesian flair.</p>
+                </div>
+                <div class="info-card" data-aos>
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Cultural Phenomenon</h3>
+                    <p>From WhatsApp forwards to TikTok trends, gombal lines are shared millions of times daily. The cheesier the better — it's an endearing art form.</p>
+                </div>
+                <div class="info-card" data-aos>
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Intentionally Corny</h3>
+                    <p>The whole point is to be so ridiculously romantic it circles back to being charming. The worse the line, the bigger the smile. That's the magic.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                GombalTalk
+            </div>
+            <p>Spreading cheesy vibes since 2026</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">Copied!</div>
+
+    <script src="app2.js"></script>
+</body>
+</html>

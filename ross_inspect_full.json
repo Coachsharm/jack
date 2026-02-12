@@ -1,0 +1,235 @@
+[
+    {
+        "Id": "f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe",
+        "Created": "2026-02-12T02:18:54.964593694Z",
+        "Path": "node",
+        "Args": [
+            "/usr/lib/node_modules/openclaw/dist/entry.js",
+            "gateway"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 1,
+            "Error": "",
+            "StartedAt": "2026-02-12T13:07:42.337106167Z",
+            "FinishedAt": "2026-02-12T13:07:51.195880293Z"
+        },
+        "Image": "sha256:b3a147f2f2bf2a7a05613e0907511df3757a980c52272034b5eac98c2192da40",
+        "ResolvConfPath": "/var/lib/docker/100000.100000/containers/f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe/resolv.conf",
+        "HostnamePath": "/var/lib/docker/100000.100000/containers/f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe/hostname",
+        "HostsPath": "/var/lib/docker/100000.100000/containers/f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe/hosts",
+        "LogPath": "/var/lib/docker/100000.100000/containers/f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe/f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe-json.log",
+        "Name": "/openclaw-ross",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/root/openclaw-clients/ross/openclaw.json:/home/openclaw/.openclaw/openclaw.json:rw",
+                "/root/openclaw-clients/ross/workspace:/home/openclaw/.openclaw/workspace:rw",
+                "/root:/root:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "labels": "production",
+                    "max-file": "5",
+                    "max-size": "10m"
+                }
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "18789/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "19789"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "host",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "f62fea9fe7a6617c966a6b7ac2f0daec1d89c4bbbd8d6ef90e879ac01f2ef7fe",
+                "LowerDir": "/var/lib/docker/100000.100000/overlay2/5e58368d63eaffad029fcb1d83b340c2962f384a4f6543a08716fc8c6d69ddb2-init/diff:/var/lib/docker/100000.100000/overlay2/nrdfhvj5e0rqnh39ri10mo3e0/diff:/var/lib/docker/100000.100000/overlay2/rwnvd0h5qzh73isq5bj8oq6tb/diff:/var/lib/docker/100000.100000/overlay2/yw768k1ex16tbhmjagbqgmxrn/diff:/var/lib/docker/100000.100000/overlay2/o9cy449rmiebsw7havwulwizu/diff:/var/lib/docker/100000.100000/overlay2/kysnsanpbp0aowr30z6j45q62/diff:/var/lib/docker/100000.100000/overlay2/i8txuu2o9fwti0di9s2a9jem1/diff:/var/lib/docker/100000.100000/overlay2/7a3740095989b5819f9eefdce7648ec2f364d6446afc14d32053b19edf044c81/diff",
+                "MergedDir": "/var/lib/docker/100000.100000/overlay2/5e58368d63eaffad029fcb1d83b340c2962f384a4f6543a08716fc8c6d69ddb2/merged",
+                "UpperDir": "/var/lib/docker/100000.100000/overlay2/5e58368d63eaffad029fcb1d83b340c2962f384a4f6543a08716fc8c6d69ddb2/diff",
+                "WorkDir": "/var/lib/docker/100000.100000/overlay2/5e58368d63eaffad029fcb1d83b340c2962f384a4f6543a08716fc8c6d69ddb2/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/root/openclaw-clients/ross/openclaw.json",
+                "Destination": "/home/openclaw/.openclaw/openclaw.json",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/root/openclaw-clients/ross/workspace",
+                "Destination": "/home/openclaw/.openclaw/workspace",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/root",
+                "Destination": "/root",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "f62fea9fe7a6",
+            "Domainname": "",
+            "User": "openclaw",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "18789/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "node",
+                "/usr/lib/node_modules/openclaw/dist/entry.js",
+                "gateway"
+            ],
+            "Image": "openclaw-client:latest",
+            "Volumes": null,
+            "WorkingDir": "/home/openclaw/.openclaw",
+            "Entrypoint": null,
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "ff558991bd01193c928c15655fa0bd1eb69821c26758084cf5ef4fdf36c2b075",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

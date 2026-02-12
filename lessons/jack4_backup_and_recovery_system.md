@@ -1,26 +1,28 @@
 # Jack4 Backup & Recovery System (Complete Guide)
 
-**Date:** 2026-02-07  
+**Date:** 2026-02-11 (Updated)  
 **Applies to:** Jack4 (Native OpenClaw installation at `/root/.openclaw/`)  
-**Supersedes:** Any Docker-based backup references in older lessons
+**Supersedes:** All previous backup documentation (hourly/daily/weekly system, restore.sh, backup-hourly.sh)
 
 ---
 
 ## 🎯 Overview
 
-Jack4 has a **3-layer backup system** that works together:
+Jack4 has a **3-layer backup system**:
 
-| Layer | What | Where | Who Runs It | Frequency |
-|-------|------|-------|-------------|-----------|
-| **OpenClaw Auto-Backups** | Automatic `.bak` files + hourly/daily snapshots | Server-side (`/root/.openclaw/`) | OpenClaw itself | Hourly + on config change |
-| **Watchdog Auto-Restore** | Detects failures, restores from backup cascade | Server-side (`/root/openclaw-watchdog/`) | Cron (every 5 min) | Automatic on failure |
-| **Manual Full Backup** | Downloads entire `~/.openclaw/` to local laptop | Local (`backups/`) | Antigravity or Coach | On request |
+| Layer | What | Where | Who Runs It |
+|-------|------|-------|-------------|
+| **OpenClaw Auto-Backups** | Automatic `.bak` files on config change | Server `/root/.openclaw/` | OpenClaw itself |
+| **Watchdog Auto-Restore** | Detects failures, restores from backup cascade | Server `/root/openclaw-watchdog/` | Cron (every 5 min) |
+| **Manual Backups (2 Options)** | On-demand config or full backup | Server `/root/openclaw-backups/` | Jack (via Telegram) or Antigravity (local) |
+
+> **⚠️ IMPORTANT:** The old hourly/daily/weekly backup system (`/root/.openclaw/backups/`, `backup-hourly.sh`, `restore.sh`) has been **removed from the server**. It no longer exists. Do not reference it.
 
 ---
 
 ## 📁 Layer 1: OpenClaw Auto-Backups (Server-Side, Automatic)
 
-OpenClaw creates its own backups automatically. **You don't need to configure anything** — this is built-in.
+OpenClaw creates its own `.bak` files automatically when config changes. **No setup needed.**
 
 ### What Exists on the Server
 
@@ -31,27 +33,13 @@ OpenClaw creates its own backups automatically. **You don't need to configure an
 ├── openclaw.json.bak.1      # Previous auto-backup
 ├── openclaw.json.bak.2      # Older auto-backup
 ├── openclaw.json.bak.3      # Even older
-├── openclaw.json.bak.4      # Oldest auto-backup
-│
-├── backups/
-│   ├── hourly/              # Created every hour
-│   │   ├── backup_20260207_090001/openclaw.json
-│   │   ├── backup_20260207_080001/openclaw.json
-│   │   ├── backup_20260207_070001/openclaw.json
-│   │   └── ... (48+ hours of backups)
-│   │
-│   └── daily/               # Created daily at midnight
-│       ├── backup_20260207/openclaw.json
-│       ├── backup_20260206/openclaw.json
-│       └── backup_20260205/openclaw.json
+└── openclaw.json.bak.4      # Oldest auto-backup
 ```
 
 ### Key Facts
 - `.bak` files are created when OpenClaw modifies the config (channel changes, settings updates)
 - Numbered `.bak.1` through `.bak.4` are older copies (rotated)
-- Hourly backups go back ~3 days (48+ snapshots)
-- Daily backups go back ~3 days
-- **Total: 50+ restore points available at any time**
+- These are **config-only** backups (just `openclaw.json`)
 
 ---
 
@@ -77,9 +65,7 @@ When the watchdog needs to restore, it tries backups in this order:
 3. /root/.openclaw/openclaw.json.bak.2
 4. /root/.openclaw/openclaw.json.bak.3
 5. /root/.openclaw/openclaw.json.bak.4      ← Oldest .bak
-6. Hourly backups (newest 5 checked)         ← ~5 hours back
-7. Daily backups (newest 3 checked)          ← ~3 days back
-8. /root/openclaw-backups/jack/<latest>/     ← External backups (last resort)
+6. /root/openclaw-backups/jack/<latest>/     ← External backups (last resort)
 ```
 
 Each backup is **validated** before use:
@@ -100,20 +86,36 @@ Each backup is **validated** before use:
 
 ---
 
-## 💾 Layer 3: Manual Backups (On Demand)
+## 💾 Layer 3: Manual Backups (2-Option System)
 
-### Option A: "Backup Jack" via Telegram (Server-Side)
+### On Server: "Backup Jack" via Telegram
+
 Tell Jack on Telegram: **"backup Jack"**
 
-Jack runs `/root/openclaw-backups/backup.sh` which:
-1. Creates timestamped copy of `/root/.openclaw/` to `/root/openclaw-backups/jack/<timestamp>/`
-2. Validates the backup contains valid `openclaw.json`
-3. Auto-cleans old backups (keeps latest 10)
-4. Reports size, file count, and available backups
+Jack will ask you to choose:
 
-**Backups stored at:** `/root/openclaw-backups/jack/`
+| Option | What It Saves | Size | Script | Destination |
+|--------|--------------|------|--------|-------------|
+| **Option 1: Config only** | Personality, config, memory files | ~1-5MB | `/root/openclaw-backups/backup-config.sh` | `/root/openclaw-backups/jack-config/` |
+| **Option 2: Full backup** | Everything except old backups and logs | ~160MB | `/root/openclaw-backups/backup.sh` | `/root/openclaw-backups/jack/` |
 
-### Option B: Full Download to Laptop (Antigravity)
+Backup folder naming convention:
+- Config backups end with `-config` (e.g., `jack-config-11feb26-0800am-config`)
+- Full backups end with `-full` (e.g., `jack-11feb26-0800am-full`)
+
+### Server Backup Locations
+
+```
+/root/openclaw-backups/
+├── jack-config/             # Config-only backups (Option 1)
+├── jack/                    # Full backups (Option 2)
+├── ross/                    # Ross backups
+├── backup.sh                # Full backup script
+├── backup-config.sh         # Config-only backup script
+```
+
+### On Laptop: Full Download (Antigravity)
+
 Tell Antigravity: **"backup Jack"**
 
 ```powershell
@@ -121,8 +123,13 @@ Tell Antigravity: **"backup Jack"**
 .agent\skills\backup\scripts\backup.ps1 -Target jack4
 ```
 
-Downloads entire `/root/.openclaw/` to local `backups/backup-native-jack4-<timestamp>/`.  
+Downloads entire `/root/.openclaw/` to local `backups/backup-native-jack4-<timestamp>/`.
 Use this for **disaster recovery** (server dies, need to restore to new VPS).
+
+### Single Source of Truth
+
+The authoritative backup documentation is:
+**`/root/.openclaw/workspace/BACKUP_MANUAL.md`** on the server.
 
 ---
 
@@ -132,18 +139,15 @@ Use this for **disaster recovery** (server dies, need to restore to new VPS).
 ```bash
 # On server via SSH:
 ls -lh /root/.openclaw/openclaw.json.bak*
-ls -lh /root/.openclaw/backups/hourly/ | tail -10
-ls -lh /root/.openclaw/backups/daily/
+ls -lh /root/openclaw-backups/jack-config/
+ls -lh /root/openclaw-backups/jack/
+ls -lh /root/openclaw-backups/ross/
 ```
 
 ### Manual Restore (If Watchdog Isn't Enough)
 ```bash
 # Restore from specific .bak
 cp /root/.openclaw/openclaw.json.bak.2 /root/.openclaw/openclaw.json
-openclaw gateway restart
-
-# Restore from specific hourly backup
-cp /root/.openclaw/backups/hourly/backup_20260207_050001/openclaw.json /root/.openclaw/openclaw.json
 openclaw gateway restart
 ```
 
@@ -174,7 +178,7 @@ openclaw gateway health    # Gateway-specific
 
 ### What Jack4 Paths Are (NOT Docker!)
 | Item | Correct Path (Jack4 Native) | ❌ Wrong Path (Legacy Docker) |
-|------|----------------------------|------------------------------|
+|------|----------------------------|-------------------------------|
 | Config | `/root/.openclaw/openclaw.json` | `/var/lib/docker/volumes/openclaw-*` |
 | Workspace | `/root/.openclaw/workspace/` | Docker volume paths |
 | Sessions | `/root/.openclaw/agents/main/sessions/` | Docker exec commands |
@@ -183,8 +187,13 @@ openclaw gateway health    # Gateway-specific
 ### The .bak File Is Not Always Safe
 If someone edits `openclaw.json` with a bad config, OpenClaw may create a `.bak` of the *already-bad* config. That's why the watchdog cascades through `.bak.1`, `.bak.2`, etc. — older backups are more likely to be the "last known good."
 
-### OpenClaw Creates Backups Itself
-You do NOT need to manually create `.bak` files. OpenClaw handles this automatically. The numbered `.bak.1`–`.bak.4` are rotated copies.
+### ❌ What No Longer Exists (REMOVED)
+These were part of the old system and have been **deleted from the server**:
+- `/root/.openclaw/backups/` (hourly/daily/weekly backup directories)
+- `/root/.openclaw/backup-hourly.sh` (old hourly backup script)
+- `/root/.openclaw/restore.sh` (old interactive restore script)
+- Any cron entry for `backup-hourly.sh`
+- `/var/log/openclaw-backup.log`
 
 ---
 
@@ -194,22 +203,18 @@ You do NOT need to manually create `.bak` files. OpenClaw handles this automatic
 
 1. **Minute 0:** Config gets corrupted
 2. **Minute 0-5:** Watchdog cron fires, runs `openclaw health --json` → FAILS
-3. **Minute 0-5:** Watchdog tries `.bak` → validates → either restores or skips if also bad
+3. **Minute 0-5:** Watchdog tries `.bak` → validates → either restores or skips if bad
 4. **If .bak is bad:** Tries `.bak.1` → `.bak.2` → `.bak.3` → `.bak.4`
-5. **If ALL .bak files bad:** Tries newest 5 hourly backups (up to ~5 hours back)
-6. **If hourly bad:** Tries newest 3 daily backups (up to ~3 days back)
-7. **If daily bad:** Tries external backup directory
-8. **If nothing works:** Sends Telegram alert "No valid backup found! Manual intervention required."
-9. **If restore worked but gateway still broken:** Counts as attempt, sends alert
-10. **After 2 failures in 1 hour:** Stops trying, sends urgent alert to Coach
-
-**Total protection depth: ~50+ restore points spanning 3 days**
+5. **If ALL .bak files bad:** Tries external backup from `/root/openclaw-backups/jack/`
+6. **If nothing works:** Sends Telegram alert "No valid backup found! Manual intervention required."
+7. **After 2 failures in 1 hour:** Stops trying, sends urgent alert to Coach
 
 ---
 
-**Last Updated:** 2026-02-07  
-**Updated By:** Antigravity  
+**Last Updated:** 2026-02-11
+**Updated By:** Antigravity (from Jack's letter about new backup system)
 **Related Files:**
 - Watchdog script: `/root/openclaw-watchdog/watchdog.sh`
-- Backup skill: `.agent/skills/backup/`
+- Backup manual (server): `/root/.openclaw/workspace/BACKUP_MANUAL.md`
+- Backup skill (local): `.agent/skills/backup/`
 - Server architecture: `lessons/server_architecture_snapshot_feb2026.md`

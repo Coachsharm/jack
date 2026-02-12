@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED        STATUS                    PORTS                        NAMES
+f62fea9fe7a6   openclaw-client:latest   "node /usr/lib/node_…"   11 hours ago   Exited (1) 11 hours ago                                openclaw-ross
+c5c56a9b39bb   openclaw-client:latest   "/home/openclaw/entr…"   35 hours ago   Up 25 hours (unhealthy)   127.0.0.1:19490->18789/tcp   openclaw-sarah
+e968a7c2b19e   openclaw-client:latest   "/home/openclaw/entr…"   2 days ago     Up 29 hours (healthy)     127.0.0.1:19385->18789/tcp   openclaw-john

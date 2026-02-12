@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Body Thrive — Singapore's Premier Fitness Education Academy</title>
+    <meta name="description" content="Singapore's premier fitness education academy for personal trainers and coaches. 9 professional courses across Fitness, Nutrition & Psychology by Coach Sharm.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #F97316;
+            --secondary: #FB923C;
+            --cta: #22C55E;
+            --bg: #1F2937;
+            --text: #F8FAFC;
+        }
+        
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Liquid Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 16px 48px rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        /* Gradient Backgrounds */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #1F2937 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 300ms ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(31, 41, 55, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(31, 41, 55, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 40;
+            padding: 6rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+            transition: all 300ms ease;
+            cursor: pointer;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.7);
+        }
+        
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 600ms ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 300ms ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary:hover {
+            background: #EA580C;
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-cta {
+            background: var(--cta);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 300ms ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .btn-cta:hover {
+            background: #16A34A;
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 300ms ease;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: rgba(249, 115, 22, 0.1);
+            border-top: 1px solid rgba(249, 115, 22, 0.3);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+        }
+        
+        /* Course Cards */
+        .course-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.2), transparent);
+            transition: left 600ms ease;
+        }
+        
+        .course-card:hover::before {
+            left: 100%;
+        }
+        
+        /* Price Badge */
+        .price-badge {
+            background: var(--cta);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+        
+        /* Testimonial Card */
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            transition: all 300ms ease;
+        }
+        
+        .testimonial:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: var(--cta);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="py-4 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <svg class="w-10 h-10 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span class="text-2xl font-bold">Fit Body Thrive</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#courses" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">Courses</a>
+                <a href="#vip" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">VIP Program</a>
+                <a href="#about" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">About Coach</a>
+                <a href="#testimonials" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">Testimonials</a>
+                <a href="contact-wa.html" class="btn-cta inline-block">Contact Us</a>
+            </div>
+            
+            <!-- Mobile Hamburger -->
+            <button id="menuToggle" class="lg:hidden text-white cursor-pointer" aria-label="Toggle menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu flex-col items-center justify-center gap-8 text-center">
+        <a href="#courses" class="text-2xl hover:text-orange-500 transition-colors duration-200 cursor-pointer mobile-link">Courses</a>
+        <a href="#vip" class="text-2xl hover:text-orange-500 transition-colors duration-200 cursor-pointer mobile-link">VIP Program</a>
+        <a href="#about" class="text-2xl hover:text-orange-500 transition-colors duration-200 cursor-pointer mobile-link">About Coach</a>
+        <a href="#testimonials" class="text-2xl hover:text-orange-500 transition-colors duration-200 cursor-pointer mobile-link">Testimonials</a>
+        <a href="contact-wa.html" class="btn-cta inline-block text-xl">Contact Us</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center pt-20 px-6 lg:px-12 relative">
+        <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Elevate Your Coaching.<br>
+                <span class="text-orange-500">Transform More Lives.</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                Singapore's premier fitness education academy for personal trainers and coaches. <strong>9 professional courses</strong> across Fitness, Nutrition & Psychology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#courses" class="btn-primary inline-block text-lg">Explore Courses</a>
+                <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Fit%20Body%20Thrive%20programs." class="btn-cta inline-block text-lg">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Bar -->
+    <section class="stats-bar py-8 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center fade-in">
+            <div>
+                <div class="text-4xl font-bold text-orange-500 mb-2">25+</div>
+                <div class="text-gray-300">Years Experience</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-orange-500 mb-2">10,000+</div>
+                <div class="text-gray-300">Adults Trained</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-orange-500 mb-2">MSc</div>
+                <div class="text-gray-300">Exercise Science</div>
+            </div>
+            <div>
+                <div class="text-4xl font-bold text-orange-500 mb-2">30+</div>
+                <div class="text-gray-300">Books Published</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 fade-in">Professional Courses</h2>
+            <p class="text-xl text-center text-gray-400 mb-16 fade-in">9 Comprehensive Programmes Across 3 Disciplines</p>
+            
+            <!-- Fitness Courses -->
+            <div class="mb-16 fade-in">
+                <div class="flex items-center gap-3 mb-8">
+                    <svg class="w-10 h-10 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                    </svg>
+                    <h3 class="text-3xl font-bold text-orange-500">FITNESS</h3>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-orange-400 font-bold mb-2">F1</div>
+                        <h4 class="text-xl font-bold mb-3">Advanced Program Design & Periodisation</h4>
+                        <p class="text-gray-400 mb-4">Master evidence-based programming for optimal client results.</p>
+                        <div class="price-badge">$890</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-orange-400 font-bold mb-2">F2</div>
+                        <h4 class="text-xl font-bold mb-3">Functional Training & Movement Mastery</h4>
+                        <p class="text-gray-400 mb-4">Build expertise in functional movement patterns and biomechanics.</p>
+                        <div class="price-badge">$1,200</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-orange-400 font-bold mb-2">F3</div>
+                        <h4 class="text-xl font-bold mb-3">Body Transformation Specialist Certification</h4>
+                        <p class="text-gray-400 mb-4">Comprehensive certification for delivering exceptional transformations.</p>
+                        <div class="price-badge">$1,800</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nutrition Courses -->
+            <div class="mb-16 fade-in">
+                <div class="flex items-center gap-3 mb-8">
+                    <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <h3 class="text-3xl font-bold text-green-500">NUTRITION</h3>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-green-400 font-bold mb-2">N1</div>
+                        <h4 class="text-xl font-bold mb-3">Nutrition Foundations for Fitness Pros</h4>
+                        <p class="text-gray-400 mb-4">Essential nutrition principles for fitness professionals.</p>
+                        <div class="price-badge">$650</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-green-400 font-bold mb-2">N2</div>
+                        <h4 class="text-xl font-bold mb-3">Sports Nutrition & Performance Fuelling</h4>
+                        <p class="text-gray-400 mb-4">Optimise client performance through targeted nutrition strategies.</p>
+                        <div class="price-badge">$950</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-green-400 font-bold mb-2">N3</div>
+                        <h4 class="text-xl font-bold mb-3">Sustainable Fat Loss Nutrition Coach</h4>
+                        <p class="text-gray-400 mb-4">Evidence-based fat loss coaching without extreme restriction.</p>
+                        <div class="price-badge">$1,400</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Psychology Courses -->
+            <div class="fade-in">
+                <div class="flex items-center gap-3 mb-8">
+                    <svg class="w-10 h-10 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    <h3 class="text-3xl font-bold text-purple-500">PSYCHOLOGY</h3>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-purple-400 font-bold mb-2">P1</div>
+                        <h4 class="text-xl font-bold mb-3">Behaviour Change & Motivational Interviewing</h4>
+                        <p class="text-gray-400 mb-4">Master techniques to drive lasting client behaviour change.</p>
+                        <div class="price-badge">$750</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-purple-400 font-bold mb-2">P2</div>
+                        <h4 class="text-xl font-bold mb-3">Coaching Psychology & Client Mastery</h4>
+                        <p class="text-gray-400 mb-4">Deepen your coaching impact through psychological principles.</p>
+                        <div class="price-badge">$950</div>
+                    </div>
+                    <div class="glass-card course-card p-6 rounded-xl cursor-pointer">
+                        <div class="text-purple-400 font-bold mb-2">P3</div>
+                        <h4 class="text-xl font-bold mb-3">Mindset & Habit Architecture</h4>
+                        <p class="text-gray-400 mb-4">Build sustainable habits and resilient mindsets in your clients.</p>
+                        <div class="price-badge">$1,400</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- VIP Fat Loss Program -->
+    <section id="vip" class="py-20 px-6 lg:px-12 bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="max-w-5xl mx-auto text-center fade-in">
+            <div class="glass p-12 rounded-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">VIP Fat Loss — Body Thrive Academy</h2>
+                <p class="text-xl text-gray-300 mb-8">Coach Sharm's Signature 3-Stage Programme</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <div class="text-orange-500 text-2xl font-bold mb-2">Stage 1</div>
+                        <div class="text-lg font-semibold">Foundation</div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <div class="text-orange-500 text-2xl font-bold mb-2">Stage 2</div>
+                        <div class="text-lg font-semibold">Transformation</div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <div class="text-orange-500 text-2xl font-bold mb-2">Stage 3</div>
+                        <div class="text-lg font-semibold">Consistency</div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-10 text-left">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>200+ Lessons</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>WhatsApp VIP Group</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <div>Community Support</div>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20the%20VIP%20Fat%20Loss%20Program." class="btn-cta inline-block text-lg">Join VIP Fat Loss Programme</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Corporate Programs -->
+    <section class="py-20 px-6 lg:px-12">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">Corporate Programmes</h2>
+            <p class="text-xl text-center text-gray-400 mb-12">Elevate Your Organisation's Health & Performance</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-xl">
+                    <svg class="w-12 h-12 text-orange-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-3">Corporate Wellness & Team Fitness</h3>
+                    <p class="text-gray-400 mb-6">Customised wellness programmes to boost employee health, morale, and productivity.</p>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Corporate%20Wellness%20programmes." class="btn-outline inline-block">Enquire Now</a>
+                </div>
+                
+                <div class="glass-card p-8 rounded-xl">
+                    <svg class="w-12 h-12 text-orange-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-3">Executive Performance Coaching</h3>
+                    <p class="text-gray-400 mb-6">One-on-one coaching for executives seeking peak physical and mental performance.</p>
+                    <a href="https://wa.me/6591090995?text=Hi%20Coach%20Sharm!%20I'm%20interested%20in%20Executive%20Performance%20Coaching." class="btn-outline inline-block">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Coach Sharm -->
+    <section id="about" class="py-20 px-6 lg:px-12 bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="max-w-6xl mx-auto fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Meet Coach Sharm</h2>
+            
+            <div class="glass p-10 rounded-2xl">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-orange-500 mb-6">Qualifications & Credentials</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span><strong>MSc Exercise & Sports Science</strong> (NTU)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span><strong>BA Merit</strong> (NUS)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span><strong>Master Trainer:</strong> BOSU, PRAMA, TRX, TWIST, NASM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-orange-500 mb-6">Achievements & Recognition</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                                <span>Co-creator <strong>"Lose To Win"</strong> (Health Promotion Board)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                                <span>Presenter at <strong>IMD, Ministry of Health</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                                <span><strong>30+ Books</strong> Published</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                </svg>
+                                <span>Media Appearances: <strong>TV, Radio, Straits Times</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-10 pt-10 border-t border-white/10">
+                    <p class="text-lg text-gray-300 text-center">
+                        Trusted by homemakers to CEOs, doctors to executives — Coach Sharm brings world-class expertise and genuine care to every client relationship.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 px-6 lg:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 fade-in">What Clients Say</h2>
+            <p class="text-xl text-center text-gray-400 mb-12 fade-in">Trusted by Industry Leaders Worldwide</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial fade-in">
+                    <svg class="w-10 h-10 text-orange-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                    <p class="text-lg mb-4 italic">"Sharm is the best PT I have used across UK, HK and Singapore."</p>
+                    <div class="font-bold">JAMES WILBORE</div>
+                    <div class="text-sm text-gray-400">Finance Director, Disney</div>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <svg class="w-10 h-10 text-orange-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                    <p class="text-lg mb-4 italic">"A rare true personal trainer and outstanding fitness coach."</p>
+                    <div class="font-bold">BENJAMIN DEREGT</div>
+                    <div class="text-sm text-gray-400">Business Dev Manager (APAC), Lighthouse Independent Media</div>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <svg class="w-10 h-10 text-orange-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                    <p class="text-lg mb-4 italic">"A reset was necessary and that's what Coach Sharm helped with."</p>
+                    <div class="font-bold">KALAI NATARAJAN</div>
+                    <div class="text-sm text-gray-400">Founder & CEO, Kalai & Co</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-16 px-6 lg:px-12 bg-gray-900 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-10 h-10 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        <span class="text-2xl font-bold">Fit Body Thrive</span>
+                    </div>
+                    <p class="text-gray-400">Singapore's premier fitness education academy for personal trainers and coaches.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#courses" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">Courses</a></li>
+                        <li><a href="#vip" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">VIP Programme</a></li>
+                        <li><a href="#about" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">About Coach Sharm</a></li>
+                        <li><a href="#testimonials" class="hover:text-orange-500 transition-colors duration-200 cursor-pointer">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contact</h4>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            </svg>
+                            <a href="https://wa.me/6591090995" class="hover:text-orange-500 transition-colors duration-200">+65 9109 0995</a>
+                        </div>
+                        
+                        <div class="flex gap-4 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-200" aria-label="Instagram">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-200" aria-label="LinkedIn">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-200" aria-label="YouTube">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors duration-200" aria-label="TikTok">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Fit Body Thrive. All rights reserved. Designed with excellence by Body Thrive.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6591090995" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
+    
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for fixed navbar
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

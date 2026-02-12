@@ -248,8 +248,26 @@ switch ($Target) {
         New-Item -ItemType Directory -Path $destPath | Out-Null
         
         # Backup the entire .openclaw directory (config, workspace, sessions, agents, logs)
-        Write-Host "Downloading ~/.openclaw..."
-        pscp -batch -r -pw $($creds.Pass) "root@$($creds.IP):/root/.openclaw" "$destPath"
+        # Backup the entire .openclaw directory (config, workspace, sessions, agents, logs)
+        Write-Host "Zipping ~/.openclaw on server for speed..."
+        # Use plink to run tar (much faster than recursive scp for small files)
+        plink -batch -pw $($creds.Pass) root@$($creds.IP) "tar -czf /tmp/openclaw_backup.tar.gz -C /root .openclaw"
+
+        Write-Host "Downloading openclaw_backup.tar.gz..."
+        $tarPath = Join-Path $destPath "openclaw_backup.tar.gz"
+        pscp -batch -pw $($creds.Pass) "root@$($creds.IP):/tmp/openclaw_backup.tar.gz" "$tarPath"
+        
+        Write-Host "Cleaning up server temp file..."
+        plink -batch -pw $($creds.Pass) root@$($creds.IP) "rm /tmp/openclaw_backup.tar.gz"
+
+        Write-Host "Extracting locally..."
+        # Extract to $destPath (tar maintains .openclaw folder structure)
+        if (Test-Path $tarPath) {
+            tar -xzf $tarPath -C $destPath
+            Remove-Item $tarPath
+        } else {
+             Write-Error "Download failed, tar file not found."
+        }
         
         if ($LASTEXITCODE -eq 0) {
             Write-Host "Successfully backed up Jack4 to $destPath"

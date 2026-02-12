@@ -6,4 +6,4 @@ This directory contains the official OpenClaw documentation, synced from [docs.o
 
 ## Status
 - **Source**: https://docs.openclaw.ai
-- **Last Updated**: 2026-02-08T14:32:14.471Z
+- **Last Updated**: 2026-02-12T11:13:31.381Z

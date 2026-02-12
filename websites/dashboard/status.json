@@ -1,0 +1,431 @@
+{
+  "updated_at": "2026-02-12 17:46:27 SGT",
+  "primary_display": "faith",
+  "faith": {
+    "claude_pct": 80,
+    "claude_reset": "2h 30m",
+    "gemini_pct": 40,
+    "gemini_reset": "14m"
+  },
+  "black": {
+    "claude_pct": 80,
+    "claude_reset": "2h 30m",
+    "gemini_pct": 40,
+    "gemini_reset": "14m"
+  },
+  "codex": {
+    "five_h_pct": 77,
+    "five_h_reset": "1h 17m",
+    "day_pct": 93
+  },
+  "anthropic_direct": "\ud83d\udd34 403 Scope Error (Reporting only)",
+  "squad": [
+    {
+      "name": "John",
+      "online": true
+    },
+    {
+      "name": "Sarah",
+      "online": false
+    },
+    {
+      "name": "Ross",
+      "online": false
+    }
+  ],
+  "emails": [
+    {
+      "from": "17:11",
+      "subject": "HP",
+      "time": "2026-02-12"
+    },
+    {
+      "from": "17:22",
+      "subject": "Qustodio",
+      "time": "2026-02-12"
+    },
+    {
+      "from": "17:09",
+      "subject": "Strava",
+      "time": "2026-02-12"
+    }
+  ],
+  "calendar": [
+    {
+      "time": "14:00",
+      "summary": "Private Event"
+    },
+    {
+      "time": "13:00",
+      "summary": "Prayers"
+    },
+    {
+      "time": "17:30",
+      "summary": "SGT Gym"
+    }
+  ],
+  "history": {
+    "faith": {
+      "hourly": [
+        {
+          "t": "00:00",
+          "claude": 10,
+          "gemini": 5
+        },
+        {
+          "t": "01:00",
+          "claude": 15,
+          "gemini": 8
+        },
+        {
+          "t": "02:00",
+          "claude": 20,
+          "gemini": 10
+        },
+        {
+          "t": "03:00",
+          "claude": 25,
+          "gemini": 12
+        },
+        {
+          "t": "04:00",
+          "claude": 30,
+          "gemini": 15
+        },
+        {
+          "t": "05:00",
+          "claude": 35,
+          "gemini": 18
+        },
+        {
+          "t": "06:00",
+          "claude": 40,
+          "gemini": 20
+        },
+        {
+          "t": "07:00",
+          "claude": 45,
+          "gemini": 22
+        },
+        {
+          "t": "08:00",
+          "claude": 50,
+          "gemini": 25
+        },
+        {
+          "t": "09:00",
+          "claude": 55,
+          "gemini": 28
+        },
+        {
+          "t": "10:00",
+          "claude": 60,
+          "gemini": 30
+        },
+        {
+          "t": "11:00",
+          "claude": 65,
+          "gemini": 32
+        },
+        {
+          "t": "12:00",
+          "claude": 70,
+          "gemini": 35
+        },
+        {
+          "t": "13:00",
+          "claude": 75,
+          "gemini": 38
+        },
+        {
+          "t": "14:00",
+          "claude": 80,
+          "gemini": 40
+        },
+        {
+          "t": "15:00",
+          "claude": 80,
+          "gemini": 40
+        },
+        {
+          "t": "16:00",
+          "claude": 75,
+          "gemini": 35
+        },
+        {
+          "t": "17:00",
+          "claude": 70,
+          "gemini": 30
+        },
+        {
+          "t": "18:00",
+          "claude": 65,
+          "gemini": 25
+        },
+        {
+          "t": "19:00",
+          "claude": 60,
+          "gemini": 20
+        },
+        {
+          "t": "20:00",
+          "claude": 55,
+          "gemini": 15
+        },
+        {
+          "t": "21:00",
+          "claude": 50,
+          "gemini": 10
+        },
+        {
+          "t": "22:00",
+          "claude": 45,
+          "gemini": 5
+        },
+        {
+          "t": "23:00",
+          "claude": 40,
+          "gemini": 2
+        }
+      ],
+      "daily": [
+        {
+          "d": "Mon",
+          "claude": 80,
+          "gemini": 60
+        },
+        {
+          "d": "Tue",
+          "claude": 85,
+          "gemini": 55
+        },
+        {
+          "d": "Wed",
+          "claude": 90,
+          "gemini": 70
+        },
+        {
+          "d": "Thu",
+          "claude": 75,
+          "gemini": 65
+        },
+        {
+          "d": "Fri",
+          "claude": 80,
+          "gemini": 60
+        },
+        {
+          "d": "Sat",
+          "claude": 60,
+          "gemini": 40
+        },
+        {
+          "d": "Sun",
+          "claude": 50,
+          "gemini": 30
+        }
+      ]
+    },
+    "black": {
+      "hourly": [
+        {
+          "t": "00:00",
+          "claude": 5,
+          "gemini": 2
+        },
+        {
+          "t": "01:00",
+          "claude": 8,
+          "gemini": 4
+        },
+        {
+          "t": "02:00",
+          "claude": 12,
+          "gemini": 6
+        },
+        {
+          "t": "03:00",
+          "claude": 15,
+          "gemini": 8
+        },
+        {
+          "t": "04:00",
+          "claude": 18,
+          "gemini": 10
+        },
+        {
+          "t": "05:00",
+          "claude": 20,
+          "gemini": 12
+        },
+        {
+          "t": "06:00",
+          "claude": 25,
+          "gemini": 15
+        },
+        {
+          "t": "07:00",
+          "claude": 30,
+          "gemini": 18
+        },
+        {
+          "t": "08:00",
+          "claude": 35,
+          "gemini": 20
+        },
+        {
+          "t": "09:00",
+          "claude": 40,
+          "gemini": 25
+        },
+        {
+          "t": "10:00",
+          "claude": 45,
+          "gemini": 30
+        },
+        {
+          "t": "11:00",
+          "claude": 50,
+          "gemini": 35
+        },
+        {
+          "t": "12:00",
+          "claude": 55,
+          "gemini": 40
+        },
+        {
+          "t": "13:00",
+          "claude": 60,
+          "gemini": 40
+        },
+        {
+          "t": "14:00",
+          "claude": 65,
+          "gemini": 35
+        },
+        {
+          "t": "15:00",
+          "claude": 70,
+          "gemini": 30
+        },
+        {
+          "t": "16:00",
+          "claude": 75,
+          "gemini": 25
+        },
+        {
+          "t": "17:00",
+          "claude": 80,
+          "gemini": 20
+        },
+        {
+          "t": "18:00",
+          "claude": 75,
+          "gemini": 15
+        },
+        {
+          "t": "19:00",
+          "claude": 70,
+          "gemini": 10
+        },
+        {
+          "t": "20:00",
+          "claude": 65,
+          "gemini": 5
+        },
+        {
+          "t": "21:00",
+          "claude": 60,
+          "gemini": 2
+        },
+        {
+          "t": "22:00",
+          "claude": 55,
+          "gemini": 0
+        },
+        {
+          "t": "23:00",
+          "claude": 50,
+          "gemini": 0
+        }
+      ],
+      "daily": [
+        {
+          "d": "Mon",
+          "claude": 70,
+          "gemini": 50
+        },
+        {
+          "d": "Tue",
+          "claude": 75,
+          "gemini": 45
+        },
+        {
+          "d": "Wed",
+          "claude": 80,
+          "gemini": 60
+        },
+        {
+          "d": "Thu",
+          "claude": 65,
+          "gemini": 55
+        },
+        {
+          "d": "Fri",
+          "claude": 70,
+          "gemini": 50
+        },
+        {
+          "d": "Sat",
+          "claude": 50,
+          "gemini": 30
+        },
+        {
+          "d": "Sun",
+          "claude": 40,
+          "gemini": 20
+        }
+      ]
+    }
+  },
+  "brain": {
+    "files": [
+      {
+        "name": "SOUL.md",
+        "size": 6109,
+        "size_kb": 6.0,
+        "pct": 0.76
+      },
+      {
+        "name": "USER.md",
+        "size": 4662,
+        "size_kb": 4.6,
+        "pct": 0.58
+      },
+      {
+        "name": "IDENTITY.md",
+        "size": 1032,
+        "size_kb": 1.0,
+        "pct": 0.13
+      },
+      {
+        "name": "TEXTING_GUIDE.md",
+        "size": 1996,
+        "size_kb": 1.9,
+        "pct": 0.25
+      },
+      {
+        "name": "HEARTBEAT.md",
+        "size": 324,
+        "size_kb": 0.3,
+        "pct": 0.04
+      }
+    ],
+    "total_size": 14123,
+    "total_pct": 1.8,
+    "limit": 800000,
+    "root_found": true,
+    "total_size_kb": 13.8,
+    "remaining_pct": 98.2
+  }
+}
