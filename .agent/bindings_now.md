@@ -1,0 +1,1 @@
+﻿error: unknown command 'bindings'

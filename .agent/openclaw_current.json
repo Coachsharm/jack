@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.13",
+    "lastTouchedAt": "2026-02-14T07:54:35.946Z"
+  },
+  "env": {
+    "BRAVE_API_KEY": "BSAoH33TnEHRc_WIq_9pXCI5xDXsptc",
+    "OPENROUTER_API_KEY": "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",
+    "AUDIT_LOG_PATH": "/root/.openclaw/workspace/SYSTEM_AUDIT_LOG.md",
+    "AUDIT_PROTOCOL_PATH": "/root/.openclaw/workspace/protocols/audit-logging.md"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-14T07:54:35.921Z",
+    "lastRunVersion": "2026.2.13",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "enabled": true,
+    "executablePath": "/usr/bin/google-chrome",
+    "headless": true
+  },
+  "auth": {
+    "profiles": {
+      "google-antigravity:jackthrive777@gmail.com": {
+        "provider": "google-antigravity",
+        "mode": "oauth",
+        "email": "jackthrive777@gmail.com"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google-antigravity/claude-opus-4-6-thinking",
+        "fallbacks": [
+          "google-antigravity/claude-sonnet-4-5",
+          "google-antigravity/claude-sonnet-4-5-thinking",
+          "google-antigravity/gemini-3-pro-high",
+          "google-antigravity/claude-opus-4-6",
+          "anthropic/claude-opus-4-6",
+          "anthropic/claude-sonnet-4-5",
+          "openrouter/openai/gpt-4o-mini",
+          "openrouter/anthropic/claude-3.5-sonnet",
+          "google-antigravity/gemini-3-pro-low",
+          "google-antigravity/gpt-oss-120b-medium",
+          "google-antigravity/gemini-3-flash",
+          "anthropic/claude-haiku-4-5",
+          "openrouter/moonshotai/kimi-k2.5",
+          "openrouter/moonshotai/kimi-k2-thinking",
+          "openrouter/moonshotai/kimi-k2",
+          "google/gemini-2.0-flash"
+        ]
+      },
+      "models": {
+        "google-antigravity/claude-sonnet-4-5": {
+          "alias": "a5"
+        },
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "a1"
+        },
+        "google-antigravity/gemini-3-pro-high": {
+          "alias": "a2"
+        },
+        "google-antigravity/claude-opus-4-6": {
+          "alias": "a3"
+        },
+        "anthropic/claude-opus-4-6": {
+          "alias": "Aopus"
+        },
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
+        },
+        "openrouter/openai/gpt-4o-mini": {
+          "alias": "gpt4o-mini"
+        },
+        "openrouter/anthropic/claude-3.5-sonnet": {
+          "alias": "sonnet-or"
+        },
+        "google-antigravity/gemini-3-pro-low": {
+          "alias": "gemini-low"
+        },
+        "google-antigravity/gpt-oss-120b-medium": {
+          "alias": "gpt-oss"
+        },
+        "google-antigravity/gemini-3-flash": {
+          "alias": "a8"
+        },
+        "anthropic/claude-haiku-4-5": {
+          "alias": "a4"
+        },
+        "openrouter/moonshotai/kimi-k2.5": {
+          "alias": "k25"
+        },
+        "openrouter/moonshotai/kimi-k2-thinking": {
+          "alias": "k2t"
+        },
+        "openrouter/moonshotai/kimi-k2": {
+          "alias": "k2"
+        },
+        "google-antigravity/claude-opus-4-6-thinking": {},
+        "google/gemini-2.0-flash": {}
+      },
+      "workspace": "/root/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "heartbeat": {
+        "every": "30m"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "sarah",
+        "name": "sarah",
+        "workspace": "/root/.openclaw/workspace-sarah",
+        "agentDir": "/root/.openclaw/agents/sarah/agent",
+        "model": "google-antigravity/claude-opus-4-6"
+      },
+      {
+        "id": "john",
+        "name": "john",
+        "workspace": "/root/openclaw-clients/john/data/.openclaw",
+        "agentDir": "/root/openclaw-clients/john/data/.openclaw/agents/main/agent",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "ross",
+        "name": "ross",
+        "workspace": "/root/openclaw-clients/ross/workspace",
+        "agentDir": "/root/openclaw-clients/ross/workspace/agents/main/agent",
+        "model": "anthropic/claude-opus-4-6"
+      }
+    ]
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "inbound",
+      "provider": "elevenlabs",
+      "elevenlabs": {
+        "apiKey": "sk_c57dcfdc35db600f8b17f52053b45ede77d419481776b1c4",
+        "voiceId": "qNkzaJoHLLdpvgh5tISm",
+        "modelId": "eleven_multilingual_v2"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "selfChatMode": true,
+      "groupPolicy": "allowlist",
+      "mediaMaxMb": 50,
+      "debounceMs": 0
+    },
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "botToken": "8023616765:AAEosfoC6HFM0R9gW8sh3Ptj5v0TXGs2rtQ",
+      "groupPolicy": "open",
+      "streamMode": "partial",
+      "accounts": {
+        "sarah": {
+          "enabled": true,
+          "dmPolicy": "pairing",
+          "botToken": "8326665388:AAGNCLP0jiDbFbMG2N1DVa1B-df5D4jPeiM",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        },
+        "default": {
+          "enabled": true,
+          "dmPolicy": "pairing",
+          "botToken": "8023616765:AAEosfoC6HFM0R9gW8sh3Ptj5v0TXGs2rtQ",
+          "groupPolicy": "open",
+          "streamMode": "partial"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local"
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      },
+      "whatsapp": {
+        "enabled": false
+      }
+    }
+  }
+}

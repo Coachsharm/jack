@@ -82,3 +82,5 @@ set_bindings.sh
 .agent/editing/
 .agent/git_status.txt
 
+
+openclaw_after_fix.json

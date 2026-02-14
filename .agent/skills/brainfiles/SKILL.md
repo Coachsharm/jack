@@ -79,9 +79,20 @@ These are the rules that prevent Jack from sharing credentials or passwords:
 | **Jack** (main) | `/root/.openclaw/workspace/` |
 | **Ross** (devops) | `/root/.openclaw/workspace-ross/` |
 | **Sarah** (coach assistant) | `/root/.openclaw/workspace-sarah/` |
-| **John** (security) | `/root/.openclaw/workspace-john/` |
+| **John** (security) | `/root/openclaw-clients/john/data/.openclaw/` |
 
 Each agent has their own set of brain files in their workspace.
+
+### Session Directories (clear these after brain updates)
+
+| Agent | Session Path |
+|---|---|
+| **Jack** (main) | `/root/.openclaw/agents/main/agent/sessions/` |
+| **Sarah** | `/root/.openclaw/agents/sarah/agent/sessions/` |
+| **John** | `/root/.openclaw/agents/john/agent/sessions/` |
+| **Ross** | `/root/.openclaw/agents/ross/agent/sessions/` |
+
+> ⚠️ **After updating brain files, you MUST clear sessions and restart the gateway** for changes to take effect. See the **Brain Restore** skill (`/brain-restore`) for the full procedure.
 
 ---
 

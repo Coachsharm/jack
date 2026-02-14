@@ -127,6 +127,25 @@ This file serves as a unified reference to all custom instruction protocols for 
 
 ---
 
+## 🔒 NEVER HARDCODE CONFIGURATION VALUES
+
+> **NEVER hardcode agent models, API keys, workspace paths, or any config values in scripts.**
+> Always read dynamically from the source of truth: `/root/.openclaw/openclaw.json`.
+>
+> **Why:** The dashboard showed stale model names because `update_status.py` had models as
+> literal strings instead of reading from config. When models changed via CLI, the dashboard
+> never updated. This wasted debugging time and caused confusion.
+>
+> **The Rule:**
+> - ✅ Read from `openclaw.json` at runtime
+> - ✅ Use `openclaw config get` to query values in shell scripts  
+> - ❌ Never write model names, paths, or API endpoints as string literals in scripts
+>
+> **Applies to:** Dashboard scripts, monitoring scripts, cron jobs, health checks, any automation.
+> **See:** `lessons/dashboard_dynamic_models.md`
+
+---
+
 ## 🚨 Troubleshooting Priority (FOLLOW THIS ORDER)
 
 When encountering problems, follow this priority order **BEFORE** trying to find your own solution:

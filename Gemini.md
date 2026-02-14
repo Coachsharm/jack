@@ -509,9 +509,31 @@ When updating `claude.md` or `Gemini.md`:
 
 ---
 
-**Protocol Version:** 3.3
+## 🔒 NEVER HARDCODE CONFIGURATION VALUES
+
+> **Learned from:** `lessons/dashboard_dynamic_models.md` (2026-02-14)
+>
+> **NEVER hardcode agent models, API keys, workspace paths, or any config values in scripts.**
+> Always read dynamically from the source of truth: `/root/.openclaw/openclaw.json`.
+>
+> **Why this matters:** The dashboard showed stale model names for weeks because `update_status.py`
+> had models as literal strings (`"a8"`, `"sonnet"`) instead of reading from config.
+> When models were changed via CLI, the dashboard never reflected the change.
+>
+> **The Rule:**
+> - ✅ Read from `openclaw.json` at runtime: `config.get("agents", {}).get("list", [])`
+> - ✅ Use `openclaw config get` to query values in shell scripts
+> - ❌ Never write `"model": "google-antigravity/gemini-3-flash"` as a string literal
+> - ❌ Never hardcode agent names, provider names, or API endpoints
+>
+> **Applies to:** Dashboard scripts, monitoring scripts, cron jobs, health checks, any automation.
+
+---
+
+**Protocol Version:** 3.4
 **Last Updated:** 2026-02-14
 **FOLLOW THIS PROTOCOL STRICTLY.**
 **THE SERVER IS THE SOURCE OF TRUTH.**
 **LOCAL FILES ARE DOCUMENTATION ONLY.**
 **ALL CHANGES VIA OPENCLAW CLI — NO EXCEPTIONS.**
+

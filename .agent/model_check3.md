@@ -1,0 +1,8 @@
+      "name": "Jack",
+      "model_short": "claude-opus-4-6-thinking",
+      "name": "Sarah",
+      "model_short": "claude-opus-4-6",
+      "name": "John",
+      "model_short": "claude-sonnet-4-5",
+      "name": "Ross",
+      "model_short": "claude-opus-4-6",
