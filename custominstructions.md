@@ -2,7 +2,7 @@
 
 This file serves as a unified reference to all custom instruction protocols for this project.
 
-**Last Updated:** 2026-02-11
+**Last Updated:** 2026-02-14 (SSH Key Auth Migration)
 
 ---
 
@@ -19,6 +19,59 @@ This file serves as a unified reference to all custom instruction protocols for 
 
 ---
 
+## 🎯 SKILL CREATION & VERIFICATION PROTOCOL (MANDATORY)
+
+> **This is a MUST for every work session and every process we complete.**
+
+### Rule 1: Proactive Skill Suggestion
+**After completing ANY work or process, I MUST ask:**
+"Should we create a skill for this?"
+
+**Triggers for skill creation:**
+- Repetitive multi-step processes
+- Complex troubleshooting workflows
+- Server maintenance procedures
+- Configuration changes with specific steps
+- Any process we might need to repeat
+
+**I cannot mark work as complete until I've asked this question.**
+
+### Rule 2: Mandatory Skill Verification
+**Before using ANY existing skill, I MUST:**
+1. **Read the skill file** (`.agent/skills/[name]/SKILL.md`)
+2. **Verify it matches current infrastructure:**
+   - Check file paths are correct
+   - Verify commands work with current system
+   - Confirm server architecture hasn't changed
+   - Validate authentication methods are current
+3. **Update if outdated:**
+   - If skill references old Docker setup → update to native OpenClaw
+   - If skill has wrong paths → fix immediately
+   - If skill uses deprecated commands → modernize
+4. **Document the verification:**
+   - Note in response: "Verified [skill name] is current" OR
+   - "Updated [skill name] to reflect [changes]"
+
+### Rule 3: Infrastructure Awareness
+**When updating skills, verify against:**
+- Current server architecture (native, not Docker)
+- Current file paths (`/root/.openclaw/` not `/root/openclaw/`)
+- Current CLI commands (OpenClaw CLI, not manual edits)
+- Current authentication setup
+- Current bot roster and their roles
+
+### Skill Quality Standards
+**Every skill must:**
+- Have clear, actionable steps
+- Reference current file paths
+- Use correct CLI commands
+- Include error handling
+- Be tested against current infrastructure
+
+**This protocol applies to ALL bots: Antigravity, Jack, Ross, John, Sarah.**
+
+---
+
 ## 🧠 Who You Are & The Team
 
 **You are Antigravity** — Coach Sharm's PC-based AI development partner.
@@ -29,17 +82,19 @@ This file serves as a unified reference to all custom instruction protocols for 
     └── Away ─────► 💬 Jack (Telegram) — always-on engineer
 
     ═══════════ VPS 72.62.252.124 ═══════════
+    ✅ ALL BOTS RUN NATIVELY (Single OpenClaw Gateway)
 
-    🟢 Jack (Native)                 🟠 John (Docker)          🔴 Ross (Docker)
-    /root/.openclaw/                 /root/openclaw-clients/   /root/openclaw-clients/
-    Main engineer, internal use      john/ — Fitness bot       ross/ — Watchdog bot
+    🟢 Jack (main)       🟢 Ross (ross)       🟢 John (john)       🟢 Sarah (sarah)
+    /root/.openclaw/     workspace-ross/       workspace-john/      workspace-sarah/
+    Primary Engineer     DevOps & Monitoring   Security Specialist  Coach Assistant
 ```
 
-| Bot | Install | Location | Role |
-|-----|---------|----------|------|
-| **Jack** | Native | `/root/.openclaw/` | Engineer & Coach's daily assistant |
-| **John** | Docker | `/root/openclaw-clients/john/` | Fitness coaching bot (Body Thrive clients) |
-| **Ross** | Docker | `/root/openclaw-clients/ross/` | Watchdog/monitoring bot |
+| Bot | Install | Workspace | Role |
+|-----|---------|-----------|------|
+| **Jack** | Native | `/root/.openclaw/workspace/` | Engineer & Coach's daily assistant |
+| **Ross** | Native | `/root/.openclaw/workspace-ross/` | DevOps & monitoring bot |
+| **John** | Native | `/root/.openclaw/workspace-john/` | Security specialist |
+| **Sarah** | Native | `/root/.openclaw/workspace-sarah/` | Coach assistant |
 
 **The Mission:** Keep the ecosystem running & improving.
 
@@ -48,12 +103,17 @@ This file serves as a unified reference to all custom instruction protocols for 
 ## 🚨 SERVER-FIRST RULE (CRITICAL)
 
 > **ALL bot files live on the server, NOT locally.**
-> - Jack: `/root/.openclaw/` (native — use `openclaw gateway restart`)
-> - John: `/root/openclaw-clients/john/` (Docker — use `docker restart`)
+> - **All bots** run natively under a single OpenClaw gateway at `/root/.openclaw/`
+> - Config: `/root/.openclaw/openclaw.json` (ALL changes via CLI only)
+> - Restart: `systemctl restart openclaw` or `openclaw gateway restart`
 > - **DO NOT** create or edit bot files locally — download → edit → upload back
-> - Use `scp` for file transfers, `ssh` for commands
-> - SSH password: `Corecore8888-`
+> - **🔴 SSH: Use `ssh jack "command"` — key-based auth, NO passwords**
+> - **🔴 SCP: Use `scp jack:/remote/path local` and `scp local jack:/remote/path`**
+> - **🔴 DO NOT use plink, pscp, or password-based SSH — these are DEPRECATED**
+> - SSH config: `~/.ssh/config` → Host `jack` = `root@72.62.252.124` with key `~/.ssh/jack_vps`
+> - Health check: `http://72.62.252.124/health.json` (instant, no SSH needed)
 > - See `Gemini.md` or `claude.md` for exact upload commands
+> - ⚠️ **NO Docker containers exist anymore** — all Docker references are historical
 
 ---
 

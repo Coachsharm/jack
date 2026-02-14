@@ -28,8 +28,6 @@ env_draft.txt
 FINAL_TASK_STATUS.md
 
 # OpenClaw config files (contain API keys)
-
-# OpenClaw config files (contain API keys)
 openclaw_step*.json
 **/openclaw.json
 **/ross-openclaw.json
@@ -40,3 +38,47 @@ server_updates/*.log
 server_updates/*.txt
 server_updates/*.json
 # Keep .sh, .py, .md in server_updates
+
+# Files with exposed credentials (found during security scan)
+install_jack4.sh
+jack_openclaw.json
+main_auth.txt
+new_config.txt
+new_openclaw.json
+openclaw_remote.json
+openclaw_server.json
+server_check.txt
+server_info.txt
+jack4_documentation_updates.md
+TODO_TOMORROW/
+auth_profiles_current.json
+
+# Temp debug dump files (contain server output with secrets)
+*.txt
+!README.txt
+backup 13 feb/
+server_workspace_sync/
+lessons_server/
+
+# Lesson files with real credentials (keep generic ones)
+lessons/emergency-rollback-jack.md
+lessons/restore-jack-from-backup.md
+lessons/whatsapp_connection_workflow.md
+lessons/gogcli_oauth_manual_flow.md
+
+# Temp JSON dumps from debugging
+health*.json
+sarah_*.json
+server_*.json
+multiagent_patch.json
+agents_list.json
+skills_list.json
+
+# Shell scripts with embedded credentials
+apply_patch.sh
+set_bindings.sh
+
+# Editing workspace (temp files)
+.agent/editing/
+.agent/git_status.txt
+

@@ -1,393 +1,137 @@
 {
-  "updated_at": "2026-02-12 17:46:27 SGT",
+  "updated_at": "2026-02-13 13:34:08 +08",
+  "architecture": "unified-gateway",
+  "gateway": {
+    "version": "2026.2.12",
+    "status": "running",
+    "pid": 1679617,
+    "uptime": "active",
+    "url": "ws://72.62.252.124:18789",
+    "service": "systemd"
+  },
+  "agents": [
+    {
+      "id": "main",
+      "name": "Jack",
+      "emoji": "🦞",
+      "role": "Primary Assistant",
+      "model": "google-antigravity/claude-opus-4-6",
+      "model_short": "Claude Opus 4.6",
+      "heartbeat": true,
+      "heartbeat_interval": "2m",
+      "is_default": true,
+      "sessions": 67,
+      "workspace": "/root/.openclaw/workspace",
+      "status": "active"
+    },
+    {
+      "id": "ross",
+      "name": "Ross",
+      "emoji": "🔧",
+      "role": "DevOps & Monitoring",
+      "model": "google-antigravity/gemini-3-flash",
+      "model_short": "Gemini 3 Flash",
+      "heartbeat": true,
+      "heartbeat_interval": "2m",
+      "is_default": false,
+      "sessions": 0,
+      "workspace": "/root/.openclaw/workspace-ross",
+      "status": "active"
+    },
+    {
+      "id": "sarah",
+      "name": "Sarah",
+      "emoji": "💪",
+      "role": "Coach Assistant",
+      "model": "google-antigravity/gemini-3-flash",
+      "model_short": "Gemini 3 Flash",
+      "heartbeat": true,
+      "heartbeat_interval": "2m",
+      "is_default": false,
+      "sessions": 0,
+      "workspace": "/root/.openclaw/workspace-sarah",
+      "status": "active"
+    },
+    {
+      "id": "john",
+      "name": "John",
+      "emoji": "🛡️",
+      "role": "Security Specialist",
+      "model": "google-antigravity/gemini-3-flash",
+      "model_short": "Gemini 3 Flash",
+      "heartbeat": true,
+      "heartbeat_interval": "2m",
+      "is_default": false,
+      "sessions": 0,
+      "workspace": "/root/.openclaw/workspace-john",
+      "status": "active"
+    }
+  ],
+  "channels": {
+    "telegram": {
+      "bot": "@thrive2bot",
+      "status": "configured",
+      "probe": "ok"
+    },
+    "whatsapp": {
+      "number": "+6588626460",
+      "status": "linked",
+      "linked": true
+    }
+  },
+  "auth": {
+    "profiles": [
+      {
+        "id": "faithinmotion88",
+        "provider": "Google Antigravity",
+        "mode": "OAuth",
+        "primary": true
+      },
+      {
+        "id": "gurufitness",
+        "provider": "Google Antigravity",
+        "mode": "OAuth",
+        "primary": false
+      },
+      {
+        "id": "openrouter",
+        "provider": "OpenRouter",
+        "mode": "API Key",
+        "primary": false
+      },
+      {
+        "id": "openai-codex",
+        "provider": "OpenAI Codex",
+        "mode": "OAuth",
+        "primary": false
+      }
+    ]
+  },
   "primary_display": "faith",
   "faith": {
-    "claude_pct": 80,
-    "claude_reset": "2h 30m",
-    "gemini_pct": 40,
-    "gemini_reset": "14m"
+    "claude_pct": 85,
+    "claude_reset": "2h 15m",
+    "gemini_pct": 92,
+    "gemini_reset": "45m"
   },
   "black": {
-    "claude_pct": 80,
-    "claude_reset": "2h 30m",
+    "claude_pct": 100,
+    "claude_reset": "-",
     "gemini_pct": 40,
-    "gemini_reset": "14m"
+    "gemini_reset": "1h 30m"
   },
   "codex": {
-    "five_h_pct": 77,
-    "five_h_reset": "1h 17m",
-    "day_pct": 93
+    "five_h_pct": 12,
+    "five_h_reset": "3h",
+    "day_pct": 45
   },
-  "anthropic_direct": "\ud83d\udd34 403 Scope Error (Reporting only)",
-  "squad": [
-    {
-      "name": "John",
-      "online": true
-    },
-    {
-      "name": "Sarah",
-      "online": false
-    },
-    {
-      "name": "Ross",
-      "online": false
-    }
-  ],
-  "emails": [
-    {
-      "from": "17:11",
-      "subject": "HP",
-      "time": "2026-02-12"
-    },
-    {
-      "from": "17:22",
-      "subject": "Qustodio",
-      "time": "2026-02-12"
-    },
-    {
-      "from": "17:09",
-      "subject": "Strava",
-      "time": "2026-02-12"
-    }
-  ],
-  "calendar": [
-    {
-      "time": "14:00",
-      "summary": "Private Event"
-    },
-    {
-      "time": "13:00",
-      "summary": "Prayers"
-    },
-    {
-      "time": "17:30",
-      "summary": "SGT Gym"
-    }
-  ],
-  "history": {
-    "faith": {
-      "hourly": [
-        {
-          "t": "00:00",
-          "claude": 10,
-          "gemini": 5
-        },
-        {
-          "t": "01:00",
-          "claude": 15,
-          "gemini": 8
-        },
-        {
-          "t": "02:00",
-          "claude": 20,
-          "gemini": 10
-        },
-        {
-          "t": "03:00",
-          "claude": 25,
-          "gemini": 12
-        },
-        {
-          "t": "04:00",
-          "claude": 30,
-          "gemini": 15
-        },
-        {
-          "t": "05:00",
-          "claude": 35,
-          "gemini": 18
-        },
-        {
-          "t": "06:00",
-          "claude": 40,
-          "gemini": 20
-        },
-        {
-          "t": "07:00",
-          "claude": 45,
-          "gemini": 22
-        },
-        {
-          "t": "08:00",
-          "claude": 50,
-          "gemini": 25
-        },
-        {
-          "t": "09:00",
-          "claude": 55,
-          "gemini": 28
-        },
-        {
-          "t": "10:00",
-          "claude": 60,
-          "gemini": 30
-        },
-        {
-          "t": "11:00",
-          "claude": 65,
-          "gemini": 32
-        },
-        {
-          "t": "12:00",
-          "claude": 70,
-          "gemini": 35
-        },
-        {
-          "t": "13:00",
-          "claude": 75,
-          "gemini": 38
-        },
-        {
-          "t": "14:00",
-          "claude": 80,
-          "gemini": 40
-        },
-        {
-          "t": "15:00",
-          "claude": 80,
-          "gemini": 40
-        },
-        {
-          "t": "16:00",
-          "claude": 75,
-          "gemini": 35
-        },
-        {
-          "t": "17:00",
-          "claude": 70,
-          "gemini": 30
-        },
-        {
-          "t": "18:00",
-          "claude": 65,
-          "gemini": 25
-        },
-        {
-          "t": "19:00",
-          "claude": 60,
-          "gemini": 20
-        },
-        {
-          "t": "20:00",
-          "claude": 55,
-          "gemini": 15
-        },
-        {
-          "t": "21:00",
-          "claude": 50,
-          "gemini": 10
-        },
-        {
-          "t": "22:00",
-          "claude": 45,
-          "gemini": 5
-        },
-        {
-          "t": "23:00",
-          "claude": 40,
-          "gemini": 2
-        }
-      ],
-      "daily": [
-        {
-          "d": "Mon",
-          "claude": 80,
-          "gemini": 60
-        },
-        {
-          "d": "Tue",
-          "claude": 85,
-          "gemini": 55
-        },
-        {
-          "d": "Wed",
-          "claude": 90,
-          "gemini": 70
-        },
-        {
-          "d": "Thu",
-          "claude": 75,
-          "gemini": 65
-        },
-        {
-          "d": "Fri",
-          "claude": 80,
-          "gemini": 60
-        },
-        {
-          "d": "Sat",
-          "claude": 60,
-          "gemini": 40
-        },
-        {
-          "d": "Sun",
-          "claude": 50,
-          "gemini": 30
-        }
-      ]
-    },
-    "black": {
-      "hourly": [
-        {
-          "t": "00:00",
-          "claude": 5,
-          "gemini": 2
-        },
-        {
-          "t": "01:00",
-          "claude": 8,
-          "gemini": 4
-        },
-        {
-          "t": "02:00",
-          "claude": 12,
-          "gemini": 6
-        },
-        {
-          "t": "03:00",
-          "claude": 15,
-          "gemini": 8
-        },
-        {
-          "t": "04:00",
-          "claude": 18,
-          "gemini": 10
-        },
-        {
-          "t": "05:00",
-          "claude": 20,
-          "gemini": 12
-        },
-        {
-          "t": "06:00",
-          "claude": 25,
-          "gemini": 15
-        },
-        {
-          "t": "07:00",
-          "claude": 30,
-          "gemini": 18
-        },
-        {
-          "t": "08:00",
-          "claude": 35,
-          "gemini": 20
-        },
-        {
-          "t": "09:00",
-          "claude": 40,
-          "gemini": 25
-        },
-        {
-          "t": "10:00",
-          "claude": 45,
-          "gemini": 30
-        },
-        {
-          "t": "11:00",
-          "claude": 50,
-          "gemini": 35
-        },
-        {
-          "t": "12:00",
-          "claude": 55,
-          "gemini": 40
-        },
-        {
-          "t": "13:00",
-          "claude": 60,
-          "gemini": 40
-        },
-        {
-          "t": "14:00",
-          "claude": 65,
-          "gemini": 35
-        },
-        {
-          "t": "15:00",
-          "claude": 70,
-          "gemini": 30
-        },
-        {
-          "t": "16:00",
-          "claude": 75,
-          "gemini": 25
-        },
-        {
-          "t": "17:00",
-          "claude": 80,
-          "gemini": 20
-        },
-        {
-          "t": "18:00",
-          "claude": 75,
-          "gemini": 15
-        },
-        {
-          "t": "19:00",
-          "claude": 70,
-          "gemini": 10
-        },
-        {
-          "t": "20:00",
-          "claude": 65,
-          "gemini": 5
-        },
-        {
-          "t": "21:00",
-          "claude": 60,
-          "gemini": 2
-        },
-        {
-          "t": "22:00",
-          "claude": 55,
-          "gemini": 0
-        },
-        {
-          "t": "23:00",
-          "claude": 50,
-          "gemini": 0
-        }
-      ],
-      "daily": [
-        {
-          "d": "Mon",
-          "claude": 70,
-          "gemini": 50
-        },
-        {
-          "d": "Tue",
-          "claude": 75,
-          "gemini": 45
-        },
-        {
-          "d": "Wed",
-          "claude": 80,
-          "gemini": 60
-        },
-        {
-          "d": "Thu",
-          "claude": 65,
-          "gemini": 55
-        },
-        {
-          "d": "Fri",
-          "claude": 70,
-          "gemini": 50
-        },
-        {
-          "d": "Sat",
-          "claude": 50,
-          "gemini": 30
-        },
-        {
-          "d": "Sun",
-          "claude": 40,
-          "gemini": 20
-        }
-      ]
-    }
+  "openrouter": {
+    "credits": 1.20,
+    "limit": 5.00,
+    "monthly": 3.80
   },
+  "alerts": [],
+  "calendar": [],
   "brain": {
     "files": [
       {

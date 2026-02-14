@@ -1029,9 +1029,32 @@
 
         function manualRefresh() {
             const btn = document.getElementById('refresh-btn');
+            const originalText = btn.innerHTML;
             btn.classList.add('spinning');
-            fetchStatus();
-            setTimeout(() => btn.classList.remove('spinning'), 600);
+            btn.innerHTML = '<span class="refresh-icon">↻</span> Probing...';
+
+            // 1. Trigger ACTIVE PROBE via backend
+            fetch('trigger_update.php')
+                .then(() => {
+                    // 2. Wait 3 seconds for script to run, then fetch status
+                    setTimeout(() => {
+                        fetchStatus();
+                        btn.innerHTML = originalText;
+                    }, 3000);
+                })
+                .catch(err => {
+                    console.error("Probe trigger failed", err);
+                    // Fallback to regular fetch anyway
+                    setTimeout(() => {
+                        fetchStatus();
+                        btn.innerHTML = originalText;
+                    }, 1000);
+                });
+
+            setTimeout(() => {
+                btn.classList.remove('spinning');
+                if (btn.innerHTML.includes('Probing')) btn.innerHTML = originalText;
+            }, 4000);
         }
 
         /* ========== RENDER ========== */
@@ -1086,7 +1109,10 @@
                         <div class="agent-meta">
                             <div class="agent-meta-item">
                                 <span class="meta-label">Model</span>
-                                <span class="meta-value model-tag">${a.model_short || a.model || '—'}</span>
+                                <span class="meta-value model-tag">
+                                    ${a.model_status === 'working' ? '<span style="color: var(--accent-green); margin-right: 4px;">●</span>' : '<span style="color: var(--accent-red); margin-right: 4px;">●</span>'}
+                                    ${a.model_status === 'error' && a.model_last_working ? `<span style="text-decoration: line-through; opacity: 0.5;">${a.model_short || a.model || '—'}</span> <span style="font-size: 0.7rem; color: var(--text-muted);">(last: ${a.model_last_working.split('/').pop()})</span>` : (a.model_short || a.model || '—')}
+                                </span>
                             </div>
                             <div class="agent-meta-item">
                                 <span class="meta-label">Heartbeat</span>

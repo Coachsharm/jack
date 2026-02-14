@@ -4,7 +4,7 @@
 
 **🔴 NEVER edit JSON configuration files (e.g. `openclaw.json`) directly. ALL configuration changes MUST be made using OpenClaw CLI commands (e.g. `openclaw gateway config.patch`, `openclaw models set`, `openclaw config set`). Direct JSON editing causes crash loops and data corruption.**
 
-**Last Updated:** 2026-02-12
+**Last Updated:** 2026-02-14 (SSH Key Auth Migration)
 
 ---
 
@@ -29,26 +29,107 @@
 
 ---
 
+## 🎯 SKILL CREATION & VERIFICATION PROTOCOL (MANDATORY)
+
+> **This is a MUST for every work session and every process we complete.**
+> **Stale documentation is DANGEROUS — it caused us to reference Docker commands when everything is native.**
+
+### Rule 1: Proactive Skill Suggestion
+**After completing ANY work or process, I MUST ask:**
+"Should we create a skill for this?"
+
+**Triggers for skill creation:**
+- Repetitive multi-step processes
+- Complex troubleshooting workflows
+- Server maintenance procedures
+- Configuration changes with specific steps
+- Any process we might need to repeat
+
+**I cannot mark work as complete until I've asked this question.**
+
+### Rule 2: Mandatory Skill Verification
+**Before using ANY existing skill, I MUST:**
+1. **Read the skill file** (`.agent/skills/[name]/SKILL.md`)
+2. **Verify it matches current infrastructure:**
+   - Check file paths are correct
+   - Verify commands work with current system
+   - Confirm server architecture hasn't changed
+   - Validate authentication methods are current
+3. **Update if outdated:**
+   - If skill references old Docker setup → update to native OpenClaw
+   - If skill has wrong paths → fix immediately
+   - If skill uses deprecated commands → modernize
+4. **Document the verification:**
+   - Note in response: "✅ Verified [skill name] is current" OR
+   - "⚠️ Updated [skill name] to reflect [changes]"
+
+### Rule 3: Safety Tiers for Verification
+
+| Tier | Skill Type | Verification Frequency |
+|------|-----------|------------------------|
+| 🔴 **Critical** | Backup, recovery, config changes | **Every single use** |
+| 🟡 **Important** | Deployment, monitoring, sync | **First use each session** |
+| 🟢 **Standard** | Dashboard, team chat, docs | **Weekly or on architecture changes** |
+
+### Rule 4: Staleness Red Flags
+**If I encounter ANY of these in a doc/skill, I MUST flag it immediately:**
+- References to Docker containers (we're fully native now)
+- Paths like `/root/openclaw-clients/` (old Docker structure)
+- Commands like `docker restart`, `docker logs`, `clawdbot`
+- Bot roster missing Sarah, or including decommissioned bots
+- Backup references to hourly/daily/weekly scripts
+
+**Action:** Fix it immediately, don't just note it.
+
+### Rule 5: Infrastructure Awareness
+**When updating skills, verify against:**
+- Current server architecture (native, not Docker)
+- Current file paths (`/root/.openclaw/` not `/root/openclaw/`)
+- Current CLI commands (OpenClaw CLI, not manual edits)
+- Current authentication setup
+- Current bot roster and their roles
+
+### Skill Quality Standards
+**Every skill must:**
+- Have clear, actionable steps
+- Reference current file paths
+- Use correct CLI commands
+- Include error handling
+- Be tested against current infrastructure
+- Include a `Last verified:` date in the SKILL.md
+
+**This protocol applies to ALL bots: Antigravity, Jack, Ross, John, Sarah.**
+
+---
+
 ## 🚨 SERVER-FIRST RULE (READ THIS FIRST)
 
 **You are Antigravity** — Coach Sharm's PC-based AI development partner.
 
-### The Team
-- **Jack** (Native, `/root/.openclaw/`) — Main engineer & Coach's daily assistant
-- **John** (Docker, `/root/openclaw-clients/john/`) — Fitness coaching bot (Body Thrive clients)
-- **Ross** (Docker, `/root/openclaw-clients/ross/`) — Watchdog/monitoring bot
-- **You** — Work with Coach to improve all bots
-- **Mission:** Keep the ecosystem running & improving.
+### The Team (Unified Gateway Architecture)
+- **Jack** (`main`) — Primary Assistant, Claude Opus 4.6, 225 sessions
+- **Ross** (`ross`) — DevOps & Monitoring, Gemini 3 Flash
+- **Sarah** (`sarah`) — Coach Assistant, Gemini 3 Flash  
+- **John** (`john`) — Security Specialist, Gemini 3 Flash
+- **You** (Antigravity) — Work with Coach to improve all agents
+
+> **✅ CURRENT ARCHITECTURE (Feb 13, 2026):** All agents run natively under a **single OpenClaw gateway**. There are **NO Docker containers**. All Docker references in old lessons are historical only.
+
+**Master Reference:** `ARCHITECTURE.md` (read this for complete system details)
 
 ### Where Things Are
 
 | Item | Server Path | NOT This |
 |------|------------|----------|
 | **Config** | `/root/.openclaw/openclaw.json` | ~~Docker volumes~~ |
-| **Workspace** | `/root/.openclaw/workspace/` | ~~Local Jack folder~~ |
-| **Sessions** | `/root/.openclaw/agents/main/sessions/` | |
-| **Restart** | `openclaw gateway restart` | ~~docker restart~~ |
+| **Jack's Workspace** | `/root/.openclaw/workspace/` | ~~Local Jack folder~~ |
+| **Ross's Workspace** | `/root/.openclaw/workspace-ross/` | ~~Docker mount~~ |
+| **Sarah's Workspace** | `/root/.openclaw/workspace-sarah/` | ~~Docker mount~~ |
+| **John's Workspace** | `/root/.openclaw/workspace-john/` | ~~Docker mount~~ |
+| **Sessions** | `/root/.openclaw/agents/<agentId>/sessions/` | |
+| **Restart** | `systemctl restart openclaw` | ~~docker restart~~ |
 | **Health** | `openclaw health --json` | ~~docker logs~~ |
+| **Status** | `openclaw status` | ~~docker ps~~ |
 
 ---
 
@@ -70,15 +151,15 @@
 ### For workspace files (SOUL.md, TOOLS.md, etc):
 ```powershell
 # 1. Download from server
-scp root@72.62.252.124:/root/.openclaw/workspace/SOUL.md c:\Users\hisha\Code\Jack\temp_soul.md
+scp jack:/root/.openclaw/workspace/SOUL.md c:\Users\hisha\Code\Jack\temp_soul.md
 
 # 2. Edit locally
 
 # 3. Upload back
-scp c:\Users\hisha\Code\Jack\temp_soul.md root@72.62.252.124:/root/.openclaw/workspace/SOUL.md
+scp c:\Users\hisha\Code\Jack\temp_soul.md jack:/root/.openclaw/workspace/SOUL.md
 
 # 4. Fix Windows line endings on server
-ssh root@72.62.252.124 "sed -i 's/\r$//' /root/.openclaw/workspace/SOUL.md"
+ssh jack "sed -i 's/\r$//' /root/.openclaw/workspace/SOUL.md"
 ```
 
 ### For config (openclaw.json):
@@ -92,7 +173,13 @@ openclaw gateway config.patch '{"key": "value"}'
 
 ### SSH Access
 ```bash
-sshpass -p 'Corecore8888-' ssh -o StrictHostKeyChecking=no root@72.62.252.124
+# Key-based auth (NO passwords needed)
+ssh jack "command"              # Run any command
+scp jack:/remote/path local     # Download file
+scp local jack:/remote/path     # Upload file
+
+# SSH config: ~/.ssh/config → Host jack = root@72.62.252.124 with key ~/.ssh/jack_vps
+# 🔴 DO NOT use plink, pscp, sshpass, or password-based SSH — DEPRECATED
 ```
 
 ---
@@ -100,7 +187,7 @@ sshpass -p 'Corecore8888-' ssh -o StrictHostKeyChecking=no root@72.62.252.124
 ## 🚑 Emergency Recovery: Jack Broken on Server
 
 ```bash
-ssh root@72.62.252.124
+ssh jack
 
 # 1. CHECK if backup exists
 ls -lh /root/.openclaw/openclaw.json.bak
@@ -144,10 +231,10 @@ openclaw health --json
 
 ```powershell
 # 1. Upload directly to workspace
-scp c:\Users\hisha\Code\Jack\local_file.md root@72.62.252.124:/root/.openclaw/workspace/FILENAME.md
+scp c:\Users\hisha\Code\Jack\local_file.md jack:/root/.openclaw/workspace/FILENAME.md
 
 # 2. Fix Windows line endings (MUST DO!)
-ssh root@72.62.252.124 "sed -i 's/\r$//' /root/.openclaw/workspace/FILENAME.md"
+ssh jack "sed -i 's/\r$//' /root/.openclaw/workspace/FILENAME.md"
 ```
 
 **⚠️ Always run `sed` after upload** — Windows line endings cause corruption.
@@ -196,7 +283,6 @@ ssh root@72.62.252.124 "sed -i 's/\r$//' /root/.openclaw/workspace/FILENAME.md"
 | **CONFIG** | Editing .json, .yml, .env, any config file |
 | **NETWORK** | Ports, tunnels, SSH, forwarding, connectivity |
 | **AUTH** | OAuth, tokens, credentials, scopes, login |
-| **DOCKER** | Container lifecycle, compose, builds |
 | **FILESYSTEM** | Paths, permissions, file read/write |
 | **CODE** | Application logic, scripts, commands |
 
@@ -274,13 +360,15 @@ c:\Users\hisha\Code\Jack\protocols\stuck_log.md
 
 ## 📁 Key Server File Locations
 
-- `/root/.openclaw/openclaw.json` - Main configuration
-- `/root/.openclaw/workspace/SOUL.md` - Bot personality
+- `/root/.openclaw/openclaw.json` - Main configuration (shared by all agents)
+- `/root/.openclaw/workspace/SOUL.md` - Jack's personality
+- `/root/.openclaw/workspace/ARCHITECTURE.md` - **System architecture reference (READ THIS)**
+- `/root/.openclaw/workspace/MIGRATION_COMPLETE.md` - Docker migration summary
 - `/root/.openclaw/workspace/PROTOCOLS_INDEX.md` - Task protocols
 - `/root/.openclaw/workspace/BOOTSTRAP.md` - Onboarding guide
-- `/root/.openclaw/workspace/BACKUP_MANUAL.md` - Backup procedures
-- `/root/.openclaw/workspace/createbots/` - Bot creation lessons
-- `/root/openclaw-watchdog/watchdog.sh` - Auto-restore watchdog
+- `/root/.openclaw/workspace-ross/` - Ross's workspace
+- `/root/.openclaw/workspace-sarah/` - Sarah's workspace
+- `/root/.openclaw/workspace-john/` - John's workspace
 
 ---
 
@@ -321,8 +409,109 @@ When updating `claude.md` or `Gemini.md`:
 
 ---
 
-**Protocol Version:** 3.1
-**Last Updated:** 2026-02-11
+## 🩺 Diagnose & Fix Protocol (MANDATORY)
+
+> **Source:** Downloaded from Jack's server skills (`/root/.openclaw/workspace/skills/diagnose/` and `/root/.openclaw/workspace/skills/fix/`)
+> **Lesson:** `lessons/fixing-openclaw-issues-beginner-2026-02-13.md`
+
+### Core Principle
+**"Diagnose first, then fix using official CLI commands. Never edit files manually."**
+
+### Diagnose Protocol
+
+**When troubleshooting ANY issue:**
+
+1. **Auto-Diagnose First:**
+   ```bash
+   openclaw doctor
+   ```
+   Catches 80% of common issues automatically.
+
+2. **Check Gateway Status:**
+   ```bash
+   openclaw status
+   ```
+
+3. **Version Check:**
+   ```bash
+   openclaw --version
+   ```
+
+4. **Recent Logs (if issues detected):**
+   ```bash
+   openclaw logs --tail 30
+   ```
+
+5. **Config Validation:**
+   ```bash
+   cat /root/.openclaw/openclaw.json | python3 -m json.tool
+   ```
+
+6. **Auth & Model Status:**
+   ```bash
+   openclaw status --usage
+   ```
+
+### Fix Categories
+
+| Issue Type | Fix Method | Command |
+|-----------|------------|----------|
+| **Config broken** | Auto-repair | `openclaw doctor --fix` |
+| **Auth/API errors** | Re-authenticate | `openclaw configure` |
+| **Channel disconnected** | Re-login | `openclaw channels login [channel]` |
+| **File locks** | Restart gateway | `openclaw gateway restart` |
+| **Config changes** | Safe patch | `openclaw gateway config.patch '{...}'` |
+
+### Fix Workflow (MANDATORY ORDER)
+1. **Run `diagnose` first** — even if user says "fix X" directly
+2. **Identify issue type** from diagnosis output
+3. **Propose fix:** "Found [issue]. Want me to fix with [method]?"
+4. **Wait for confirmation**
+5. **Execute fix** using CLI commands only
+6. **Verify fix worked** — check status, logs, version
+7. **Never say "everything works" without verification**
+
+### Safety Rules
+- Always **ask before fixing** (unless user explicitly said "fix it")
+- **Backup before destructive operations**
+- **Verify after fixing** (status check, log check)
+- **Report what was done** (clear summary)
+- **Fail safely** (if fix fails, report error and suggest manual steps)
+
+---
+
+## 🔧 MANDATORY: OpenClaw CLI for ALL Changes
+
+> **🔴 ABSOLUTE RULE: ALL changes to OpenClaw configuration, settings, models, auth, channels, and system files MUST be made using the OpenClaw command line interface (CLI). NEVER edit JSON files, config files, or credential files directly.**
+
+### Required CLI Commands (Use These, Not Manual Edits)
+
+| Task | CLI Command | ❌ NOT This |
+|------|------------|-------------|
+| **Change config** | `openclaw gateway config.patch '{...}'` | ~~`nano openclaw.json`~~ |
+| **Set a value** | `openclaw config set key.path value` | ~~Edit JSON directly~~ |
+| **Fix issues** | `openclaw doctor --fix` | ~~Manual JSON repair~~ |
+| **Change model** | `openclaw models set` | ~~Edit model in JSON~~ |
+| **Auth setup** | `openclaw configure` | ~~Edit auth-profiles.json~~ |
+| **Channel login** | `openclaw channels login [channel]` | ~~Edit channel config~~ |
+| **Restart** | `openclaw gateway restart` | ~~Kill process manually~~ |
+| **Health check** | `openclaw health --json` | ~~Grep log files~~ |
+| **Status** | `openclaw status` | ~~Check files manually~~ |
+| **View config** | `openclaw config get` | ~~`cat openclaw.json`~~ |
+
+### Why CLI Only?
+- **Validates** changes before applying
+- **Auto-restarts** gateway when needed
+- **Prevents** JSON corruption and crash loops
+- **Creates** automatic backups (.bak files)
+- **Ensures** proper permissions (chmod 600)
+- Direct JSON editing has caused crash loops — see `lessons/daniel_crash_loop_incident.md`
+
+---
+
+**Protocol Version:** 3.3
+**Last Updated:** 2026-02-14
 **FOLLOW THIS PROTOCOL STRICTLY.**
 **THE SERVER IS THE SOURCE OF TRUTH.**
 **LOCAL FILES ARE DOCUMENTATION ONLY.**
+**ALL CHANGES VIA OPENCLAW CLI — NO EXCEPTIONS.**

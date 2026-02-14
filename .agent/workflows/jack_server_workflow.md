@@ -9,25 +9,33 @@ description: Operating workflow for Jack (OpenClaw) on Hostinger VPS
 ## core-principles
 1. **Server-Only**: All development, configuration, and execution happen on the remote Hostinger VPS at 72.62.252.124
 2. **Docs First**: Before ANY decision or configuration change, consult local `OpenClaw_Docs/` and server `/root/.openclaw/workspace/PROTOCOLS_INDEX.md`
-3. **SSH Access**: Use `plink -batch -pw "Corecore8888-" root@72.62.252.124 "command"` for commands
-4. **File Transfer (PSCP)**: Use PSCP for reliable file transfer — plink output truncates with large content:
-   - **Download**: `pscp -pw "Corecore8888-" root@72.62.252.124:/remote/path c:\local\path`
-   - **Upload**: `pscp -pw "Corecore8888-" c:\local\path root@72.62.252.124:/remote/path`
-   - **Pattern**: For large command output, write to file on server then PSCP down: `plink ... "command > /tmp/output.txt" && pscp ... /tmp/output.txt local.txt`
-4. **Secrets Safe**: API keys are documented in `SERVER_REFERENCE.md` (local) - never commit to git
-5. **Current LLM**: Anthropic Claude Opus 4-6 (primary), with Ollama models and fallbacks
-6. **Jack4 is Native**: Jack4 runs natively on the server (NOT Docker). Use `openclaw` CLI commands, not `docker` commands.
+3. **SSH Access**: Use `ssh jack "command"` for all remote commands (key-based auth, no passwords)
+4. **File Transfer (SCP)**: Use SCP for reliable file transfer:
+   - **Download**: `scp jack:/remote/path c:\local\path`
+   - **Upload**: `scp c:\local\path jack:/remote/path`
+   - **Pattern**: For large command output, write to file on server then SCP down: `ssh jack "command > /tmp/output.txt" && scp jack:/tmp/output.txt local.txt`
+5. **Secrets Safe**: API keys are documented in `SERVER_REFERENCE.md` (local) - never commit to git
+6. **Current LLM**: Anthropic Claude Opus 4-6 (primary), with Ollama models and fallbacks
+7. **Jack4 is Native**: Jack4 runs natively on the server (NOT Docker). Use `openclaw` CLI commands, not `docker` commands.
+
+## ssh-setup
+- **Auth**: SSH key-based (`~/.ssh/jack_vps` → deployed to server `~/.ssh/authorized_keys`)
+- **Config**: `~/.ssh/config` has `Host jack` alias → `root@72.62.252.124`
+- **Usage**: Just `ssh jack "any command"` — no passwords, no plink needed
+- **SCP**: Just `scp jack:/path local` or `scp local jack:/path`
+- **Health Endpoint**: `http://72.62.252.124/health.json` — instant HTTP status check (updated every 2 min via cron)
 
 ## workflow-steps
 1. **Reference Docs**: Check `OpenClaw_Docs/` locally or `/root/.openclaw/workspace/PROTOCOLS_INDEX.md` on server
-2. **Access VPS**: `ssh root@72.62.252.124` (password: Corecore8888-)
+2. **Quick Health**: `curl http://72.62.252.124/health.json` or `ssh jack "openclaw health --json 2>&1 | head -30"`
 3. **Navigate**: Work in `/root/.openclaw/` directory
-4. **Verify Config**: Check `/root/.openclaw/openclaw.json` for current configuration
-5. **Edit Files**: Use `nano` or `sed` on server, never edit locally
-6. **Backup First**: Always backup before editing: `cp file file.bak.$(date +%Y%m%d_%H%M%S)`
-7. **Restart Service**: After changes, restart OpenClaw (check service name with `ps aux | grep openclaw`)
-8. **Health Check**: Use `openclaw health --json` to verify status
-9. **Logs**: Check `/root/openclaw-watchdog/watchdog.log` for auto-restore activity
+4. **Verify Config**: `ssh jack "cat /root/.openclaw/openclaw.json"`
+5. **Validate Config**: `ssh jack "openclaw config validate 2>&1 | head -50"`
+6. **Edit Files**: Use `nano` or `sed` on server, never edit locally
+7. **Backup First**: Always backup before editing: `ssh jack "cp file file.bak.$(date +%Y%m%d_%H%M%S)"`
+8. **Restart Service**: After changes: `ssh jack "openclaw gateway restart 2>&1"`
+9. **Health Check**: `ssh jack "openclaw health --json 2>&1 | head -30"`
+10. **Logs**: `ssh jack "tail -50 /root/openclaw-watchdog/watchdog.log"`
 
 ## backup-system
 - **Auto-backups**: OpenClaw creates `.bak` files automatically on config change (no action needed)
@@ -62,6 +70,12 @@ Keep Jack4 running reliably on Telegram using:
 - `/root/.openclaw/workspace/BOOTSTRAP.md` - Onboarding guide
 - `/root/.openclaw/workspace/BACKUP_MANUAL.md` - Backup procedures
 - `/root/.openclaw/workspace/createbots/` - Lessons and deployment guides
+
+## health-endpoint
+- **URL**: `http://72.62.252.124/health.json`
+- **Updated**: Every 2 minutes via cron (`/root/health-check.sh`)
+- **Fields**: status, gateway, timestamp, uptime, disk_percent, mem_percent, pid
+- **Use case**: Instant status checks without SSH overhead (~100ms vs ~1s)
 
 ## reminder
 **NEVER EDIT LOCAL FILES** (except documentation: SERVER_REFERENCE.md, claude.md, Gemini.md, workflows)
